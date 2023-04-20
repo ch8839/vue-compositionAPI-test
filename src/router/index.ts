@@ -1,28 +1,41 @@
-import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import Vue from 'vue'
+import VueRouter, { RouteConfig } from 'vue-router'
+import HomeView from '../views/HomeView.vue'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
+
+const pageList = [
+  {
+    path: '/ref',
+    name: 'ref',
+    component: () => import('../views/base/ref.vue'),
+  },
+  // {
+  //   path: '/CompositionApi',
+  //   name: 'CompositionApi',
+  //   component: () => import('../views/base/CompositionApi.vue')
+  // }
+]
 
 const routes: Array<RouteConfig> = [
   {
-    path: "/",
-    name: "home",
+    path: '/',
+    name: 'home',
     component: HomeView,
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    path: '/about',
+    name: 'about',
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+      import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
   },
-];
+  ...pageList,
+]
 
 const router = new VueRouter({
   routes,
-});
+})
 
-export default router;
+export { pageList }
+
+export default router
