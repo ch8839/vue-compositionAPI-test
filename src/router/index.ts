@@ -10,11 +10,21 @@ const pageList = [
     name: 'ref',
     component: () => import('../views/base/ref.vue'),
   },
-  // {
-  //   path: '/CompositionApi',
-  //   name: 'CompositionApi',
-  //   component: () => import('../views/base/CompositionApi.vue')
-  // }
+  {
+    path: '/CompositionApi',
+    name: 'CompositionApi',
+    component: () => import('../views/base/CompositionApi/index.vue')
+  },
+  {
+    path: '/jsx',
+    name: 'Jsx',
+    component: () => import('../views/jsx/index')
+  },
+  {
+    path: '/mtd-select',
+    name: 'MtdSelect',
+    component: () => import('../views/mtd/select/index')
+  },
 ]
 
 const routes: Array<RouteConfig> = [

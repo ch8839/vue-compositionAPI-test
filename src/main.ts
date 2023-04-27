@@ -4,7 +4,7 @@ Vue.use(VueCompositionAPI)
 
 import App from './App.vue'
 import router from './router'
-
+import '@ss/mtd-vue2/lib/theme-chalk/select.css'
 Vue.config.productionTip = false
 
 new Vue({
