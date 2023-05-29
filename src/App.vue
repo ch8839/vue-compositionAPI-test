@@ -9,7 +9,18 @@
     </div>
   </div>
 </template>
-
+<script>
+import { computed, defineComponent, ref, onMounted, reactive } from '@vue/composition-api'
+// import { createStore } from '@/simple-store/createStore'
+export default defineComponent({
+  setup() {
+    // const store = createStore()
+    return {
+      // store
+    }
+  }
+})
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

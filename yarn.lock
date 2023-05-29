@@ -1144,13 +1144,15 @@
     tslib "^2.5.0"
     vue-frag "^1.4.1"
 
-"@ss/mtd-vue2@^1.2.1":
-  version "1.2.1"
-  resolved "http://r.npm.sankuai.com/@ss/mtd-vue2/download/@ss/mtd-vue2-1.2.1.tgz#989dd5e8a23c4b2fe85b8e7ddaeb2f8bc719b14c"
-  integrity sha1-mJ3V6KI8Sy/oW4592usvi8cZsUw=
+"@ss/mtd-vue2@1.2.2-alpha.13":
+  version "1.2.2-alpha.13"
+  resolved "http://r.npm.sankuai.com/@ss/mtd-vue2/download/@ss/mtd-vue2-1.2.2-alpha.13.tgz#64c34c6c94eb17ef23c8e547f42539b482abab10"
+  integrity sha1-ZMNMbJTrF+8jyOVH9CU5tIKrqxA=
   dependencies:
     "@babel/runtime" "^7.16.5"
     "@ss/mtd-adapter-vue2" "1.2.0"
+    "@vue/babel-helper-vue-jsx-merge-props" "^1.4.0"
+    "@vue/babel-preset-jsx" "^1.2.4"
     async-validator "^4.2.5"
     dayjs "^1.11.7"
     js-calendar "^1.2.3"
@@ -1473,7 +1475,7 @@
     core-js-compat "^3.8.3"
     semver "^7.3.4"
 
-"@vue/babel-preset-jsx@^1.1.2", "@vue/babel-preset-jsx@^1.4.0":
+"@vue/babel-preset-jsx@^1.1.2", "@vue/babel-preset-jsx@^1.2.4", "@vue/babel-preset-jsx@^1.4.0":
   version "1.4.0"
   resolved "http://r.npm.sankuai.com/@vue/babel-preset-jsx/download/@vue/babel-preset-jsx-1.4.0.tgz#f4914ba314235ab097bc4372ed67473c0780bfcc"
   integrity sha1-9JFLoxQjWrCXvENy7WdHPAeAv8w=

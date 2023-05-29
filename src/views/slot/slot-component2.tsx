@@ -3,21 +3,17 @@ import { computed, defineComponent, ref, onMounted } from '@vue/composition-api'
 export default defineComponent({
   name: 'SlotComponent',
   setup(props: any, { slots, emit }: any) {
-    const count = ref<number>(0);
-
-    function increment() {
-      count.value++;
-    }
+    console.log('>>>slot-component2', slots)
 
     return ()=> (
       <div>
         <div>
-          SlotComponent2的default slot:
+          SlotComponent setup写法的default slot:
           {slots.default()}
         </div>
         <div>
-          SlotComponent2的footer slot:
-          {slots.footer()}
+          SlotComponent setup写法的footer slot:
+          {slots.footer && slots.footer()}
         </div>
       </div>
     )

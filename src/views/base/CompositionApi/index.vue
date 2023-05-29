@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>optional-api</h2>
+    <!-- <a href="javascript:console.log(11)">click</a> -->
     <p>{{ msg }}</p>
     <test1 :msg="msg" />
     <test2 :msg="msg" />

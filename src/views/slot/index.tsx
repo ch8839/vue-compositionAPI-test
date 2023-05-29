@@ -1,25 +1,22 @@
 import { computed, defineComponent, ref, onMounted } from '@vue/composition-api'
 import SlotTest from './slot'
+import SlotTest2 from './slot2'
 
 export default defineComponent({
   components: {
-    SlotTest
+    SlotTest,
+    SlotTest2
   },
   setup(props: any, { slots, emit }: any) {
-    const count = ref<number>(0);
-
-    function increment() {
-      count.value++;
-    }
-
-    onMounted(() => {
-      console.log(`The initial4 count is ${count.value}.`);
-    });
     
     return () => (
       <div>
+        <h2>slot具名插槽</h2>
         <slot-test></slot-test>
-        <button onClick={increment}>Count is: {count.value}</button>
+
+        
+        {/* <slot-test2></slot-test2> */}
+        
       </div>
     )
   }

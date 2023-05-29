@@ -4,8 +4,8 @@ import type { PropType } from 'vue'
 import '@ss/mtd-vue2/lib/theme-chalk/select.css'
 import '@ss/mtd-vue2/lib/theme-chalk/option.css'
 import Select from '@ss/mtd-vue2/es/components/select'
-import virtual from '@ss/mtd-vue2/es/components/virtual'
-Vue.use(virtual)
+// import virtual from '@ss/mtd-vue2/es/components/virtual'
+// Vue.use(virtual)
 export default defineComponent({
   components: {
     'mtd-select': Select

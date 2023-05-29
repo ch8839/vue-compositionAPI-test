@@ -6,6 +6,11 @@ Vue.use(VueRouter)
 
 const pageList = [
   {
+    path: '/es6/modules',
+    name: 'Es6_modules',
+    component: () => import('../views/es6/modules/index.vue'),
+  },
+  {
     path: '/ref',
     name: 'ref',
     component: () => import('../views/base/ref.vue'),
@@ -16,14 +21,39 @@ const pageList = [
     component: () => import('../views/base/CompositionApi/index.vue')
   },
   {
-    path: '/jsx',
-    name: 'Jsx',
-    component: () => import('../views/jsx/index')
+    path: '/component/provide/optional',
+    name: 'Provide_optional',
+    component: () => import('../views/component/provide/optional/parent1.vue')
+  },
+  {
+    path: '/jsx-slot',
+    name: 'JsxSlot',
+    component: () => import('../views/slot/index')
+  },
+  {
+    path: '/jsx-scopedSlots',
+    name: 'JsxScopedSlots',
+    component: () => import('../views/slot/slot2')
+  },
+  {
+    path: '/template-slot',
+    name: 'Templateslot',
+    component: () => import('../views/slot/slot3.vue')
   },
   {
     path: '/mtd-select',
     name: 'MtdSelect',
     component: () => import('../views/mtd/select/index')
+  },
+  {
+    path: '/simple-store',
+    name: 'SimpleStore',
+    component: () => import('../views/simple-store/index.vue')
+  },
+  {
+    path: '/tips/no-render',
+    name: 'NoRender',
+    component: () => import('../views/tips/no-render/index.vue')
   },
 ]
 
