@@ -1,0 +1,81 @@
+@use "sass:math";
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(tree-node) {
+
+  &-content {
+    cursor: pointer;
+    border-radius: $tree-node-border-radius;
+    padding-top: math.div(($tree-node-height - $tree-line-height), 2);
+    padding-bottom: math.div(($tree-node-height - $tree-line-height), 2);
+    font-size: $tree-font-size;
+    line-height: $tree-line-height;
+    color: $tree-color;
+    display: flex;
+    align-items: center;
+    user-select: none;
+
+    &:hover,
+    &.hover {
+      background-color: $tree-node-hover-bgc;
+      color: $tree-node-hover-color;
+    }
+
+    >.#{$prefix}-checkbox {
+      margin-right: $tree-node-checkbox-margin-right;
+      flex: 0 0 auto;
+    }
+  }
+
+  &-content-wrapper {
+    cursor: pointer;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &-expand-icon,
+  &-loading-icon {
+    flex: 0 0 auto;
+    margin-right: $tree-node-icon-margin-right;
+    width: $tree-node-icon-size;
+    height: $tree-node-icon-size;
+    color: $tree-node-icon-color;
+  }
+
+  &-loading-icon {
+    font-size: $tree-node-loading-font-size;
+    padding: math.div(($tree-node-icon-size - $tree-node-loading-font-size), 2);
+  }
+
+  &-expand-icon {
+    color: $tree-node-expand-icon-color;
+    font-size: $tree-node-icon-font-size;
+    cursor: pointer;
+    transform: rotate(-90deg);
+    transition: transform .2s linear;
+    padding: math.div(($tree-node-icon-size - $tree-node-icon-font-size), 2);
+  }
+
+  &-expanded>&-content>&-expand-icon {
+    transform: rotate(0deg);
+  }
+
+  &-extend {
+    margin-left: 25px;
+  }
+
+  &-selected>&-content {
+    //color: $tree-node-selected-color;
+    font-weight: bold;
+    background-color: $tree-node-selected-bgc;
+  }
+
+  // &-disabled > &-content > &-content-wrapper,
+  // &-disabled > &-extend-wrapper{
+  //   cursor: not-allowed;
+  // }
+  &-disabled>&-content {
+    color: $tree-node-disabled-color;
+  }
+}

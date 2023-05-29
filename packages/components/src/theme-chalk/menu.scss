@@ -1,0 +1,192 @@
+@use "sass:math";
+
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/menu.scss";
+
+@include c(menu) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  transition: all 0.3s, width 0.3s;
+  width: 100%;
+  text-align: left;
+  line-height: $menu-item-height;
+  font-size: 0;
+
+  &-vertical {
+    .#{$prefix}-submenu {
+      &-direction {
+        transform: rotateZ(-90deg);
+      }
+    }
+  }
+
+  // 水平样式
+  &-horizontal {
+    white-space: nowrap;
+    line-height: $menu-item-horizontal-height;
+
+    .#{$B}-item,
+    .#{$prefix}-submenu {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .#{$prefix}-submenu-direction {
+      margin-left: 0;
+    }
+
+    .#{$B}-item-title,
+    .#{$prefix}-submenu-title {
+      padding-bottom: 6px;
+    }
+
+    // .#{$prefix}-submenu {
+    //   &-direction {
+    //     position: relative;
+    //     margin: 0;
+    //   }
+    //   &-title {
+    //     padding: 0 12px;
+    //   }
+    //   &-dropdown-horizontal  {
+    //     top: 100%;
+    //     left: 0;
+    //   }
+    // }
+  }
+
+  &-inline {
+    padding: 6px 2px
+  }
+}
+
+// theme light
+@include c(menu) {
+
+  /*   &-horizontal,
+  &-vertical {
+    .#{$B}-light {
+
+      .#{$B}-item-active,
+      .#{$prefix}-submenu-active {
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 3px;
+          height: 100%;
+          z-index: -1;
+          background: $menu-light-active-color;
+        }
+      }
+
+    }
+  } */
+
+  &-light {
+    @include menu-theme($menu-light-color,
+      $menu-light-bgc,
+      $menu-light-hover-color,
+      $menu-light-hover-bgc,
+      $menu-light-active-color,
+      $menu-light-active-bgc,
+      $menu-light-disabled-color,
+      $menu-light-disabled-bgc,
+      $menu-light-disabled-opacity,
+      $menu-light-horizontal-hover-bgc,
+      $menu-light-horizontal-active-bgc );
+
+    &.#{$B}-horizontal {
+
+      .#{$B}-item-active,
+      .#{$prefix}-submenu-active {
+        position: relative;
+
+        &:before {
+          content: "";
+          position: absolute;
+          z-index: 1; // 🐟for lowcode render
+          top: auto;
+
+          // right: 0;
+          bottom: 0;
+          height: 3px;
+          background: $menu-light-active-tabbar-color;
+        }
+      }
+
+      .#{$B}-item-active {
+        &:before {
+          left: calc($menu-padding-horizontal + $menu-margin-horizontal);
+          width: calc(100% - $menu-padding-horizontal * 2 - $menu-margin-horizontal * 2);
+        }
+      }
+
+      .#{$prefix}-submenu-active {
+        &:before {
+          left: calc($menu-padding-horizontal);
+          width: calc(100% - $menu-padding-horizontal * 2);
+        }
+      }
+
+
+      .#{$prefix}-submenu-direction {
+        margin-left: 4px;
+      }
+    }
+
+    .#{$prefix}-submenu-direction {
+      color: $menu-light-icon-color;
+    }
+
+  }
+
+}
+
+// theme dark
+@include c(menu) {
+  &-dark {
+    @include menu-theme($menu-dark-color,
+      $menu-dark-bgc,
+      $menu-dark-hover-color,
+      $menu-dark-hover-bgc,
+      $menu-dark-active-color,
+      $menu-dark-active-bgc,
+      $menu-dark-disabled-color,
+      $menu-dark-disabled-bgc,
+      $menu-dark-disabled-opacity,
+      $menu-dark-horizontal-hover-bgc,
+      $menu-dark-horizontal-active-bgc );
+  }
+}
+
+// collapse
+@include c(menu) {
+  &.#{$B}-collapse {
+    width: $menu-collapse-width;
+  }
+
+  &-collapse {
+
+    .#{$prefix}-submenu-icon,
+    .#{$B}-item-icon {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .#{$B}-item-title,
+    .#{$prefix}-submenu-title {
+      // $padding: math.div($menu-collapse-width - $menu-item-icon-size, 2);
+      // padding: 0 $padding !important;
+      max-width: 100%;
+    }
+
+    .#{$prefix}-submenu-direction {
+      display: none;
+    }
+  }
+}

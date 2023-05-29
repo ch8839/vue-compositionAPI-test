@@ -1,0 +1,17 @@
+@import "common/var";
+@import "../theme-chalk/notification.scss";
+
+@include c(notification) {
+  &-info {
+    .#{$prefix}-notification-icon {
+      color: $notification-info-color;
+    }
+
+    &.#{$prefix}-notification-colorful {
+      color: $notification-info-color;
+      background: $notification-info-bgc;
+      border: 1px solid $notification-info-color;
+    }
+  }
+
+}

@@ -1,0 +1,125 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./menu.scss";
+@import "./submenu.scss";
+@import "./menu-item.scss";
+@import "./tooltip.scss";
+
+@include c(sidebar) {
+  background: $sidebar-bgc;
+  box-shadow: $navbar-light-shadow;
+  width: $sidebar-width;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  transition: width linear .3s;
+  overflow: hidden;
+
+  &-header {
+    color: $sidebar-header-color;
+    position: relative;
+    line-height: $sidebar-header-height;
+    font-weight: $sidebar-header-font-weight;
+    font-size: $sidebar-header-font-size;
+    // color: #484C59;
+    text-align: left;
+    padding-left: 20px;
+    white-space: nowrap;
+
+    &-icon {
+      cursor: pointer;
+      position: absolute;
+      z-index: 1; // 🐟for lowcode render
+      font-size: $sidebar-header-icon-size;
+      top: $sidebar-header-icon-top;
+      right: $sidebar-header-icon-right;
+      color: $sidebar-header-icon-color;
+      text-align: center;
+
+      // &::before{
+      //   content: ' ';
+      //   position: absolute;
+      //   top: 0;
+      //   right: 0;
+      //   width: 26px;
+      //   height: 53px;
+      //   cursor: pointer;
+      //   transform: perspective(0.5em) rotateY(-5deg);
+      //   transform-origin: right;
+      //   background: #E8ECF5;
+      //   border-radius: 6px 0px 0px 6px;
+      //   z-index: -1; // to fix: 滚动过程中会出现覆盖 icon 的情况
+      // }
+      >.#{$icon-prefix} {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+
+  &-menus {
+    height: calc(100% - #{$sidebar-header-height});
+    overflow: auto;
+
+    >.#{$prefix}-menu {
+      background-color: transparent;
+    }
+  }
+
+  &-dark {
+    background-color: $menu-dark-bgc;
+    color: $menu-dark-color;
+  }
+
+  &-dark &-header,
+  &-dark &-header-icon {
+    color: $color-white;
+  }
+}
+
+@include c(sidebar-collapse) {
+  &.#{$prefix}-sidebar {
+    // 手动提升优先级
+    width: $sidebar-collapse-width;
+  }
+
+  .#{$prefix}-sidebar-menus,
+  .#{$prefix}-sidebar-header {
+    width: $sidebar-collapse-width;
+    max-width: 100%;
+  }
+
+  .#{$prefix}-sidebar-menus {
+    .#{$prefix}-nav-link {
+      &:before {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .#{$prefix}-sidebar-header {
+    padding: 0px;
+
+    &-title {
+      display: none;
+    }
+
+    &-icon {
+      position: relative;
+      text-align: center;
+      display: block;
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      line-height: $sidebar-header-height;
+      transform: none;
+      border-radius: 0;
+      background: none;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}

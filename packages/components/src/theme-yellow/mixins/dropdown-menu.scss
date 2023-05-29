@@ -1,0 +1,9 @@
+@mixin dropdown-menu-size($font-size, $max-height, $min-width) {
+  max-height: $max-height;
+  min-width: $min-width;
+  font-size: $font-size;
+}
+@mixin dropdown-menu-item-size($height, $padding-horizontal) {
+  line-height: $height;
+  padding: 0px $padding-horizontal;
+}

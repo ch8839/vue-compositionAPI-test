@@ -1,0 +1,429 @@
+@use "sass:math";
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/step.scss";
+
+@include c(step) {
+  position: relative;
+  min-width: $steps-min-width;
+
+  &-flex {
+    flex: 1 1 auto;
+  }
+
+  &-head {
+    position: relative;
+    width: 100%;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+
+    &-line {
+      flex-grow: 1;
+      height: $steps-line-size;
+    }
+
+    // 圆点比普通的圈小
+    &-line-dot {
+      margin-top: math.div(($steps-circle-size - $steps-dot-size), 2);
+    }
+
+    &-number-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+      width: $steps-circle-size;
+      height: $steps-circle-size;
+
+      padding: 2.4px;
+      margin: 0 $s-1;
+    }
+
+    &-number {
+
+      width: 100%;
+      height: 100%;
+
+      border-radius: 50%;
+      color: $steps-finish-circle-bgc;
+      // border: $step-line-size solid currentColor;
+      font-weight: $steps-circletext-font-weight;
+      font-size: $steps-circletext-font-size;
+      line-height: $steps-circletext-line-height;
+      // background: $steps-default-bgc;
+      position: relative;
+      z-index: $steps-zindex;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      i {
+        font-weight: $steps-circletext-font-weight * 2;
+      }
+
+      // transition: .15s ease-out;
+      .#{$prefix}-step-head-dot {
+        border-radius: 50%;
+        // border: $steps-dot-border-width solid $step-dot-broder-color;
+        background: currentColor;
+        background-clip: content-box;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-width: $steps-dot-border-width;
+        border-style: solid;
+      }
+
+      @include step-dot($steps-dot-size);
+    }
+
+    &-icon {
+      width: $steps-circle-size;
+      height: $steps-circle-size;
+      position: relative;
+      z-index: $steps-zindex;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      // padding: 0px $step-icon-padding;
+      background-color: $steps-default-bgc;
+      font-size: $steps-icon-size;
+      margin: 0 $s-1;
+    }
+  }
+
+
+  &-dot {
+    .#{$prefix}-step-main-title {
+      padding: $steps-horizontal-dot-margin;
+    }
+
+    .#{$prefix}-step-head-number {
+      height: $steps-dot-size;
+      width: $steps-dot-size;
+      margin: $s-1;
+    }
+  }
+
+  &-main {
+    text-align: center;
+
+    &-title {
+      font-size: $steps-statustext-font-size;
+      line-height: $steps-statustext-line-height;
+      padding: $steps-horizontal-statustext-margin;
+      font-weight: $steps-statustext-font-weight;
+    }
+
+    &-description {
+      font-size: $steps-horizontal-description-font-size;
+      line-height: $steps-horizontal-description-line-height;
+      font-weight: $steps-horizontal-description-font-weight;
+      // color: $step-description-color;
+      padding: 0px $steps-horizontal-description-margin-horizontal;
+
+      word-break: break-all;
+    }
+  }
+
+  &-finish {
+    @include step-status($steps-finish-circletext-color,
+      $steps-finish-circle-bgc,
+      $steps-finish-circle-border-color,
+      $steps-finish-statustext-color,
+      $steps-finish-line-color,
+      $steps-finish-description-color,
+      $steps-finish-icon-color );
+
+    .#{$prefix}-step-main-title {
+      font-weight: $steps-finish-circletext-font-weight;
+    }
+
+    >.#{$prefix}-step-head-number {
+      .#{$prefix}-step-head-dot {
+        background-color: $steps-finish-dot-bgc;
+        border-color: $steps-finish-dot-border-color;
+      }
+    }
+
+    &-next {
+      .#{$prefix}-step-head-line-last {
+        background-color: $steps-finish-line-color;
+      }
+    }
+  }
+
+  &-error {
+    @include step-status($steps-error-circletext-color,
+      $steps-error-circle-bgc,
+      $steps-error-circle-border-color,
+      $steps-error-statustext-color,
+      $steps-error-line-color,
+      $steps-error-description-color,
+      $steps-error-icon-color );
+
+    .#{$prefix}-step-main-title {
+      font-weight: $steps-error-circletext-font-weight;
+    }
+
+    >.#{$prefix}-step-head-number {
+      .#{$prefix}-step-head-dot {
+        background-color: $steps-error-dot-bgc;
+        border-color: $steps-error-dot-border-color;
+      }
+    }
+
+    &-next {
+      .#{$prefix}-step-head-line-last {
+        background-color: $steps-error-line-color;
+      }
+    }
+  }
+
+  &-cancel {
+    @include step-status($steps-cancel-circletext-color,
+      $steps-cancel-circle-bgc,
+      $steps-cancel-circle-border-color,
+      $steps-cancel-statustext-color,
+      $steps-cancel-line-color,
+      $steps-cancel-description-color,
+      $steps-cancel-icon-color );
+
+    .#{$prefix}-step-main-title {
+      font-weight: $steps-cancel-circletext-font-weight;
+    }
+
+    >.#{$prefix}-step-head-number {
+      .#{$prefix}-step-head-dot {
+        background-color: $steps-cancel-dot-bgc;
+        border-color: $steps-cancel-dot-border-color;
+      }
+    }
+
+    &-next {
+      .#{$prefix}-step-head-line-last {
+        background-color: $steps-cancel-line-color;
+      }
+    }
+  }
+
+  &-wait {
+    @include step-status($steps-wait-circletext-color,
+      $steps-wait-circle-bgc,
+      $steps-wait-circle-border-color,
+      $steps-wait-statustext-color,
+      $steps-wait-line-color,
+      $steps-wait-description-color,
+      $steps-wait-icon-color );
+
+    .#{$prefix}-step-main-title {
+      font-weight: $steps-wait-circletext-font-weight;
+    }
+
+    >.#{$prefix}-step-head-number {
+      .#{$prefix}-step-head-dot {
+        background-color: $steps-wait-dot-bgc;
+        border-color: $steps-wait-dot-border-color;
+      }
+    }
+
+    &-next {
+      .#{$prefix}-step-head-line-last {
+        background-color: $steps-wait-line-color;
+      }
+    }
+  }
+
+  &-process {
+    @include step-status($steps-process-circletext-color,
+      $steps-process-circle-bgc,
+      $steps-process-circle-border-color,
+      $steps-process-statustext-color,
+      $steps-process-line-color,
+      $steps-process-description-color,
+      $steps-process-icon-color );
+
+    .#{$prefix}-step-main-title {
+      font-weight: $steps-process-circletext-font-weight;
+    }
+
+    >.#{$prefix}-step-head-number {
+      @if $steps-process-circle-shadow !=none {
+        box-shadow: $steps-process-circle-shadow;
+      }
+
+      .#{$prefix}-step-head-dot {
+        background-color: $steps-process-dot-bgc;
+        border-color: $steps-process-dot-border-color;
+      }
+    }
+
+    &-next {
+      .#{$prefix}-step-head-line-last {
+        background-color: $steps-process-line-color;
+      }
+    }
+  }
+
+  // 隐藏第一个step的line
+  &:first-child {
+    .#{$prefix}-step-head {
+      .#{$prefix}-step-head-line-first {
+        visibility: hidden;
+      }
+    }
+  }
+
+  &:last-child {
+    .#{$prefix}-step-head {
+      .#{$prefix}-step-head-line-last {
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+// 居右step的样式
+@include c(steps-right) {
+  .#{$prefix}-step-head {
+    left: -50%;
+    margin-left: math.div($steps-circle-size, 2);
+
+    &-number-wrapper {
+      margin: 0 $s-3;
+    }
+  }
+
+  .#{$prefix}-step-main {
+    $steps-horizontal-statustext-margin_top: 8px;
+    position: relative;
+    margin: -(math.div($steps-circle-size, 2) + math.div($steps-statustext-line-height, 2) + $steps-horizontal-statustext-margin_top) 0 0 $steps-circle-size;
+    z-index: $steps-main-zindex;
+    text-align: left;
+
+    &-title {
+      display: inline-block;
+      background: $steps-default-bgc;
+      padding-right: $s-3;
+      // padding: $steps-horizontal-statustext-margin-vertical $steps-horizontal-right-statustext-margin-horizontal;
+    }
+
+    &-description {
+      padding: $steps-horizontal-description-margin-vertical $steps-horizontal-description-margin-horizontal;
+    }
+  }
+
+  // &:last-child {
+  //   flex:none;
+  // }
+}
+
+//导航步骤条样式 必须配合steps-right 同时使用
+@include c(steps-nav) {
+  .#{$prefix}-step {
+
+    &-nav-right {
+      position: absolute;
+      z-index: 1; // 🐟for lowcode render
+      font-size: $steps-circle-size - 2px;
+    }
+
+    &-head-line {
+      opacity: 0
+    }
+
+    &-main-title {
+      padding-bottom: 12px;
+      border-bottom-width: 1px
+    }
+  }
+
+  &.#{$prefix}-steps {
+    border-bottom: 1px solid $steps-wait-line-color
+  }
+
+}
+
+// 竖step的样式
+@include c(steps-vertical) {
+  @include step-direction($steps-circle-size,
+    $steps-statustext-line-height,
+    $steps-dot-size );
+
+  .#{$prefix}-step-dot {
+    .#{$prefix}-step-head {
+      width: $steps-dot-size;
+    }
+  }
+}
+
+// small step的样式
+@include c(steps-small) {
+  .#{$prefix}-step-head {
+
+    &-line-dot {
+      margin-top: math.div(($steps-small-circle-size - $steps-small-dot-size), 2);
+    }
+
+    &-number-wrapper {
+      width: $steps-small-circle-size;
+      height: $steps-small-circle-size;
+      padding: 1.6px;
+    }
+
+
+    &-number {
+      font-size: $steps-small-circletext-font-size;
+      line-height: $steps-small-circletext-line-height;
+      @include step-dot($steps-small-dot-size);
+    }
+
+    &-icon {
+      width: $steps-small-circle-size;
+      height: $steps-small-circle-size;
+      font-size: $steps-small-icon-size;
+    }
+  }
+
+  .#{$prefix}-step-main {
+    &-title {
+      font-size: $steps-small-statustext-font-size;
+      line-height: $steps-small-statustext-line-height;
+      padding: $steps-small-horizontal-statustext-margin;
+    }
+
+    &-description {
+      font-size: $steps-small-horizontal-description-font-size;
+      line-height: $steps-small-horizontal-description-line-height;
+      font-weight: $steps-horizontal-description-font-weight;
+    }
+  }
+
+  &.#{$prefix}-steps-right {
+    .#{$prefix}-step-head {
+      margin-left: math.div($steps-small-circle-size, 2);
+    }
+
+    .#{$prefix}-step-main {
+      $steps-small-horizontal-statustext-margin_top: 8px;
+      margin: -(math.div($steps-small-circle-size, 2) + math.div($steps-small-statustext-line-height, 2) + $steps-small-horizontal-statustext-margin_top ) 0 0 $steps-small-circle-size;
+
+      &-title {
+        padding: $steps-small-horizontal-statustext-margin;
+      }
+    }
+  }
+
+  &.#{$prefix}-steps-vertical {
+    @include step-direction($steps-small-circle-size,
+      $steps-small-statustext-line-height,
+      $steps-small-dot-size );
+  }
+
+  .#{$prefix}-step-nav-right {
+    font-size: $steps-small-circle-size - 2px;
+  }
+}

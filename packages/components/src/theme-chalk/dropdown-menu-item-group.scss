@@ -1,0 +1,4 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(dropdown-menu-item-group) {}

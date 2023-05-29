@@ -1,0 +1,32 @@
+{
+  "props": [
+    {
+      "name": "file",
+      "desc": "文件内容，格式是File",
+      "type": "Object",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "type",
+      "desc": "文件展示类型",
+      "type": "string",
+      "optionalValue": [
+        "border-panel",
+        "filled-panel",
+        "picture-card"
+      ],
+      "default": "border-panel",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "defaultFileUrl",
+      "desc": "针对使用照片强格式上传的非图片文件，使用自定义图片占位",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    }
+  ]
+}

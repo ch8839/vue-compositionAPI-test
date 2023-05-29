@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "size",
+      "desc": "大小",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "不设置",
+        "large"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "data",
+      "desc": "<b>beta版：</b>当model=cascader的时候生效，级联面板需要的数据，同级联选择器所需格式一样。",
+      "type": "string",
+      "optionalValue": "Array",
+      "default": "",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "model",
+      "desc": "<b>beta版：</b>面板类型",
+      "type": "string",
+      "optionalValue": [
+        "normal",
+        "cascader"
+      ],
+      "default": "normal",
+      "version": "MTD 3.0"
+    }
+  ],
+  "methods": [
+    {
+      "name": "select",
+      "desc": "当model=cascader的时候生效，级联面板选中回调",
+      "args": "Function(value: any[], size: Node[])",
+      "version": "MTD 3.0"
+    }
+  ]
+}

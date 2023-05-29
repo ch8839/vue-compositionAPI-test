@@ -1,0 +1,110 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(form-item) {
+  margin-bottom: $form-item-margin-bottom;
+  vertical-align: top;
+  @include clearfix();
+
+  &-label {
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+    padding-right: $form-item-label-padding-right;
+    font-size: $form-item-label-font-size;
+    color: $form-item-label-color;
+    line-height: $form-item-label-line-height;
+  }
+
+
+  // labelPosition
+  &-left {
+    .#{$B}-label {
+      text-align: left;
+    }
+  }
+
+  &-content {
+    position: relative;
+    line-height: $form-item-label-line-height;
+    min-height: $form-item-label-line-height;
+    text-align: left;
+
+    min-height: $s-8;
+    align-items: center;
+
+  }
+
+  &-error-tip {
+    display: block;
+    color: $form-item-error-tip-color;
+    font-size: $form-item-error-tip-font-size;
+    line-height: $form-item-error-tip-line-height;
+    margin-top: $form-item-error-tip-margin-top;
+
+    &.#{$prefix}-form-item-error-tip-right {
+      display: inline-block;
+      margin-left: $form-item-error-tip-right-margin-left;
+    }
+  }
+
+  &-warning-tip {
+    display: block;
+    color: $form-item-warning-tip-color;
+    font-size: $form-item-error-tip-font-size;
+    line-height: $form-item-error-tip-line-height;
+    margin-top: $form-item-error-tip-margin-top;
+
+    &.#{$prefix}-form-item-warning-tip-right {
+      display: inline-block;
+      margin-left: $form-item-error-tip-right-margin-left;
+    }
+  }
+
+  &-success-tip {
+    display: block;
+    color: $form-item-success-tip-color;
+    font-size: $form-item-error-tip-font-size;
+    line-height: $form-item-error-tip-line-height;
+    margin-top: $form-item-error-tip-margin-top;
+
+    &.#{$prefix}-form-item-warning-tip-right {
+      display: inline-block;
+      margin-left: $form-item-error-tip-right-margin-left;
+    }
+  }
+
+  &-helper {
+    font-size: $form-item-helper-font-size;
+    line-height: $form-item-helper-line-height;
+    color: $form-item-helper-color;
+    margin-top: 0;
+
+    &-right {
+      margin-top: 0;
+      margin-left: $form-item-helper-right-spacing;
+      display: inline-block;
+      margin-top: 0;
+    }
+  }
+
+  .#{$prefix}-form-item {
+    margin-bottom: 0;
+  }
+
+  &-error-bottom {
+    margin-bottom: max($form-item-margin-bottom - $form-item-error-tip-line-height, 0);
+  }
+
+  &-required {
+    >.#{$prefix}-form-item-label {
+      &:before {
+        font-family: $form-item-required-asterisk-font-family;
+        display: inline-block;
+        margin-right: $form-item-text-spacing;
+        content: "*";
+        color: $form-item-required-asterisk-color;
+      }
+    }
+  }
+}

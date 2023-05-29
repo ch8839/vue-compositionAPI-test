@@ -1,0 +1,77 @@
+{
+  "props": [
+    {
+      "name": "percentage",
+      "desc": "百分比",
+      "type": "number",
+      "optionalValue": "0-100",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "status",
+      "desc": "状态",
+      "type": "string",
+      "optionalValue": [
+        "success",
+        "error"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "type",
+      "desc": "类型",
+      "type": "string",
+      "optionalValue": [
+        "line",
+        "circle"
+      ],
+      "default": "line",
+      "version": ""
+    },
+    {
+      "name": "color",
+      "desc": "进度条背景色（会覆盖status状态颜色）",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "stroke-width",
+      "desc": "进度条大小",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "width",
+      "desc": "环形进度条画布宽度（只在type=circle时可用）",
+      "type": "number",
+      "optionalValue": "",
+      "default": "28",
+      "version": ""
+    },
+    {
+      "name": "show-info",
+      "desc": "是否展示进度条的百分比数字",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "stroke-linecap",
+      "desc": "进度条的样式",
+      "type": "string",
+      "optionalValue": [
+        "round",
+        "square"
+      ],
+      "default": "round",
+      "version": "MTD 3.0"
+    }
+  ]
+}

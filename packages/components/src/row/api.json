@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "gutter",
+      "desc": "栅格间隔",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "type",
+      "desc": "布局模式，现代浏览器下有效",
+      "type": "string",
+      "optionalValue": ["flex"],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "justify",
+      "desc": "flex布局下的水平排列方式",
+      "type": "string",
+      "optionalValue": [
+        "start",
+        "end",
+        "center",
+        "space-around",
+        "space-between"
+      ],
+      "default": "start",
+      "version": ""
+    },
+    {
+      "name": "align",
+      "desc": "flex 布局下的垂直排列方式",
+      "type": "string",
+      "optionalValue": ["top", "middle", "bottom"],
+      "default": "top",
+      "version": ""
+    },
+    {
+      "name": "tag",
+      "desc": "自定义元素标签",
+      "type": "string",
+      "optionalValue": "",
+      "default": "div",
+      "version": ""
+    }
+  ]
+}

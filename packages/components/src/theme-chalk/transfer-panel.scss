@@ -1,0 +1,150 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./common/util.scss";
+@import "./input.scss";
+
+
+@include c(transfer-panel) {
+  border: 1px solid $transfer-panel-border-color;
+  border-radius: $transfer-panel-border-radius;
+  overflow: hidden;
+  background: $transfer-panel-background;
+  display: inline-block;
+  vertical-align: middle;
+  width: $transfer-panel-width;
+  max-height: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  text-align: left;
+
+  @include e(body) {
+    padding: $transfer-panel-padding-vertical 0;
+    height: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+
+    &.with-footer {
+      padding-bottom: 40px; // 底部高度
+    }
+  }
+
+  &-pagination {
+    margin: $s-2 0 $s-1;
+    text-align: right;
+  }
+
+  @include e(list) {
+    margin: 0;
+    flex: 1 1 auto;
+    width: 100%;
+    list-style: none;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+
+    padding: 0 $transfer-panel-margin-horizontal;
+
+    @include hover-scrollbar;
+  }
+
+  @include e(item) {
+    height: $transfer-item-height;
+    line-height: $transfer-item-line-height;
+    padding-left: $transfer-panel-padding-horizontal;
+    border-radius: $border-radius-2;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &+.#{$prefix}-transfer-panel-item {
+      margin-left: 0;
+    }
+
+    &.#{$prefix}-checkbox {
+      display: block;
+      margin-right: 0;
+    }
+
+    &:hover,
+    &.hover {
+      // **.color: $transfer-item-hover-color;
+      background-color: $transfer-item-hover-bgc;
+    }
+  }
+
+  @include e(filter) {
+    text-align: center;
+    margin: $transfer-filter-margin-vertical $transfer-panel-padding-horizontal;
+    box-sizing: border-box;
+
+    &.#{$prefix}-input-wrapper {
+      // display: block;
+      width: auto;
+      flex: 0 0 auto;
+    }
+  }
+
+  .#{$prefix}-transfer-panel-header {
+    display: block;
+    height: $transfer-header-height;
+    background: $transfer-panel-header-bgcolor;
+    margin: 0;
+    padding-left: $transfer-panel-padding-horizontal + $transfer-panel-margin-horizontal;
+    padding-right: $transfer-panel-padding-horizontal + $transfer-panel-margin-horizontal;
+    // border-bottom: $transfer-panel-header-border-width solid $transfer-panel-header-border-color;
+    box-sizing: border-box;
+    color: $transfer-panel-header-color;
+
+    .#{$prefix}-checkbox {
+      line-height: $transfer-header-height;
+      margin-right: $transfer-select-margin-right;
+      vertical-align: top;
+    }
+
+    .#{$prefix}-transfer-panel-separation {
+      height: 1px;
+      width: 100%;
+      background-color: $transfer-panel-border-color;
+    }
+  }
+
+  .#{$prefix}-transfer-panel-footer {
+    height: $transfer-footer-height;
+    background: $color-white;
+    margin: 0;
+    padding: 0 $transfer-footer-padding-horizontal;
+    border-top: 1px solid $transfer-panel-border-color;
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    .#{$prefix}-checkbox {
+      padding-left: 20px;
+      color: $transfer-checkbox-label-color;
+    }
+  }
+
+  .#{$prefix}-transfer-sum {
+    float: right;
+    margin-left: $transfer-counter-margin-left;
+    font-size: $transfer-counter-font-size;
+    font-weight: $transfer-counter-font-weight;
+    color: $transfer-counter-color;
+    line-height: $transfer-counter-line-height;
+  }
+
+  .#{$prefix}-transfer-panel-empty {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px $transfer-panel-padding-horizontal 0;
+    color: $transfer-color;
+    text-align: center;
+  }
+}

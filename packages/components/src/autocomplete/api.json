@@ -1,0 +1,183 @@
+{
+  "props": [
+    {
+      "name": "modelValue",
+      "desc": "输入框的内容",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "genre",
+      "desc": "类型",
+      "type": "string",
+      "optionalValue": [
+        "不设置",
+        "area",
+        "line"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "data",
+      "desc": "数据源",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "大小",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "不设置",
+        "large"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "readonly",
+      "desc": "是否只读",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "clearable",
+      "desc": "是否有清空按钮",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "filter-method",
+      "desc": "根据输入项进行筛选，当使用默认的 slot 时失效。参数 value 为当前搜索值，option 为当前项，当 option 符合条件时应当返回 true，反之则返回 false",
+      "type": "function (value,option): boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "prefix-icon",
+      "desc": "输入框头部图标",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "suffix-icon",
+      "desc": "输入框尾部图标",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "popper-class",
+      "desc": "下拉框的自定义类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "append-to-container",
+      "desc": "是否将弹出框插入至容器元素中。在弹出框的定位出现问题时，可将该属性设置为 false",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "get-popup-container",
+      "desc": "获取容器元素方法，需要返回 HTMLElement 对象",
+      "type": "function (): HTMLElement",
+      "optionalValue": "",
+      "default": "默认返回 document.body",
+      "version": ""
+    },
+    {
+      "name": "popper-options",
+      "desc": "自定义 popper.js 的配置项，具体配置查看 <a target='_blank' href='https://popper.js.org/docs/v1/#modifiers--codeobjectcode'>popper.js 文档</a>",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "desc": "自定义提示项信息，此时搜索需要手动更改该插槽的内容，详见上方 自定义选项 demo"
+    },
+    {
+      "name": "loading",
+      "desc": "[Deprecated] 将在 1.0 版本中移除"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "desc": "选中 option，或 input 的 value 变化时，调用此函数",
+      "args": "value"
+    },
+    {
+      "name": "select",
+      "desc": "被选中时调用，参数为选中项的 value 值",
+      "args": "value"
+    },
+    {
+      "name": "search",
+      "desc": "搜索补全项的时候调用",
+      "args": "query"
+    },
+    {
+      "name": "focus",
+      "desc": "聚焦时触发",
+      "args": "event"
+    },
+    {
+      "name": "blur",
+      "desc": "失焦时触发",
+      "args": "event"
+    },
+    {
+      "name": "click-prefix",
+      "desc": "点击 prefix-icon 时触发",
+      "args": "(event:Event)"
+    },
+    {
+      "name": "click-suffix",
+      "desc": "点击 suffix-icon 时触发",
+      "args": "(event:Event)"
+    }
+  ],
+  "methods": [
+    {
+      "name": "focus()",
+      "desc": "使 input 获取焦点",
+      "args": ""
+    },
+    {
+      "name": "blur()",
+      "desc": "使 input 失去焦点",
+      "args": ""
+    }
+  ]
+}

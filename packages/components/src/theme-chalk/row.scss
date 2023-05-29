@@ -1,0 +1,35 @@
+@import "common/var";
+@import "mixins/mixins";
+
+@include c(row) {
+  position: relative;
+  box-sizing: border-box;
+  @include clearfix;
+
+  &-flex {
+    display: flex;
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+  &-justify-center {
+    justify-content: center;
+  }
+  &-justify-end {
+    justify-content: flex-end;
+  }
+  &-justify-space-between {
+    justify-content: space-between;
+  }
+  &-justify-space-around {
+    justify-content: space-around;
+  }
+
+  &-align-middle {
+    align-items: center;
+  }
+  &-align-bottom {
+    align-items: flex-end;
+  }
+}

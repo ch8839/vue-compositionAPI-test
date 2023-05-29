@@ -1,0 +1,36 @@
+{
+  "props": [
+    {
+      "name": "tag",
+      "desc": "根节点的 HTML 标签名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "div",
+      "version": "0.3.17"
+    },
+    {
+      "name": "prefix-cls",
+      "desc": "设置统一样式前缀。注意：需要配合 scss 变量 <code>$prefix</code> 使用",
+      "type": "string",
+      "optionalValue": "",
+      "default": "mtd",
+      "version": "0.3.17"
+    },
+    {
+      "name": "icon-prefix-cls",
+      "desc": "设置图标统一样式前缀。注意：需要配合 scss 变量 <code>$icon-prefix</code> 使用",
+      "type": "string",
+      "optionalValue": "",
+      "default": "mtdicon",
+      "version": "0.3.17"
+    },
+    {
+      "name": "getPopupContainer",
+      "desc": "设置所有弹框默认挂载的位置",
+      "type": "function (): HTMLElement",
+      "optionalValue": "",
+      "default": "() => document.body",
+      "version": "0.3.17"
+    }
+  ]
+}

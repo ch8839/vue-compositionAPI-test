@@ -1,0 +1,127 @@
+{
+  "props": [
+    {
+      "name": "initial-index",
+      "desc": "初始状态索引开始",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "autoplay",
+      "desc": "是否自动切换",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "type",
+      "desc": "走马灯类型(切换动画不同)",
+      "type": "string",
+      "optionalValue": [
+        "normal",
+        "card",
+        "fade",
+        "horizontal"
+      ],
+      "default": "normal",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "indicator-position",
+      "desc": "指示器位置",
+      "type": "string",
+      "optionalValue": [
+        "outside",
+        "inside",
+        "inside-left",
+        "inside-right",
+        "inside-top"
+      ],
+      "default": "inside",
+      "version": ""
+    },
+    {
+      "name": "indicator-type",
+      "desc": "指示器的类型",
+      "type": "string",
+      "optionalValue": [
+        "line",
+        "circle"
+      ],
+      "default": "line",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "speed",
+      "desc": "动画速度，单位毫秒",
+      "type": "number",
+      "optionalValue": "",
+      "default": "600",
+      "version": ""
+    },
+    {
+      "name": "interval",
+      "desc": "自动切换的时间间隔，单位毫秒",
+      "type": "number",
+      "optionalValue": "",
+      "default": "3000",
+      "version": ""
+    },
+    {
+      "name": "loop",
+      "desc": "是否循环展示",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "arrow",
+      "desc": "什么时候出现",
+      "type": "string",
+      "optionalValue": [
+        "always",
+        "hover",
+        "never"
+      ],
+      "default": "always",
+      "version": ""
+    },
+    {
+      "name": "show-button",
+      "desc": "是否展示切换icon button",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": "MTD 3.0"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "desc": "当轮播切换时触发",
+      "signature": "function (prev: number, current: number)",
+      "args": ""
+    }
+  ],
+  "methods": [
+    {
+      "name": "prev()",
+      "desc": "从当前页左移 1",
+      "args": ""
+    },
+    {
+      "name": "next()",
+      "desc": "从当前页右移 1",
+      "args": ""
+    },
+    {
+      "name": "setActiveItem(index: number)",
+      "desc": "跳转到指定索引页, 索引从 0 开始",
+      "args": ""
+    }
+  ]
+}

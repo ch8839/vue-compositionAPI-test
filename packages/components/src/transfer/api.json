@@ -1,0 +1,132 @@
+{
+  "props": [
+    {
+      "name": "data",
+      "desc": "数据源",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": "filterable",
+      "desc": "是否显示搜索框",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "filter-placeholder",
+      "desc": "搜索框 placeholder",
+      "type": "string",
+      "optionalValue": "",
+      "default": "请输入字段名称",
+      "version": ""
+    },
+    {
+      "name": "filter-method",
+      "desc": "自定义搜索函数，入参为 query 和 item，item 为每一项，query 为当前输入的搜索词",
+      "type": "function",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "titles",
+      "desc": "标题集合顺序从左到右",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "operations",
+      "desc": "操作文案集合，顺序从上到下",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "props",
+      "desc": "数据源字段的别名",
+      "type": "object",
+      "optionalValue": "",
+      "default": "{ key: 'key', label: 'label', disabled: 'disabled' }",
+      "version": ""
+    },
+    {
+      "name": "value",
+      "desc": "支持 v-model，显示在右侧的数据的key集合",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": "source-default-checked",
+      "desc": "初始状态下左侧列表的已勾选项的 key 数组",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": " target-default-checked",
+      "desc": "初始状态下右侧列表的已勾选项的 key 数组",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": "pagination",
+      "desc": "使用分页样式，自定义渲染列表下无效",
+      "type": "Boolean | { pageSize: number }",
+      "optionalValue": "",
+      "default": "false",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "disableSelectAll",
+      "desc": "禁用穿梭框的全选功能",
+      "type": "string",
+      "optionalValue": [
+        "left",
+        "right",
+        "all"
+      ],
+      "default": "",
+      "version": "MTD 3.0"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "desc": "选项在两栏之间转移时的回调函数",
+      "signature": "function (targetKeys, direction, moveKeys)",
+      "args": ""
+    },
+    {
+      "name": "selectChange",
+      "desc": "左右两侧选中项发生变化时触发",
+      "signature": "function (selectedKeys, direction)",
+      "args": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "left-footer",
+      "desc": "左侧panel底部的插槽"
+    },
+    {
+      "name": "right-footer",
+      "desc": "右侧panel底部的插槽"
+    },
+    {
+      "name": "empty",
+      "desc": "内容为空的panel插槽"
+    }
+  ]
+}

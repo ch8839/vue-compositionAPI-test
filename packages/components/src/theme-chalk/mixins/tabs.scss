@@ -1,0 +1,76 @@
+@use "sass:math";
+@import '../common/var';
+
+@mixin tabs-size($minwidth, $maxwidth, $height, $paddingHorizontal, $labelPaddingHorizontal, $fontSize, $tabsLeftMarginRight, $borderRadius, $tabsActiveMaxWidth) {
+  max-width: $maxwidth;
+  height: $height;
+  line-height: $height;
+  padding: 0 $paddingHorizontal;
+  margin: 0 $tabsLeftMarginRight 0 0;
+  font-size: $fontSize;
+  border-radius: $borderRadius;
+
+  &.#{$prefix}-tab-active {
+    max-width: $tabsActiveMaxWidth;
+  }
+
+  .#{$prefix}-tabs-item-label {
+    padding: 0 $labelPaddingHorizontal;
+  }
+}
+
+@mixin tabs-left-size($paddingLeft, $paddingHorizontal, $tabsLeftMarginBottom) {
+  padding: 0 $paddingHorizontal;
+  margin: 0 0 $tabsLeftMarginBottom 0;
+}
+
+@mixin tabs-close($fontSize) {
+  .#{$prefix}-tabs-tab-close {
+    font-size: $fontSize + 2px;
+  }
+}
+
+@mixin tabs-close-active($fontSize) {
+  .#{$prefix}-tabs-tab-close {
+    width: $fontSize + 2px;
+    height: $fontSize + 2px;
+    font-size: $fontSize + 2px;
+    margin-left: $s-1;
+    color: $tabs-close-color;
+  }
+}
+
+@mixin tabs-iconfont($fontSize) {
+  .#{$prefix}-tab-icon {
+    margin-right: math.div($fontSize, 2);
+  }
+}
+
+@mixin tabs-card-active($tabs-card-active-color,
+  $tabs-card-item-border-color,
+  $tabs-card-item-bgc) {
+  color: $tabs-card-active-color;
+  border-bottom-color: $tabs-card-item-bgc;
+  background-color: $tabs-card-item-bgc;
+  // font-weight: $tabs-active-font-weight;
+
+  &.#{$prefix}-tabs-closable.#{$prefix}-tabs-item-small {
+    padding: 0 ($tabs-small-card-padding * 2 - $tabs-small-font-size * 1.5);
+    @include tabs-close-active($tabs-small-font-size)
+  }
+
+  &.#{$prefix}-tabs-closable.#{$prefix}-tabs-item-normal {
+    padding: 0 ($tabs-padding * 2 - $tabs-font-size * 1.5);
+    @include tabs-close-active($tabs-font-size)
+  }
+
+  &.#{$prefix}-tabs-closable.#{$prefix}-tabs-item-large {
+    //$tabs-large-font-size * 1.5 为icon width + margin-left
+    padding: 0 ($tabs-large-card-padding * 2 - $tabs-large-font-size * 1.5);
+    @include tabs-close-active($tabs-large-font-size)
+  }
+
+  .#{$icon-prefix} {
+    color: $tabs-card-active-color;
+  }
+}

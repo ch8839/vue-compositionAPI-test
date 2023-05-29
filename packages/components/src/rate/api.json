@@ -1,0 +1,156 @@
+{
+  "props": [
+    {
+      "name": "modelValue",
+      "desc": "当前绑定值，支持 v-model",
+      "type": "number",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "allow-half",
+      "desc": "是否允许半选",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "allow-clear",
+      "desc": "是否允许清除",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "count",
+      "desc": "最大分值",
+      "type": "number",
+      "optionalValue": "",
+      "default": "5",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否为只读",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "classes",
+      "desc": "不同分段额外的 class。key 值为分段的界限值，value 为对应的 class",
+      "type": "{ [value]: className }",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "icon",
+      "desc": "icon 的 class，object 类型时 key 值为分段的界限值。value 为对应 class",
+      "type": "string / { [value: number]: icon }",
+      "optionalValue": "",
+      "default": " 'star-rate'",
+      "version": ""
+    },
+    {
+      "name": "void-icon ",
+      "desc": " 未选中 icon 的类名 ",
+      "type": " string ",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "disabled-void-icon ",
+      "desc": " 只读时未选中 icon 的类名 ",
+      "type": " string ",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "color",
+      "desc": "icon 的颜色，object 类型时 key 值为分段的界限值，value 为对应的颜色",
+      "type": "string / { [value: number]: color }",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "void-color",
+      "desc": "未选中 icon 的颜色",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "disabled-void-color",
+      "desc": "只读时未选中 icon 的颜色 ",
+      "type": " string ",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "texts",
+      "desc": "辅助文字数组",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "tooltip-props",
+      "desc": "tooltip 的额外配置",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "count",
+      "desc": "图标个数",
+      "type": "number",
+      "optionalValue": "",
+      "default": "5",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "text-position",
+      "desc": "辅助文案位置",
+      "type": "string",
+      "optionalValue": [
+        "right",
+        "top",
+        "bottom"
+      ],
+      "default": "right",
+      "version": "MTD 3.0"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "desc": "分值改变时触发",
+      "signature": "function (value: number)",
+      "args": "改变后的分值"
+    }
+  ],
+  "scopedSlots": [
+    {
+      "name": "default",
+      "desc": "辅助提示文案，参数为当前分值",
+      "args": "{ value: number }"
+    },
+    {
+      "name": "tooltip",
+      "desc": "tooltip 自定义内容，参数为当前项值",
+      "args": "{ value: number }"
+    }
+  ]
+}

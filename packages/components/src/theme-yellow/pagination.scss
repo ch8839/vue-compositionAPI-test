@@ -1,0 +1,58 @@
+@import "common/var";
+@import "../theme-chalk/pagination.scss";
+
+@include c(pagination) {
+
+  &-border,
+  &-fullfill {
+    .#{$prefix}-pager-number:not(.#{$prefix}-pager-active) {
+
+      &:hover,
+      &.hover,
+      &:focus {
+        color: $color-text-5;
+        border-color: $color-primary;
+        background: transparent;
+      }
+
+      &:active {
+        color: $color-text-5;
+        border-color: $color-primary-2;
+        background: $color-primary-4;
+      }
+    }
+  }
+
+  &-fullfill {
+    .#{$prefix}-pager-active {
+      color: $color-text-5;
+      background-color: $color-primary-1;
+      border-color: $color-primary-1;
+    }
+  }
+
+  &-unborder {
+
+    .#{$prefix}-pager-number:not(.#{$prefix}-pager-active) {
+
+      &:hover,
+      &.hover,
+      &:focus {
+        color: $color-text-5;
+        background-color: $color-fill-2;
+      }
+
+      &:active {
+        color: $color-text-5;
+        background-color: $color-fill-3;
+      }
+    }
+
+    .#{$prefix}-pager-active {
+      color: $color-text-5;
+      background-color: $color-primary-4;
+      border-color: transparent;
+    }
+  }
+
+}

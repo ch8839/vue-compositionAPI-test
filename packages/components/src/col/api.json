@@ -1,0 +1,92 @@
+{
+  "props": [
+    {
+      "name": "span",
+      "desc": "栅格占据的列数",
+      "type": "number",
+      "optionalValue": "",
+      "default": "24",
+      "version": ""
+    },
+    {
+      "name": "offset",
+      "desc": "栅格左侧的间隔格数",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "push",
+      "desc": "栅格向右移动格数",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "pull",
+      "desc": "栅格向左移动格数",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "xs",
+      "desc": "< 576px 响应式栅格数或者栅格属性对象",
+      "type": "number / { span: number, offset: number }",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "sm",
+      "desc": "≥ 576px 响应式栅格数或者栅格属性对象",
+      "type": "number / { span: number, offset: number }",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "md",
+      "desc": "≥ 768px 响应式栅格数或者栅格属性对象",
+      "type": "number / { span: number, offset: number }",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "lg",
+      "desc": "≥ 992px 响应式栅格数或者栅格属性对象",
+      "type": "number / { span: number, offset: number }",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "xl",
+      "desc": "≥ 1200px 响应式栅格数或者栅格属性对象",
+      "type": "number / { span: number, offset: number }",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "xxl",
+      "desc": "≥ 1620px 响应式栅格数或者栅格属性对象",
+      "type": "number/ { span:number, offset:number }",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "tag",
+      "desc": "自定义元素标签",
+      "type": "string",
+      "optionalValue": "",
+      "default": "div",
+      "version": ""
+    }
+  ]
+}

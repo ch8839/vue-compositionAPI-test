@@ -1,0 +1,28 @@
+{
+  "props": [
+    {
+      "name": "icon",
+      "desc": "文字前方的图标名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "tag",
+      "desc": "动态组件名，详见<a href='https://cn.vuejs.org/v2/guide/components.html#%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6' target='_blank'>动态组件</a>",
+      "type": ["string", "Component"],
+      "optionalValue": "",
+      "default": "span",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用面包屑",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    }
+  ]
+}

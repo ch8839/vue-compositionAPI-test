@@ -1,0 +1,115 @@
+@import './common/var.scss';
+@import './mixins/mixins.scss';
+@import './mixins/breadcrumb.scss';
+@import './breadcrumb-item.scss';
+
+@include c(breadcrumb) {
+  display: inline-flex;
+  color: $breadcrumb-color;
+
+  &-separator {
+    color: $breadcrumb-sepreate-color;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include clearfix;
+
+  @include e(item) {
+    float: left;
+    display: inline-flex;
+    align-items: center;
+
+    @include e(inner) {
+      display: inline-flex;
+      align-items: center;
+      @include text-ellipsis;
+      max-width: $breadcrumb-item-max-width;
+
+      &,
+      &>a {
+        text-decoration: none;
+        cursor: pointer;
+        color: $breadcrumb-color;
+
+        &:hover,
+        &.hover {
+          color: $breadcrumb-hover-color;
+          text-decoration: $breadcrumb-hover-text-decoration;
+        }
+
+        &:active,
+        &.active {
+          color: $breadcrumb-active-color;
+        }
+      }
+    }
+
+    &:last-child {
+      .#{$B}-inner {
+        max-width: $breadcrumb-item-current-max-width;
+      }
+
+      .#{$B}-inner,
+      .#{$B}-inner>a {
+        cursor: text;
+
+        &:hover,
+        &.hover {
+          color: $breadcrumb-current-color;
+        }
+      }
+
+      .#{$B}-separator {
+        display: none;
+      }
+    }
+
+  }
+
+  &-cur {
+
+    &-none {
+      .#{$B}-item {
+        &:last-child .#{$B}-inner {
+          color: $breadcrumb-color;
+        }
+      }
+    }
+
+    &-normal {
+      .#{$B}-item {
+        &:last-child .#{$B}-inner {
+          color: $breadcrumb-current-color;
+        }
+      }
+    }
+
+    &-bold {
+      .#{$B}-item {
+        &:last-child .#{$B}-inner {
+          color: $breadcrumb-current-color;
+          font-weight: $breadcrumb-current-font-weight;
+        }
+      }
+    }
+  }
+
+
+  @include breadcrumb-size($breadcrumb-font-size,
+    $breadcrumb-line-height,
+    $breadcrumb-sepreate-spacing );
+
+  &-small {
+    @include breadcrumb-size($breadcrumb-small-font-size,
+      $breadcrumb-small-line-height,
+      $breadcrumb-small-sepreate-spacing );
+  }
+
+  &-large {
+    @include breadcrumb-size($breadcrumb-large-font-size,
+      $breadcrumb-large-line-height,
+      $breadcrumb-large-sepreate-spacing );
+  }
+}

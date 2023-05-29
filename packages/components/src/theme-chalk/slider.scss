@@ -1,0 +1,279 @@
+@use "sass:math";
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./tooltip.scss";
+
+@include c(slider) {
+
+  $margin-top: math.div(($slider-button-size - $slider-height), 2); // 空出滑块上部分的位置
+  $margin-bottom: math.div(($slider-button-size - $slider-height), 2);
+
+  position: relative;
+
+  padding-top: $margin-top;
+  padding-bottom: $margin-bottom;
+
+  height: $slider-height + $margin-top + $margin-bottom;
+  border-radius: $slider-radius;
+  cursor: pointer;
+
+  &-large {
+    height: $slider-large-height + $margin-top + $margin-bottom;
+
+    .#{$B + '-button'} {
+      width: $slider-button-large-size + $slider-button-large-border-width;
+      height: $slider-button-large-size + $slider-button-large-border-width;
+      border-width: $slider-button-large-border-width;
+    }
+
+    .#{$B}-bar,
+    .#{$B}-bar-bgc,
+    .#{$B}-bar-stop {
+      height: $slider-large-height;
+    }
+
+  }
+
+  &-marks {
+    margin-bottom: math.div(($slider-button-size - $slider-height), 2);
+  }
+
+  &-bar {
+    height: $slider-height;
+    background-color: $slider-track-active-bgc;
+    border-top-left-radius: $slider-radius;
+    border-bottom-left-radius: $slider-radius;
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    left: 0;
+  }
+
+  &-bar-bgc {
+    width: 100%;
+    height: $slider-height;
+    background-color: $slider-track-bgc;
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    left: 0;
+    border-radius: $slider-radius;
+  }
+
+  &-button {
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    width: $slider-button-size + $slider-button-border-width;
+    height: $slider-button-size + $slider-button-border-width;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    background: $slider-button-bgc;
+    border-radius: $slider-button-radius;
+    border: $slider-button-border-width solid $slider-button-border-color;
+    text-align: center;
+    z-index: $slider-button-zIndex;
+    font-size: 0;
+    box-shadow: $slider-button-shadow;
+
+    /*     &:hover {
+      box-shadow: $slider-button-hover-shadow;
+    } */
+
+    &-hover {
+      border-color: $slider-hover-button-border-color;
+      box-shadow: $slider-hover-button-shadow;
+    }
+
+    &-range {
+      overflow: hidden;
+    }
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+
+    .#{$B}-button {
+      border-color: $slider-button-disabled-border-color;
+      box-shadow: none;
+    }
+
+    .#{$B}-bar {
+      background-color: $slider-bar-disabled-border-color;
+    }
+
+    .#{$B}-bar-bgc {
+      background: $slider-disabled-bgc;
+    }
+  }
+
+  &-disabled:hover {
+    cursor: not-allowed;
+  }
+
+  &-stop {
+    width: 2px;
+    height: $slider-height;
+    // border-radius: $slider-stop-radius;
+    background-color: #fff;
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    top: $margin-top;
+    text-align: center;
+    margin-left: - math.div($slider-height, 2);
+    z-index: 2;
+  }
+
+  &-tracks {
+    height: 100%;
+    width: 100%;
+    // background-color: $slider-track-bgc;
+    position: relative;
+    overflow: hidden;
+    border-radius: $slider-radius;
+  }
+
+  &-track {
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    &-right {
+      right: 0;
+      left: auto;
+      background: $slider-track-bgc;
+      // border-radius: $slider-radius;
+    }
+
+    &-left {
+      background: $slider-track-bgc;
+      // border-radius: $slider-radius;
+      z-index: 1;
+    }
+  }
+
+  &-fixed-bar {
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    left: 0;
+    height: $slider-height;
+    border-top-left-radius: $slider-radius;
+    border-bottom-left-radius: $slider-radius;
+    background-color: $slider-fixed-bar-bgc;
+  }
+
+  &-mark {
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    color: $slider-color;
+    // top: $slider-text-margin-top;
+    left: 0;
+    margin-top: $slider-mark-offset;
+    width: 100%;
+
+    &-text {
+      position: absolute;
+      z-index: 1; // 🐟for lowcode render
+      transform: translate(-50%);
+      font-size: $slider-text-font-size;
+      font-weight: $slider-text-font-weight;
+      line-height: $slider-text-line-height;
+    }
+  }
+
+  &-vertical {
+    height: 100%;
+    width: $slider-height + math.div(($slider-button-size - $slider-height), 2) * 2;
+
+    padding: 0 $margin-top;
+  }
+
+  &-vertical &-mark {
+    top: 0;
+    width: auto;
+    height: 100%;
+    left: $slider-height;
+    margin-top: 0;
+    margin-left: $slider-mark-offset;
+  }
+
+  &-vertical &-mark-text {
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    transform: translate(0, 50%);
+  }
+
+  &-vertical &-bar {
+    left: math.floor($margin-top);
+    width: $slider-height;
+    border-radius: 0;
+    border-bottom-left-radius: $slider-radius;
+    border-bottom-right-radius: $slider-radius;
+    bottom: 0;
+  }
+
+  &-vertical &-bar-bgc {
+    left: math.floor($margin-top);
+    width: $slider-height;
+    height: 100%;
+  }
+
+  &-vertical &-button {
+    top: auto;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  &-large.#{$B + '-vertical'} {
+    width: $slider-large-height + math.div(($slider-button-size - $slider-height), 2) * 2;
+
+    .#{$B}-bar,
+    .#{$B}-bar-bgc {
+      height: $slider-large-height;
+    }
+  }
+
+  &-vertical &-stop {
+    width: 100%;
+    margin-left: 0px;
+    top: auto;
+    left: 0px;
+    transform: translate(0, 50%);
+  }
+
+  &-large &-stop {
+    width: $slider-large-height;
+    height: $slider-large-height;
+    top: auto;
+    left: auto;
+  }
+
+  &-vertical &-fixed-bar {
+    bottom: 0;
+    width: $slider-height;
+    border-radius: 0;
+    border-bottom-left-radius: $slider-radius;
+    border-bottom-right-radius: $slider-radius;
+  }
+
+  &-vertical &-track {
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    left: 0;
+  }
+
+  &-vertical &-track-right {
+    top: 0;
+    bottom: auto;
+  }
+
+  &-no-shade {
+
+    .#{$B}-bar,
+    .#{$B}-track-right,
+    .#{$B}-track-left {
+      opacity: 0;
+    }
+
+  }
+}

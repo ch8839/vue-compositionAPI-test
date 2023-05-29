@@ -1,0 +1,24 @@
+{
+  "test": {
+    "kms": "com.sankuai.mtd.mtdui.docvue",
+    "Host": "msstest-corp.sankuai.com",
+    "Bucket": "test",
+    "Object": "mtd-vue2",
+    "Header": {
+      "text/html": {
+        "Cache-Control": "no-cache"
+      }
+    }
+  },
+  "prod": {
+    "kms": "com.sankuai.mtd.mtdui.docvue",
+    "Host": "s3plus.sankuai.com",
+    "Bucket": "production",
+    "Object": "mtd-vue2",
+    "Header": {
+      "text/html": {
+        "Cache-Control": "no-cache"
+      }
+    }
+  }
+}

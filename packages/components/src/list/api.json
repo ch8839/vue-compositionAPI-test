@@ -1,0 +1,38 @@
+{
+  "props": [
+    {
+      "name": "size",
+      "desc": "列表大小",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "不设置",
+        "large"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "loading",
+      "desc": "加载中",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "split",
+      "desc": "是否展示分割线",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": "MTD3.0"
+    }
+  ],
+  "slots": [
+    {
+      "name": "loadMore",
+      "desc": "加载更多"
+    }
+  ]
+}

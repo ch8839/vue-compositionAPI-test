@@ -1,0 +1,464 @@
+{
+  "props": [
+    {
+      "name": "data",
+      "desc": "显示的数据",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "striped",
+      "desc": "是否为斑马纹 table",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "bordered",
+      "desc": "是否带有边框",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "Table 的尺寸",
+      "type": "string",
+      "optionalValue": [
+        "large",
+        "small"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "height",
+      "desc": "Table 的高度。如果 height 为 number 类型，单位px；如果 height 为 string 类型，则这个高度会设置为 Table 的 style.height 的值，Table 的高度会受控于外部样式。",
+      "type": [
+        "string",
+        "number"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "max-height",
+      "desc": "Table 的最大高度",
+      "type": [
+        "string",
+        "number"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "show-header",
+      "desc": "是否显示表头",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "row-class",
+      "desc": "行的 className 的回调方法，也可以使用字符串为所有行设置一个固定的 className。",
+      "type": "Function({ row,rowIndex }) / String",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "cell-class",
+      "desc": "单元格的 className 的回调方法，也可以使用字符串为所有单元格设置一个固定的className。",
+      "type": "Function({ row, column, rowIndex, columnIndex }) / String",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "header-row-class",
+      "desc": "表头行的 className 的回调方法，也可以使用字符串为所有表头行设置一个固定的className。",
+      "type": "Function({ row,rowIndex }) / String",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "header-cell-class",
+      "desc": "表头单元格的 className 的回调方法，也可以使用字符串为所有表头单元格设置一个固定的className。",
+      "type": "Function({ row, column, rowIndex, columnIndex }) / String",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "row-key",
+      "desc": "行数据的 Key，用来优化 Table 的渲染；类型为 String 时，支持多层访问：user.info.id，但不支持user.info[0].id，此种情况请使用Function。",
+      "type": [
+        "Function(row)",
+        "String"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "empty-text",
+      "desc": "空数据显示文本，可通过插槽 slot=\"empty\"设置",
+      "type": "string",
+      "optionalValue": "",
+      "default": "暂无数据",
+      "version": ""
+    },
+    {
+      "name": "expand-row-keys",
+      "desc": "可以通过该属性设置 Table 目前的展开行，需要设置 row-key 属性才能使用，该属性为展开行的 keys 数组。",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "expandable",
+      "desc": "对 tableColumn[type=expand] 的列有效，function 的返回值用来决定这一行的是否可以展开",
+      "type": "boolean function(row)",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "sort-order",
+      "desc": "默认的排序列的 prop 和顺序。它的 prop 属性指定默认的排序的列，order 指定默认排序的顺序",
+      "type": "Object",
+      "optionalValue": "order: ascending, descending",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "row-col-span",
+      "desc": "合并行合并列的计算方法",
+      "type": "Function({ row,column, rowIndex, columnIndex })",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "selection",
+      "desc": "当前表格选中的值",
+      "type": "Array",
+      "optionalValue": "[]",
+      "default": ""
+    },
+    {
+      "name": "checkboxable",
+      "desc": "仅对 tableColumn[type=selection] 的列有效，function 的返回值用来决定这一行的 Checkbox 是否可以勾选",
+      "type": "boolean function(row)",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "reserve-selection",
+      "desc": "仅对 tableColumn[type=selection] 的列有效，当为 true 是则会在数据更新之后保留之前选中的数据（需配合 index-of-selection 来使用）",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "index-of-selection",
+      "desc": "仅对 tableColumn[type=selection] 的列有效，返回当前 row 在 selection 中的位置，当返回值 > -1 时则表示选中，否则则表示未选中",
+      "type": "number function(row, selection)",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "loading",
+      "desc": "是否加载中",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "loading-message",
+      "desc": "加载中提示文案",
+      "type": "string",
+      "optionalValue": "",
+      "default": "'正在加载中'",
+      "version": ""
+    },
+    {
+      "name": "show-overflow-tooltip",
+      "desc": "当内容过长时展示省略号，hover 时是否显示 tooltip 展示全部内容，也支持配置在 table-column 上",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "tooltip-props",
+      "desc": "当内容过长时，显示 tooltip 的透传属性",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "tooltip-class",
+      "desc": "tooltip 的额外类名",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "disable-mouse-event",
+      "desc": "mouse 相关事件会造成表格更新，对性能有一定的影响，在性能较差的场景中可使用此属性禁用鼠标事件。",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "show-summary",
+      "desc": "是否在表尾显示合计行。",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "sum-text",
+      "desc": "合计行第一列的文本。",
+      "type": "string",
+      "optionalValue": "",
+      "default": "'合计'",
+      "version": ""
+    },
+    {
+      "name": "summary-method",
+      "desc": "自定义的合计计算方法，详见表尾合计示例。",
+      "type": "function({ columns,data }): any[]",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "highlight-current-row",
+      "desc": "是否高亮当前行",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "current-row-key",
+      "desc": "支持 .sync，当前行的 row-key ",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "overflow-selector",
+      "desc": "用于获取内容超长的元素，用获取到的元素来判断是否展示超长 tooltip，超出内容宽度即展示文字提示",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "tree",
+      "desc": "是否是树形结构，必须配置 row-key 才可正常展开",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "tree-field-names",
+      "desc": "自定义树形结构时数据的配置选项",
+      "type": "{ children: string, isLeaf: string }",
+      "optionalValue": "",
+      "default": "{ children: 'children', isLeaf: 'isLeaf' }",
+      "version": ""
+    },
+    {
+      "name": "indent",
+      "desc": "展示树形数据时，每层缩进的宽度，以 px 为单位",
+      "type": "number",
+      "optionalValue": "",
+      "default": "24",
+      "version": ""
+    },
+    {
+      "name": "load-data",
+      "desc": "当 row.isLeaf 为 false 时，并且 children 为空时，点击展开图标时调用此方法，需要使用第二个参数 callback，来表明获取到的数据及状态",
+      "type": "function (row, callback)",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "loaded-keys",
+      "desc": "已经加载过的节点，需要配合 loadData 使用",
+      "type": "string[]",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": "default-expand-all",
+      "desc": "是否默认展开所有节点，仅当未设置 expand-row-keys 属性生效",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "expand-on-click-tr",
+      "desc": "当有可展开列时，是否点击整行展开",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "horizontal-virtual",
+      "desc": "是否开启横向虚拟滚动，同时期望上每个column都能预配好宽度",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "vertical-virtual",
+      "desc": "是否开启竖向虚拟滚动，同时需要跟属性height、virtual-options配合使用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "virtual-options",
+      "desc": "使用竖向虚拟滚动的时候的配置（rowHeight：每一行的高度）",
+      "type": "{ rowHeight: number }",
+      "optionalValue": "",
+      "default": "false",
+      "version": "MTD 3.0"
+    }
+  ],
+  "events": [
+    {
+      "name": "select",
+      "desc": "当用户手动勾选数据行的 Checkbox 时触发的事件",
+      "args": "(selection: Array,row: object)"
+    },
+    {
+      "name": "select-all",
+      "desc": "当用户手动勾选全选的 Checkbox 时触发的事件",
+      "args": "(selection: Array)"
+    },
+    {
+      "name": "update:selection",
+      "desc": "当选择项发生变化时会触发该事件",
+      "args": "(selection: Array)"
+    },
+    {
+      "name": "row-click",
+      "desc": "当某一行被点击时会触发该事件",
+      "args": "({ event: Event, row: Object, column: Object })"
+    },
+    {
+      "name": "row-mouse-enter",
+      "desc": "当某一行触发 mouseenter 事件时触发",
+      "args": "({ event , row })"
+    },
+    {
+      "name": "row-mouse-leave",
+      "desc": "当某一行触发 mouseleave 事件时触发",
+      "args": "({ event, row })"
+    },
+    {
+      "name": "cell-click",
+      "desc": "当某一单元格被点击时会触发该事件",
+      "args": "({ event, row, column })"
+    },
+    {
+      "name": "cell-mouse-enter",
+      "desc": "当某一单元格触发 mouseenter 事件时触发",
+      "args": "({ event, row, column, cell })"
+    },
+    {
+      "name": "cell-mouse-leave",
+      "desc": "当某一单元格触发 mouseleave 事件时触发",
+      "args": "({ event, row, column, cell })"
+    },
+    {
+      "name": "header-click",
+      "desc": "当某一列的表头被点击时触发该事件",
+      "args": "({ event, column })"
+    },
+    {
+      "name": "sort-change",
+      "desc": "当表格的排序条件发生变化的时候触发该事件。0.1.43 版本后推荐使用 change 事件",
+      "args": "({ column, prop, order })"
+    },
+    {
+      "name": "expand-change",
+      "desc": "当用户对某一行展开或者关闭的时候会触发该事件",
+      "args": "(row, expandedRows)"
+    },
+    {
+      "name": "change",
+      "desc": "当表格的筛选条件或排序条件发生变化时会触发该事件，参数为当前过滤条件 filters，当前排序条件 sorter。当筛选、排序条件不存在时对应的参数将为空 Object",
+      "args": "(filters: { [key: columnKey]: string[] }, sorter: { prop?: string, order?: 'ascending' | 'descending' , column?: Column }) => void",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "empty",
+      "desc": "空数据时展示",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "loading",
+      "desc": "加载中展示",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "sortIcon",
+      "desc": "自定义排序 icon 展示<br/>order 为排序方式 <br/> change 则为触发排序的响应函数，详细请查看 <a href='https://ones.sankuai.com/ones/product/4348/workItem/requirement/detail/5360202' target='_blank'>Ones</a>",
+      "args": "{ <br />order?: 'ascending' | 'descending', <br />change: function ($event) <br />}",
+      "version": ""
+    },
+    {
+      "name": "preposition",
+      "desc": "表格body前置内容",
+      "args": "",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "postposition",
+      "desc": "表格body后置内容",
+      "args": "",
+      "version": "MTD 3.0"
+    }
+  ],
+  "methods": [
+    {
+      "name": "doReflow()",
+      "desc": "对 Table 进行重新布局。当 Table 或其祖先元素由隐藏切换为显示时，可能需要调用此方法",
+      "args": ""
+    }
+  ]
+}

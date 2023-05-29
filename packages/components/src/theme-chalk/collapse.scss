@@ -1,0 +1,65 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(collapse) {
+  border: $collapse-border-width solid $collapse-border-color;
+  border-radius: $collapse-border-radius;
+  text-align: left;
+
+  >:last-child {
+    border-bottom: none;
+  }
+
+  >.#{$B}-item>.#{$B}-item-wrapper {
+    background-color: $collapse-content-bgc;
+  }
+
+  >.#{$B}-item:first-child {
+    border-top-left-radius: $collapse-border-radius;
+    border-top-right-radius: $collapse-border-radius;
+  }
+
+  >.#{$B}-item:last-child {
+    border-bottom-left-radius: $collapse-border-radius;
+    border-bottom-right-radius: $collapse-border-radius;
+  }
+
+  &-sample {
+    >.#{$B}-item {
+      >.#{$B}-item-header {
+        background-color: $collapse-content-bgc;
+      }
+
+      >.#{$B}-item-wrapper {
+        border-top: none;
+      }
+    }
+
+    @if $collapse-simple-border-horizontal ==false {
+      border-left: none;
+      border-right: none;
+    }
+  }
+
+  &-area {
+    border: none;
+
+    >.#{$B}-item {
+      @if $collapse-area-shadow !=none {
+        box-shadow: $collapse-area-shadow;
+      }
+
+      >.#{$B}-item-header {
+        background-color: $collapse-area-header-bgc;
+      }
+
+      border-bottom: none;
+      margin-bottom: $collapse-area-offset;
+
+      >.#{$B}-item-wrapper {
+        background-color: $collapse-area-bgc;
+        border-top: none;
+      }
+    }
+  }
+}

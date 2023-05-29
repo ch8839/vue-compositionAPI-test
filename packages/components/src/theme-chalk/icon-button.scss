@@ -1,0 +1,75 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/button.scss";
+@import "./mixins/icon-button.scss";
+
+@include c(icon-btn) {
+  @include reset-btn();
+  text-align: center;
+  color: $iconbtn-color;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  transition: all 0.3s;
+  line-height: 1;
+  position: relative; // to set button-effect animte visible in button-group
+  // default
+  background-color: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  &.hover {
+    color: $iconbtn-hover-color;
+    background-color: $iconbtn-hover-bgc;
+  }
+
+  &:active,
+  &.active {
+    color: $iconbtn-active-color;
+    background-color: $iconbtn-active-bgc;
+  }
+
+  &-secondary {
+    color: $iconbtn-secondary-color;
+
+    &:hover,
+    &.hover {
+      color: $iconbtn-secondary-hover-color;
+      background-color: $iconbtn-secondary-hover-bgc;
+    }
+
+    &:active,
+    &.active {
+      color: $iconbtn-secondary-active-color;
+      background-color: $iconbtn-secondary-active-bgc;
+    }
+  }
+
+  &.#{$B + "-disabled"} {
+    color: $iconbtn-disabled-color;
+    cursor: not-allowed;
+
+    &:hover,
+    &.hover {
+      background-color: transparent;
+    }
+  }
+
+  // size
+  @include icon-button-size($iconbtn-font-size, $btn-height);
+
+  &-small {
+    @include icon-button-size($iconbtn-small-font-size, $btn-small-height);
+  }
+
+  &-large {
+    @include icon-button-size($iconbtn-large-font-size, $btn-large-height);
+  }
+}
+
+.#{$prefix}-icon-btn+.#{$prefix}-icon-btn {
+  margin-left: $iconbtn-each-spacing;
+}

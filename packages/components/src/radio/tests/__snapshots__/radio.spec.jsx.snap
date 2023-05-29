@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio renders ./src/radio/doc/base.vue correctly 1`] = `<div class="mtd-radio-group"><label class="mtd-radio mtd-radio-checked mtd-radio-normal"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">北京</span></label> <label class="mtd-radio mtd-radio-normal"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">上海</span></label></div>`;
+
+exports[`Radio renders ./src/radio/doc/change-card.vue correctly 1`] = `
+<div class="example-list-item">
+  <div class="mtd-radio-group"><label class="mtd-radio-button mtd-radio-button-checked"><input type="radio" class="mtd-radio-button-input" style="display: none;"><span class="mtd-radio-button-inner">北京</span></label> <label class="mtd-radio-button"><input type="radio" class="mtd-radio-button-input" style="display: none;"><span class="mtd-radio-button-inner">上海</span></label> <label class="mtd-radio-button"><input type="radio" class="mtd-radio-button-input" style="display: none;"><span class="mtd-radio-button-inner">深圳</span></label></div>
+</div>
+`;
+
+exports[`Radio renders ./src/radio/doc/size.vue correctly 1`] = `
+<div class="demo-radio-box source">
+  <div class="mtd-radio-group"><label class="mtd-radio mtd-radio-checked mtd-radio-normal"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">北京</span></label> <label class="mtd-radio mtd-radio-normal"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">上海</span></label></div>
+  <div class="mtd-radio-group"><label class="mtd-radio mtd-radio-checked mtd-radio-normal"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">北京</span></label> <label class="mtd-radio mtd-radio-normal"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">上海</span></label></div>
+</div>
+`;
+
+exports[`Radio renders ./src/radio/doc/status.vue correctly 1`] = `<div><label class="mtd-radio mtd-radio-normal"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">未选中态</span></label> <label class="mtd-radio mtd-radio-normal" checked="checked"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">已选中态</span></label> <label class="mtd-radio mtd-radio-disabled mtd-radio-normal"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">未选中禁用态</span></label> <label class="mtd-radio mtd-radio-disabled mtd-radio-normal" checked="checked"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">已选中禁用态</span></label></div>`;
+
+exports[`Radio renders ./src/radio/doc/text.vue correctly 1`] = `
+<div><span class="demo-tags">标签:</span>
+  <div class="demo-mtd-radio-only-text mtd-radio-group"><label class="mtd-radio mtd-radio-checked mtd-radio-normal"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">北京</span></label> <label class="mtd-radio mtd-radio-normal"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">上海</span></label> <label class="mtd-radio mtd-radio-normal"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">广州</span></label> <label class="mtd-radio mtd-radio-normal"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">深圳</span></label> <label class="mtd-radio mtd-radio-normal"><input type="radio" class="mtd-radio-input" style="display: none;"><span class="mtd-radio-inner"></span><span class="mtd-radio-text">珠海</span></label></div>
+</div>
+`;

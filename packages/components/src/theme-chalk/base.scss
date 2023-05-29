@@ -1,0 +1,13 @@
+// 各主题中独立维护
+@import "./common/_reset.scss";
+@import "./animations/transition.scss";
+@import "./icon.scss";
+@import "./popper.scss";
+
+.#{$prefix}-lock-scroll {
+  overflow: hidden;
+}
+
+.#{$prefix}-visible-hidden {
+  visibility: hidden;
+}

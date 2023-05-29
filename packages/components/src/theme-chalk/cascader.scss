@@ -1,0 +1,205 @@
+@use "sass:math";
+
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import './input.scss';
+
+@include c(cascader) {
+  display: inline-block;
+  width: $input-width;
+  cursor: pointer;
+
+  .#{$prefix}-input-wrapper {
+    vertical-align: top;
+    width: 100%;
+  }
+
+  .#{$prefix}-input {
+    cursor: pointer;
+    @include text-ellipsis();
+  }
+
+  &-selected {
+    .#{$prefix}-select-multiple-input {
+      padding-left: $s-1 - 1px;
+    }
+  }
+
+  // size
+  &-large {
+    width: $input-large-width;
+  }
+
+  &-small {
+    width: $input-small-width;
+  }
+
+  .#{$prefix}-input-suffix-inner,
+  .#{$prefix}-multiple-input-suffix-inner {
+    >i {
+      transition: transform .3s;
+    }
+  }
+
+  &.focus {
+
+    .#{$prefix}-input-suffix-inner,
+    .#{$prefix}-multiple-input-suffix-inner {
+      >i {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+@include c(cascader-popper) {
+  overflow: hidden;
+
+  &.#{$prefix}-popper {
+    box-shadow: $cascader-menu-shadow;
+  }
+}
+
+@include c(cascader-menus) {
+  white-space: nowrap;
+  height: $cascader-menu-height;
+  display: inline-block;
+  font-size: $cascader-menu-font-size;
+  line-height: $cascader-menu-line-height;
+
+  &-addendum-header {
+    overflow: auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  &-addendum-footer {
+    overflow: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+}
+
+@include c(cascader-menu) {
+  border-radius: $cascader-menu-border-radius;
+  text-align: left;
+  color: $cascader-menu-color;
+  padding: $cascader-menu-padding $s-1;
+  margin: 0;
+  list-style: none;
+  min-width: $cascader-menu-min-width;
+  // max-width: $cascader-menu-max-width;
+  height: 100%;
+  overflow: auto;
+  display: inline-block;
+  vertical-align: top;
+
+  &:not(:last-child) {
+    border-right: 1px solid $cascader-menu-border-color;
+  }
+
+  &-loading,
+  &-empty {
+    vertical-align: top;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $cascader-menu-min-width;
+    height: 100%;
+    color: $cascader-menu-loading-color;
+    font-size: $cascader-menu-loading-font-size;
+    white-space: normal;
+  }
+
+  &-loading {
+    .#{$prefix}-loading-message {
+      color: $cascader-menu-loading-color;
+      font-size: $cascader-menu-loading-font-size;
+    }
+  }
+
+  &-empty {
+    &-item {
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    &-icon {
+      margin-right: $cascader-menu-empty-icon-margin-right;
+    }
+  }
+}
+
+@include c(cascader-menu-item) {
+  @include text-ellipsis();
+  border-radius: $cascader-menu-item-border-radius;
+  line-height: $cascader-menu-item-height;
+  padding: 0px;
+  padding-left: $cascader-menu-item-padding-vertical;
+  padding-right: $cascader-menu-expand-icon-size + $cascader-menu-expand-margin-right;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+
+  &:hover,
+  &.hover {
+    color: $cascader-menu-hover-color;
+    background: $cascader-menu-item-hover-bgc;
+  }
+
+  &-expand-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    font-size: $cascader-menu-expand-icon-size;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    top: math.div($cascader-menu-item-height - $cascader-menu-expand-icon-size, 2);
+    right: $cascader-menu-expand-margin-right;
+    text-align: center;
+    color: $cascader-menu-expand-icon-color;
+
+    .#{$prefix}icon-loading {
+      font-size: 12px;
+      color: $color-primary;
+    }
+  }
+
+  &-checkbox {
+    margin-right: 8px;
+  }
+
+  &-active {
+    color: $cascader-menu-active-color;
+    background: $cascader-menu-item-active-bgc;
+    font-weight: $cascader-menu-active-font-weight;
+
+    &:hover,
+    &.hover {
+      color: $cascader-menu-active-color;
+      background: $cascader-menu-item-active-bgc;
+    }
+
+    .#{$prefix}-cascader-menu-item-selected-icon {
+      color: $cascader-menu-active-color;
+    }
+  }
+
+  &-disabled {
+    color: $cascader-menu-disabled-color;
+    cursor: not-allowed;
+
+    &:hover,
+    &.hover {
+      color: $cascader-menu-disabled-color;
+      background-color: transparent;
+    }
+  }
+
+  &-checked {
+    // color: $cascader-menu-active-color;
+    // background: $cascader-menu-item-active-bgc;
+  }
+}

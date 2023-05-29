@@ -1,0 +1,21 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(input-search) {
+  display: inline-flex;
+
+  &-button {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  &-enter-button {
+
+    .#{$B}-input-wrapper,
+    .#{$B}-input {
+      border-right: none;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+  }
+}

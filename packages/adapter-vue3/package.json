@@ -1,0 +1,30 @@
+{
+  "name": "@ss/mtd-adapter-vue3",
+  "version": "1.2.2-alpha.0",
+  "description": "",
+  "module": "es/index.js",
+  "main": "es/index.js",
+  "typings": "es/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run clean && npm run build:es",
+    "clean": "rm -rf es lib",
+    "build:es": "tsc --project ./tsconfig.json -d --outDir es --sourceMap false --module ES6",
+    "build:cmd": "tsc --project ./tsconfig.json -d --outDir lib --sourceMap false --module CommonJS"
+  },
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.9.5",
+    "vue": "^3.2.47"
+  },
+  "files": [
+    "src",
+    "es"
+  ],
+  "gitHead": "2760ec80d3fb28ef1840808103ead26dd5ed1e7e"
+}

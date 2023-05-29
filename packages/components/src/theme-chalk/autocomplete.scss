@@ -1,0 +1,13 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(autocomplete) {
+
+  width: 180px;
+
+  .#{$prefix}-input-wrapper {
+    width: 100%;
+    vertical-align: top;
+  }
+
+}

@@ -1,0 +1,16 @@
+{
+  "props": [
+    {
+      "name": "mode",
+      "desc": "时间轴的位置",
+      "type": "string",
+      "optionalValue": [
+        "不设置",
+        "right",
+        "alternate"
+      ],
+      "default": "不设置",
+      "version": ""
+    }
+  ]
+}

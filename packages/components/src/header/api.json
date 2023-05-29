@@ -1,0 +1,12 @@
+{
+  "props": [
+    {
+      "name": "height",
+      "desc": "顶栏高度",
+      "type": "string",
+      "optionalValue": "",
+      "default": "60px",
+      "version": ""
+    }
+  ]
+}

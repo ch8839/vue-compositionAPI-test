@@ -1,0 +1,26 @@
+@use "sass:math";
+
+@mixin checkbox-size($size,
+  $fz,
+  $indeterminateHeight: $checkbox-indeterminate-height) {
+  $iconSize: $size; // 2 * border-width;
+
+  .#{$B} {
+    &-text {
+      font-size: $fz;
+    }
+
+    &-inner {
+      font-size: $size;
+
+      .#{$icon-prefix} {
+        font-size: $iconSize;
+      }
+    }
+
+    &-indeterminate-inner {
+      // 2: border-top-width, border-bottom-width, 3: indeterminate height
+      top: math.div($size - 2px - $indeterminateHeight, 2);
+    }
+  }
+}

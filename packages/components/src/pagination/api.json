@@ -1,0 +1,126 @@
+{
+  "props": [
+    {
+      "name": "size",
+      "desc": "大小",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "不设置"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "unborder",
+      "desc": "只有数字不带边框",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "simple",
+      "desc": "简洁分页",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "fullfill",
+      "desc": "填充型",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "simple-readonly",
+      "desc": "简洁模式下是否只读",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "current-page",
+      "desc": "当前页数，支持 .sync / v-model",
+      "type": "number",
+      "optionalValue": "",
+      "default": "1",
+      "version": ""
+    },
+    {
+      "name": "page-size",
+      "desc": "每页显示条数，支持 .sync / v-model",
+      "type": "number",
+      "optionalValue": "",
+      "default": "10",
+      "version": ""
+    },
+    {
+      "name": "page-size-options",
+      "desc": "每页显示个数选择器的选项设置",
+      "type": "number[]",
+      "optionalValue": "",
+      "default": "[10, 20, 50, 100]",
+      "version": ""
+    },
+    {
+      "name": "show-size-changer",
+      "desc": "是否显示可以改变 page-size 的下拉",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "total",
+      "desc": "总条目数",
+      "type": "number",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "show-total",
+      "desc": "是否显示总条目数",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "pager-count",
+      "desc": "页码按钮的数量，当总页数超过该值时会折叠",
+      "type": "number",
+      "optionalValue": "大于等于 5 且小于等于 21 的奇数",
+      "default": "7",
+      "version": ""
+    },
+    {
+      "name": "show-quick-jumper",
+      "desc": "是否显示快速跳转至某页功能",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "select-class",
+      "desc": "每页显示个数选择器的下拉框类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "desc": "当前页码或者每页条数改变时会触发",
+      "args": "Function(current, size)"
+    }
+  ]
+}

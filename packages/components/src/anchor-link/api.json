@@ -1,0 +1,28 @@
+{
+  "props": [
+    {
+      "name": "href",
+      "desc": "锚点链接",
+      "type": "string",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "title",
+      "desc": "文字内容",
+      "type": "string",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "scroll-offset",
+      "desc": "点击滚动的额外距离",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    }
+  ]
+}

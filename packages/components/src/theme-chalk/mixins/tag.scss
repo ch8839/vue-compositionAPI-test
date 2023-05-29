@@ -1,0 +1,80 @@
+@mixin tag-light-color($color) {
+  $hoverColor: rgba($tag-color-current, 0.2);
+  $borderColor: rgba($tag-color-current, 0.5);
+  $aplhaBgc: rgba($tag-color-current, 0.1);
+}
+
+@mixin tag-color($color, $fontColor: $color-text-5, $bc: 'black', $bgc: 'white') {
+  color: $fontColor;
+  border-color: $bc;
+  background-color: $bgc;
+
+  &.#{$prefix}-tag-fuzzy {
+    background-color: rgba($color, 0.06);
+    border-color: rgba($color, 0.1);
+    color: $color;
+  }
+
+  &.#{$prefix}-tag-ghost {
+    background-color: transparent;
+    border-color: $color;
+    color: $color;
+  }
+
+  &.#{$prefix}-tag-pure {
+    background-color: $color;
+    border-color: transparent;
+    color: white;
+  }
+}
+
+/* @mixin tag-pure-color($color, $bgc) {
+
+  // 面型
+  &.#{$prefix}-tag-pure {
+    background-color: $bgc;
+    color: $color;
+    border-color: $bgc;
+  }
+}
+ */
+@mixin tag-size($fontSize,
+  $minWidth,
+  $maxWidth,
+  $height,
+  $padding,
+  $border-radius,
+  $close-margin-left) {
+  height: $height;
+  padding: $tag-vertical-padding $padding;
+
+  min-width: $minWidth;
+  max-width: $maxWidth;
+  border-radius: $border-radius;
+
+  .#{$prefix}-tag-content {
+    font-size: $fontSize;
+  }
+
+  .#{$prefix}-tag-content {
+    font-size: $fontSize;
+  }
+
+  .#{$prefix}-tag-close {
+    font-size: $fontSize;
+    margin-left: $close-margin-left;
+  }
+
+  &.#{$prefix}-tag-rounded {
+    font-size: $fontSize;
+    padding: $tag-vertical-padding $padding * 2;
+  }
+
+  &.#{$prefix}-tag-prefix {
+    padding-left: $padding;
+  }
+
+  &.#{$prefix}-tag-closable {
+    padding-right: $padding;
+  }
+}

@@ -1,0 +1,51 @@
+@mixin radio-button-size($minWidth, $height, $padding, $fontSize, $borderWidth) {
+  min-width: $minWidth;
+  height: $height;
+  padding: 0px $padding;
+  font-size: $fontSize;
+  line-height: $height - 2*$borderWidth;
+
+  &:after {
+    height: $height;
+  }
+
+  &.#{$prefix}-radio-button-slider {
+    height: $height - 4px;
+    line-height: $height - 2*$borderWidth - 4px;
+  }
+}
+
+
+@mixin radio-button-color($bgc, $color,
+  $hoverBgc, $hoverColor,
+  $checkedBgc, $checkedColor,
+  $disabledBgc, $disabledCheckedBgc, $disabledColor ) {
+
+  color: $color;
+  background-color: $bgc;
+  border-color: $radio-button-border-color;
+
+  &:hover {
+    color: $hoverColor;
+    background-color: $hoverBgc;
+  }
+
+  &.#{$prefix}-radio-button {
+    &-checked {
+      background-color: $checkedBgc;
+      color: $checkedColor;
+      border-color: $color-primary;
+
+      &.#{$prefix}-radio-button-disabled {
+        background-color: $disabledCheckedBgc;
+      }
+    }
+
+    &-disabled {
+      background-color: $disabledBgc;
+      color: $disabledColor;
+      border-color: $radio-button-border-color;
+    }
+  }
+
+}

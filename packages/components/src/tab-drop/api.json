@@ -1,0 +1,20 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "desc": "未选中下拉内 tab 时展示的值",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    }
+  ]
+}

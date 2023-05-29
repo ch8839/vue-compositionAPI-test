@@ -1,0 +1,18 @@
+@import '../common/var';
+
+@mixin timeline-circle($width) {
+  & {
+    width: $width;
+    height: $width;
+    border-radius: 100%;
+  }
+}
+
+@mixin timeline-item-dot ($size, $bgc, $border-width, $border-color, $box-shadow) {
+  width: $size;
+  height: $size;
+  border-radius: 100%;
+  background-color: $bgc;
+  box-shadow: $box-shadow;
+  border: $border-width solid $border-color;
+}

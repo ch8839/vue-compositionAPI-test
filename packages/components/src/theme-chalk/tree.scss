@@ -1,0 +1,37 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./checkbox.scss";
+@import "./tree-node.scss";
+
+@include c(tree) {
+  text-align: left;
+  padding: $s-1;
+
+  &-draggable {
+    position: relative;
+  }
+
+  &-drop-inner {
+    >.#{$prefix}-tree-node-content {
+      background-color: $tree-drop-inner-bgc;
+    }
+  }
+
+  &-drop-indicator {
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    left: 0;
+    right: 0;
+    height: $tree-drag-drop-indicator-height;
+    background-color: $color-primary;
+  }
+
+  &-empty {
+    padding: $s-2;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "desc": "当前面板值，必填",
+      "type": "any",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "title",
+      "desc": "面板标题",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "loading",
+      "desc": "是否加载中",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "title",
+      "desc": "面板标题,不包含箭头"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+@use "sass:math";
+
+@mixin select-tags-size($height, $tagHeight) {
+
+  .#{$prefix}-select-choice .#{$prefix}-select-search-field,
+  .#{$prefix}-select-tags-li {
+    line-height: $height - 2px; // 2 * border-width;
+  }
+
+  .#{$prefix}-select-search-field {
+    line-height: $height;
+  }
+
+  .#{$prefix}-tag {
+    margin: math.div($height - $tagHeight - 2px, 2) 2px;
+  }
+}

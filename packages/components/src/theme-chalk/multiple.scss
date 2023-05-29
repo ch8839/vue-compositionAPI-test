@@ -1,0 +1,104 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/multiple.scss";
+
+@include c(multiple) {
+  &-select-choices {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+.#{$prefix}-select-placeholder {
+  position: absolute;
+  z-index: 1; // 🐟for lowcode render
+  top: 0;
+  bottom: 0;
+
+  max-width: 100%;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.24);
+
+  >span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    flex-wrap: wrap;
+  }
+}
+
+.#{$prefix}-select-choices {
+  overflow: hidden;
+}
+
+.#{$prefix}-select-search-field {
+  max-width: 100%;
+}
+
+.#{$prefix}-select-search-line {
+  max-width: 100%;
+  min-width: 10px;
+}
+
+.#{$prefix}-select-multiple-input {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: 32px;
+  height: 100%;
+
+  @include multiple-size($input-height, $tag-height);
+
+  &.#{$prefix}-input-small {
+    @include multiple-size($input-small-height, $tag-small-height);
+  }
+
+  &.#{$prefix}-input-large {
+    @include multiple-size($input-large-height, $tag-large-height);
+  }
+}
+
+.#{$prefix}-select-multiple-mirror {
+  position: absolute;
+  z-index: 1; // 🐟for lowcode render
+  visibility: hidden;
+  z-index: -1;
+  white-space: pre;
+  top: 0;
+  left: 0;
+}
+
+.#{$prefix}-select-tags-popper {
+
+  padding: 2px !important;
+
+  &>div {
+    max-height: 40vh;
+    overflow: auto;
+  }
+
+  .#{$prefix}-select-choice {
+    overflow: hidden;
+    margin: 2px;
+  }
+
+  .#{$prefix}-select-tags-ul {
+    margin: $tooltip-padding-vertical $tooltip-padding-horizontal;
+  }
+}
+
+.#{$prefix}-select-multiple-input-test {
+  opacity: 0;
+  height: 40px;
+  width: 5000px;
+  position: fixed;
+  top: -500px;
+  display: flex;
+}

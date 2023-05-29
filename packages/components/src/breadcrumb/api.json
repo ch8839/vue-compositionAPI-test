@@ -1,0 +1,44 @@
+{
+  "props": [
+    {
+      "name": "separator",
+      "desc": "分割符",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "separator-class",
+      "desc": "图标分隔符 class",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "尺寸",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "不设置",
+        "large"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "current-style",
+      "desc": "当前面包屑节点的样式风格",
+      "type": "string",
+      "optionalValue": [
+        "normal",
+        "none",
+        "bold"
+      ],
+      "default": "normal",
+      "version": ""
+    }
+  ]
+}

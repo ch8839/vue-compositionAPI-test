@@ -1,0 +1,129 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/message.scss";
+
+@include c(message) {
+  min-width: $message-min-width;
+  max-width: $message-max-width;
+  box-sizing: border-box;
+  border-radius: $message-radius;
+  background-color: $message-bgc;
+  box-shadow: $message-shadow;
+  // border: $message-border-width solid $message-border-color;
+  position: fixed;
+  top: $message-top;
+  left: $message-left;
+  transform: translateX($message-translate-x);
+  overflow: hidden;
+  padding: $message-padding-vertical $message-padding-horizontal;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: opacity $message-transition-opacity, transform $message-transition-transform;
+  font-weight: $message-font-weight;
+
+  @include e(icon) {
+    font-size: $message-icon-font-size;
+    margin-right: $message-icon-margin-right;
+  }
+
+  &-content-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  @include e(content) {
+    font-size: $message-content-font-size;
+    line-height: $message-content-line-height;
+    color: $message-content-color;
+  }
+
+  @include e(close) {
+
+    width: $s-5;
+    height: $s-5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border-radius-half;
+
+    margin-left: $s-2;
+
+    color: $message-close-color;
+    font-size: $message-close-font-size;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: $message-close-hover-color;
+      background-color: $message-close-hover-bgc;
+    }
+
+    &:active {
+      color: $message-close-hover-color;
+      background-color: $message-close-active-bgc;
+    }
+  }
+
+  @include e(closable) {
+    .#{$prefix}-message-content {
+      padding-right: $message-content-closable-padding-right;
+    }
+  }
+
+  &-success {
+    /* .#{$B}-content {
+      color: $message-success-content-color;
+    } */
+
+    @include message-color($message-success-color, $message-success-bgc, $message-success-content-color);
+  }
+
+  &-error {
+    /* .#{$B}-content {
+      color: $message-danger-content-color;
+    } */
+
+    @include message-color($message-danger-color, $message-danger-bgc, $message-danger-content-color);
+  }
+
+  &-info {
+    /* .#{$B}-content {
+      color: $message-info-content-color;
+    } */
+
+    @include message-color($message-info-color, $message-info-bgc, $message-info-content-color);
+  }
+
+  &-warning {
+    /* .#{$B}-content {
+      color: $message-warning-content-color;
+    } */
+
+    @include message-color($message-warning-color, $message-warning-bgc, $message-warning-content-color);
+  }
+
+  &-loading {
+    .#{$B}-content {
+      color: $message-loading-content-color;
+    }
+
+    background-color: $message-loading-bgc;
+
+    .#{$B}-icon {
+      font-size: $font-size-3;
+    }
+
+  }
+
+  .#{$icon-prefix}-loading {
+    color: $message-loading-color;
+  }
+
+}
+
+.#{$prefix}-message-fade-enter,
+.#{$prefix}-message-fade-leave-to {
+  opacity: $message-fade-enter-opacity;
+  transform: translate($message-fade-enter-translate-x, $message-fade-enter-translate-y);
+}

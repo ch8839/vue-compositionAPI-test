@@ -1,0 +1,24 @@
+{
+  "props": [
+    {
+      "name": "size",
+      "desc": "大小",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "不设置",
+        "large"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "icon",
+      "desc": "图标",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    }
+  ]
+}

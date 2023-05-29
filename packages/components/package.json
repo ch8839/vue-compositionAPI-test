@@ -1,0 +1,66 @@
+{
+  "name": "@ss/mtd-vue-core",
+  "private": true,
+  "version": "1.1.0",
+  "description": "",
+  "scripts": {
+    "start": "node ./node_modules/@ss/mtd-tools/bin/tools.js start",
+    "lint": "eslint --ext .ts,.tsx src --ignore-pattern *.d.ts",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "cross-env NODE_ENV=test jest --config jest.config.js",
+    "test:watch": "cross-env NODE_ENV=test jest --config jest.config.js --watch",
+    "build": "npm run clean && npm run create:entry && npm run build:index && npm run build:es && npm run build:theme && npm run build:declaration ",
+    "build:index": "npx webpack --config ./build/webpack.umd.conf.js",
+    "build:component": "npx webpack --config build/webpack.build.conf.js",
+    "build:theme": "gulp --gulpfile gulpfile.js build",
+    "build:es": "mkdir es && cp -r ./src/assets es/assets && cross-env BABEL_ENV=esm babel src --extensions \".ts,.tsx\" --out-dir es",
+    "build:declaration": "ttsc --project ./tsconfig.json -d --outDir es --sourceMap false --emitDeclarationOnly",
+    "clean": "rimraf lib es dist test/**/coverage",
+    "create": "node generator/create.js",
+    "create:entry": "node generator/entry.js && node generator/css.js",
+    "types": "tsc --project ./tsconfig.json --noEmit",
+    "watch": "npm run types -- --watch"
+  },
+  "main": "lib/index.js",
+  "typings": "es/index.d.ts",
+  "sideEffects": [
+    "lib/*",
+    "*.vue",
+    "*.css",
+    "*.scss",
+    "*.md"
+  ],
+  "files": [
+    "lib",
+    "es",
+    "src",
+    "components.json"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.16.5",
+    "async-validator": "^4.2.5",
+    "dayjs": "^1.11.7",
+    "js-calendar": "^1.2.3",
+    "normalize-wheel": "^1.0.1",
+    "popper.js": "^1.16.1",
+    "resize-observer-polyfill": "^1.5.1",
+    "throttle-debounce": "^3.0.1"
+  },
+  "devDependencies": {
+    "@ss/mtd-vue-eslint": "0.0.8",
+    "@types/jest": "^27.4.0",
+    "@types/normalize-wheel": "^1.0.0",
+    "@types/webpack-env": "^1.18.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.5",
+    "uppercamelcase": "^3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "ie >= 9"
+  ],
+  "gitHead": "2760ec80d3fb28ef1840808103ead26dd5ed1e7e"
+}

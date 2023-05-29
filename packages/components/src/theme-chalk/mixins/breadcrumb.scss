@@ -1,0 +1,14 @@
+@mixin breadcrumb-size($fontSize, $lineHeight, $sepreateMargin) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+
+  .#{$prefix}-breadcrumb-separator {
+    margin: 0 $sepreateMargin;
+    font-size: $fontSize;
+    ;
+  }
+
+  .#{$prefix}-breadcrumb-inner {
+    font-size: $fontSize;
+  }
+}

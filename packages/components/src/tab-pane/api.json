@@ -1,0 +1,28 @@
+{
+  "props": [
+    {
+      "name": "label",
+      "desc": "选项卡标题",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "value",
+      "desc": "当前下拉选中的值",
+      "type": "any",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "closable",
+      "desc": "标签是否可关闭",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    }
+  ]
+}

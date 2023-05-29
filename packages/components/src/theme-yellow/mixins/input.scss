@@ -1,0 +1,24 @@
+@use "sass:math";
+
+@mixin input-size($fontSize, $width, $height, $paddingH, $paddingV: 0) {
+  width: $width;
+  height: $height;
+  font-size: $fontSize;
+  padding: $paddingV $paddingH;
+
+  .#{$B} {
+    &-prefix-inner {
+      font-size: $fontSize + 2px;
+    }
+
+    &-suffix-inner {
+      font-size: $fontSize + 2px;
+    }
+  }
+
+  &.#{$B}-group {
+    &>.#{$B} {
+      padding: $paddingV $paddingH;
+    }
+  }
+}

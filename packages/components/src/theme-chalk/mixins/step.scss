@@ -1,0 +1,128 @@
+@mixin step-status($color, $bgc, $borderColor,
+  $statusColor, $lineColor,
+  $descriptionColor, $iconColor) {
+  >.#{$prefix}-step-head-number-wrapper {
+    .#{$prefix}-step-head-number {
+      color: $color;
+      border: $steps-circle-border-width solid $borderColor;
+      background-color: $bgc;
+    }
+  }
+
+  >.#{$prefix}-step-main-title {
+    color: $statusColor;
+  }
+
+  >.#{$prefix}-step-head-line-first {
+    background-color: $lineColor;
+  }
+
+  .#{$prefix}-step-nav-right {
+    color: $lineColor;
+  }
+
+  .#{$prefix}-step-main-title {
+    border-bottom-color: $lineColor
+  }
+
+  >.#{$prefix}-step-main-description {
+    color: $descriptionColor;
+  }
+
+  >.#{$prefix}-step-head-icon {
+    color: $iconColor;
+  }
+}
+
+@mixin step-dot($size) {
+  .#{$prefix}-step-head-dot {
+    width: $size;
+    height: $size;
+  }
+
+  .#{$prefix}-step-head-line {
+    height: $border-width-2
+  }
+}
+
+@mixin step-direction($size, $lineHeight, $dotSize) {
+  display: flex;
+  flex-flow: column;
+
+  .#{$prefix}-step {
+    display: flex
+  }
+
+  .#{$prefix}-step-head {
+    flex-grow: 0;
+    width: $size;
+    min-height: 50px;
+    left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-line {
+      flex-grow: 1;
+      width: $border-width-1;
+
+      &-first {
+        display: none;
+      }
+    }
+
+    &-number {
+      min-height: $dotSize;
+      margin: 4px 0;
+    }
+  }
+
+  .#{$prefix}-step-main {
+    text-align: left;
+    /*     position: absolute;
+    top: $size/2 - $lineHeight/2 - $steps-horizontal-statustext-margin-vertical;
+    left: $size + $steps-vertical-statustext-margin-horizontal; */
+    margin: 0;
+    margin-left: $s-3;
+
+    &-title {
+      padding: 0;
+      margin-bottom: 2px;
+      margin-top: 2px; // 为了和标题居中
+      //line-height: calc(#{$size} + 2 * 4px);
+    }
+
+    &-description {
+      padding-left: 0;
+      padding-right: 0;
+
+      margin-bottom: 26px;
+    }
+
+    &-description {
+      font-size: $steps-vertical-circel-description-font-size;
+      line-height: $steps-vertical-circel-description-line-height;
+      font-weight: $steps-vertical-circel-description-font-weight;
+      padding: 0;
+    }
+  }
+
+  .#{$prefix}-step-dot {
+    .#{$prefix}-step-main-title {
+      // line-height: $size;
+      margin-top: -1px;
+    }
+
+    .#{$prefix}-step-head-line {
+      height: calc(100% - #{$dotSize + $steps-line-padding-horizontal*2});
+      width: $border-width-1;
+    }
+
+    .#{$prefix}-step-main-description {
+      font-size: $steps-vertical-dot-description-font-size;
+      line-height: $steps-vertical-dot-description-line-height;
+      font-weight: $steps-vertical-dot-description-font-weight;
+    }
+  }
+}

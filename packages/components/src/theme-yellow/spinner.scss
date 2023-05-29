@@ -1,0 +1,12 @@
+@import "common/var";
+@import "../theme-chalk/spinner.scss";
+
+@include c(spinner) {
+  &-li {
+    &-selected {
+      color: $color-text-5;
+      background-color: $color-primary-4;
+      font-weight: $font-weight-medium;
+    }
+  }
+}

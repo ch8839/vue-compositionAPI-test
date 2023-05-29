@@ -1,0 +1,67 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "types": [
+      "webpack-env",
+      "jest"
+    ],
+    "paths": {
+      "@index": [
+        "./src/index.ts"
+      ],
+      "@components/*": [
+        "../components/src/*"
+      ],
+      "@utils/*": [
+        "../components/src/__utils__/*"
+      ],
+      "@tests/*": [
+        "../components/tests/*"
+      ],
+      "@hooks/*": [
+        "../components/src/hooks/*"
+      ],
+      "@ss/mtd-adapter": [
+        "../adapter-vue2/src/index.ts"
+      ],
+      "@ss/mtd-adapter/*": [
+        "../adapter-vue2/src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "declaration": false
+  },
+  "include": [
+    "src/index.ts",
+    "src/**/*.d.ts",
+    "src/shim-global.d.ts",
+    "src/shim-tsx.d.ts",
+    "src/shim-vue.d.ts",
+    "../components/**/*.ts",
+    "../components/**/*.tsx",
+    "*.jsx",
+    "*.js",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

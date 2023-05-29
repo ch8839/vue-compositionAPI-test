@@ -1,0 +1,127 @@
+{
+  "props": [
+    {
+      "name": "message",
+      "desc": "显示的内容",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "title",
+      "desc": "弹出框标题",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "icon",
+      "desc": "图标",
+      "type": "string",
+      "optionalValue": "",
+      "default": "warning-circle",
+      "version": ""
+    },
+    {
+      "name": "okButtonProps",
+      "desc": "确定按钮的额外属性",
+      "type": "<a href='http://mtdui.sankuai.com/mtd/vue/components/button#button-props'>Button Props</a>",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "okButtonText",
+      "desc": "确定按钮的文本内容",
+      "type": "string",
+      "optionalValue": "",
+      "default": "确定",
+      "version": ""
+    },
+    {
+      "name": "cancelButtonProps",
+      "desc": "取消按钮的额外属性",
+      "type": "<a href='http://mtdui.sankuai.com/mtd/vue/components/button#button-props'>Button Props</a>",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "cancelButtonText",
+      "desc": "取消按钮的文本内容",
+      "type": "string",
+      "optionalValue": "",
+      "default": "取消",
+      "version": ""
+    },
+    {
+      "name": "default-visible",
+      "desc": "默认是否显示",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "visible",
+      "desc": "手动控制是否显示 popover, 支持 v-model",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "update:visible",
+      "desc": "当前 visible 发生改变时触发",
+      "signature": "function (visible: boolean)",
+      "args": "",
+      "version": ""
+    },
+    {
+      "name": "ok",
+      "desc": "点击确认按钮时触发",
+      "signature": "function ()",
+      "args": "",
+      "version": ""
+    },
+    {
+      "name": "cancel",
+      "desc": "点击取消按钮时触发",
+      "signature": "function ()",
+      "args": "",
+      "version": ""
+    }
+  ],
+  "methods": [
+    {
+      "name": "updatePopper()",
+      "desc": "手动更新下弹出框位置",
+      "args": "",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "message",
+      "desc": "内容插槽",
+      "version": ""
+    },
+    {
+      "name": "title",
+      "desc": "弹出框标题",
+      "version": ""
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/notification";
+
+@include c(notification) {
+  display: flex;
+  align-items: flex-start;
+  width: $notification-width;
+  padding: $notification-padding-vertical $notification-padding-horizontal;
+  border-radius: $notification-radius;
+  box-sizing: border-box;
+  position: fixed;
+  background-color: $notification-bgc;
+  box-shadow: $notification-shadow;
+  border: $notification-border-width solid $notification-border-color;
+  transition: opacity .3s, transform .3s, left .3s, right .3s, top 0.4s, bottom .3s;
+  overflow: hidden;
+
+  &.right {
+    right: $notification-right;
+  }
+
+  &.left {
+    left: $notification-left;
+  }
+
+  &-group {
+    flex: 1 1 auto;
+  }
+
+  @include e(title) {
+    font-size: $notification-title-font-size;
+    font-weight: $notification-title-font-weight;
+    line-height: $notification-title-line-height;
+    color: $notification-title-color;
+  }
+
+  @include e(time) {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.50);
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+
+  @include e(content) {
+    font-size: $notification-font-size;
+    color: $notification-color;
+    margin: $notification-title-margin-bottom 0 0 0;
+  }
+
+  @include e(icon) {
+    font-size: $notification-icon-size;
+    margin-right: $notification-icon-margin-right;
+  }
+
+  @include e(close) {
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    top: $notification-close-top;
+    right: $notification-close-right;
+    cursor: pointer;
+    color: $notification-close-color;
+    font-size: $notification-close-font-size;
+    width: $notification-close-size;
+    height: $notification-close-size;
+    border-radius: $notification-close-border-radius;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover,
+    &.hover {
+      color: $notification-close-hover-color;
+      background-color: $notification-close-hover-bgc;
+    }
+  }
+
+  &-success {
+    @include notification-color($notification-success-color, $notification-success-bgc)
+  }
+
+  &-error {
+    @include notification-color($notification-danger-color, $notification-danger-bgc)
+  }
+
+  &-info {
+    @include notification-color($notification-info-color, $notification-info-bgc)
+  }
+
+  &-warning {
+    @include notification-color($notification-warning-color, $notification-warning-bgc)
+  }
+}
+
+.#{$prefix}-notification-fade-enter {
+  &.right {
+    right: $notification-fade-enter-right;
+    transform: translateX($notification-fade-enter-right-translate-x);
+  }
+
+  &.left {
+    left: $notification-fade-enter-left;
+    transform: translateX($notification-fade-enter-left-translate-x);
+  }
+}
+
+.#{$prefix}-notification-fade-leave-to {
+  opacity: $notification-fade-leave-active-opacity;
+}

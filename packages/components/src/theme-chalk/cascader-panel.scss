@@ -1,0 +1,18 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(cascader-menus) {
+  /* &-wrapper {
+    box-shadow: $cascader-menu-shadow;
+  } */
+}
+
+@include c(cascader-menu) {
+  &-empty-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: rgba(0, 0, 0, 0.25)
+  }
+}

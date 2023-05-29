@@ -1,0 +1,80 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./button.scss";
+@import "./input.scss";
+@import "./checkbox.scss";
+@import "./transfer-panel.scss";
+
+@include c(transfer) {
+  font-size: $transfer-font-size;
+  color: $transfer-color;
+  text-align: left;
+
+  @include e(buttons) {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 10px $transfer-buttons-padding-horizontal;
+  }
+
+  @include e(button) {
+    &.#{$prefix}-btn {
+      display: flex;
+      margin: 0 auto $transfer-button-margin-bottom;
+      // border-radius: $transfer-button-border-radius;
+      width: $transfer-button-width;
+      height: $transfer-button-height;
+      min-width: 20px;
+      font-size: 14px;
+      color: $transfer-button-color;
+      // background-color: $transfer-button-bgcolor;
+      padding: 0;
+      text-align: center;
+    }
+
+    &-with-texts {
+      &.#{$prefix}-btn {
+        padding: 0 $btn-padding-horizontal;
+        border-radius: $transfer-button-with-texts-border-radius;
+        width: auto;
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+
+    @include when(disabled) {
+      border: $transfer-button-disabled-border-width solid $transfer-button-disabled-border-color;
+      background-color: $transfer-button-disabled-bgcolor;
+      color: $transfer-button-disabled-color;
+
+      &:hover,
+      &.hover {
+        border: $transfer-button-disabled-border-width solid $transfer-button-disabled-border-color;
+        background-color: $transfer-button-disabled-bgcolor;
+        color: $transfer-button-disabled-color;
+      }
+    }
+
+    &:first-child {
+      margin-bottom: 10px;
+    }
+
+    &:nth-child(2) {
+      margin: 0;
+    }
+
+    >i,
+    >span {
+      line-height: 18px;
+    }
+
+    i {
+      font-size: $transfer-button-icon-font-size;
+    }
+
+    & [class*="#{$icon-prefix}-"]+span {
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "props": [
+    {
+      "name": "model",
+      "desc": "表单数据对象",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "rules",
+      "desc": "表单验证规则，具体下方校验规则",
+      "type": "",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "inline",
+      "desc": "是否使用行内模式",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "label-position",
+      "desc": "表单标签的位置",
+      "type": "string",
+      "optionalValue": [
+        "top",
+        "right",
+        "left"
+      ],
+      "default": "right",
+      "version": ""
+    },
+    {
+      "name": "label-width",
+      "desc": "表单标签宽度, 等于 0 时表示 auto",
+      "type": "number",
+      "optionalValue": "",
+      "default": "80",
+      "version": ""
+    },
+    {
+      "name": "show-message",
+      "desc": "是否显示校验错误信息",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "first-fields",
+      "desc": "是否当校验出错后停止校验后续规则，详细请查看 <a href='https://github.com/yiminghe/async-validator#options' target='_blank'>async-validator#options</a>",
+      "type": [
+        "boolean",
+        "string[]"
+      ],
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "label-suffix",
+      "desc": "表单域标签的后缀",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": "1.1.11"
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用该表单内的所有组件",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "validate-on-rule-change",
+      "desc": "是否在 rules 属性改变后立即触发一次验证",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    }
+  ],
+  "methods": [
+    {
+      "name": "validate(callback: function): Promise",
+      "desc": "对整个表单进行校验，参数为检验完的回调，会返回 Promise",
+      "args": ""
+    },
+    {
+      "name": "validateField(prop: string, callback: function): void",
+      "desc": "对部分表单字段进行校验的方法, prop 为需要校验的属性名",
+      "args": ""
+    },
+    {
+      "name": "resetFields(props?: string | string[])",
+      "desc": "对整个表单进行重置，将所有字段值重置为空并移除校验结果, 0.3.8 版本开始支持 props 参数，用于指定重置字段",
+      "args": ""
+    },
+    {
+      "name": "clearValidate(props?: string | string[])",
+      "desc": "移除表单项的校验结果。传入待移除的表单项的 prop 属性或者 prop 组成的数组，如不传则移除整个表单的校验结果",
+      "args": ""
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/pagination.scss";
+@import "./mixins/button.scss";
+@import "./select.scss";
+
+.no-padding {
+  padding: 0;
+}
+
+@include c(pager) {
+  user-select: none;
+  list-style: none;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0;
+  padding: 0;
+  margin-left: -$pagination-page-margin;
+  color: $pagination-color;
+
+  &-item {
+    @include pagination-size($pagination-font-size,
+      $pagination-icon-font-size,
+      $pagination-size,
+      $pagination-page-margin );
+    border: $pagination-border-width solid $pagination-border-color;
+    border-radius: $btn-border-radius;
+    padding: 0px $pagination-page-padding;
+    display: inline-block;
+    cursor: pointer;
+    background: $pagination-bgc;
+    text-align: center;
+    vertical-align: top;
+    transition: all .3s;
+  }
+
+  &-prev,
+  &-next,
+  &-simple-item {
+    color: $pagination-prev-next-color;
+    border-width: 0;
+
+    &:hover,
+    &.hover,
+    &:focus {
+      background: $color-fill-2;
+    }
+
+    &:active {
+      background: $color-fill-3;
+    }
+  }
+
+  &-quickprev,
+  &-quicknext {
+    border: none;
+    line-height: $pagination-size;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: transparent; */
+
+    &:hover,
+    &.hover,
+    &:focus {
+      background: $color-fill-2;
+    }
+
+    &:active {
+      background: $color-fill-3;
+    }
+  }
+
+  &-active {
+    border: $pagination-border-width solid $pagination-active-border-color;
+    background: $pagination-active-bgc;
+    color: $pagination-active-color;
+    font-weight: $pagination-active-font-weight;
+    cursor: default;
+
+    &:hover,
+    &.hover,
+    &:focus {
+      border-color: $pagination-active-border-color;
+      background: $pagination-active-bgc;
+      color: $pagination-active-color;
+    }
+  }
+
+  &-disabled {
+
+    &,
+    &:hover,
+    &.hover,
+    &:focus {
+      cursor: not-allowed;
+
+      background-color: transparent;
+      color: $color-text-1;
+    }
+  }
+
+  // size
+
+  &-small {
+    margin-left: -$pagination-small-page-margin;
+
+    .#{$B}-item {
+      @include pagination-size($pagination-small-font-size,
+        $pagination-small-icon-font-size,
+        $pagination-small-size,
+        $pagination-small-page-margin );
+    }
+
+    .#{$B + '-quickprev'},
+    .#{$B + '-quicknext'} {
+      min-width: auto;
+      line-height: $pagination-small-size;
+    }
+
+    .#{$B + '-simple-span'} {
+      font-size: $pagination-small-size;
+    }
+
+    .#{$B + '-simple-item'} {
+      line-height: $pagination-small-size;
+      height: $pagination-small-size;
+      vertical-align: top;
+
+      .#{$prefix}-pager-simple-input {
+        width: $pagination-small-size;
+      }
+    }
+  }
+
+  // unborder
+  &-unborder {
+    .#{$B + '-item'} {
+      border: $pagination-border-width solid transparent;
+    }
+  }
+
+  &-simple-item {
+    @include pagination-size($pagination-font-size,
+      $pagination-icon-font-size,
+      $pagination-size,
+      $pagination-page-margin );
+
+    display: inline-block;
+    padding: 0 7px;
+
+    .#{$prefix}-pager-simple-input {
+      margin-left: 0;
+      margin-right: $pagination-simple-item-spacing;
+    }
+
+    color: $color-text-5;
+    border-radius: $border-radius-3;
+    cursor: pointer;
+
+  }
+
+  &-simple-popper {
+    padding: 0;
+
+    .#{$prefix}-dropdown-menu {
+      min-width: 48px;
+      max-height: 170px;
+      width: 48px;
+
+      &-item {
+        text-align: center;
+
+        &-selected {
+          font-weight: $pagination-simple-popper-selected-font-weight;
+        }
+      }
+
+      &::-webkit-scrollbar {
+        width: 0,
+      }
+
+      .#{$prefix}-virtual-container::-webkit-scrollbar {
+        width: 0,
+      }
+    }
+  }
+}
+
+@include c(pagination) {
+  font-size: $pagination-font-size;
+  color: $pagination-color;
+
+  /* .#{$prefix + '-input-wrapper'} {
+    border-color: $pagination-border-color
+  } */
+
+  &-border,
+  &-fullfill {
+    .#{$prefix}-pager-number:not(.#{$prefix}-pager-active) {
+
+      &:hover,
+      &.hover,
+      &:focus {
+        @include pagination-color($color-primary-7);
+      }
+
+      &:active {
+        @include pagination-color($color-primary-8);
+        background: #F4F5F7;
+      }
+    }
+  }
+
+  &-fullfill {
+    .#{$prefix}-pager-active {
+      color: $color-white;
+      background-color: $color-primary;
+      border-color: $color-primary;
+    }
+  }
+
+  &-unborder {
+
+    .#{$prefix}-pager-number:not(.#{$prefix}-pager-active) {
+
+      &:hover,
+      &.hover,
+      &:focus {
+        color: $color-primary-7;
+        background-color: transparent;
+      }
+
+      &:active {
+        color: $color-primary-8;
+        background-color: transparent;
+      }
+    }
+
+    .#{$prefix}-pager-active {
+      color: $color-primary-2;
+      background-color: $color-primary-4;
+      border-color: transparent;
+    }
+  }
+
+  // display: inline-block;
+  &-options,
+  &-jumper {
+    display: inline-block;
+    margin-left: $s-4; // $pagination-page-margin;
+  }
+
+  &-total {
+    margin-right: $s-2;
+  }
+
+  &-total {
+    color: $pagination-total-color;
+    line-height: $pagination-size;
+  }
+
+  &-jumper {
+    &-input {
+      width: $pagination-jumper-width;
+      height: $pagination-size;
+      color: $pagination-color;
+      border-radius: $pagination-border-radius;
+      border: $pagination-border-width solid $pagination-border-color;
+      padding: 0px $pagination-page-padding;
+      margin-left: $s-2;
+      background-color: $pagination-bgc;
+      font-size: inherit;
+      text-align: center;
+      -webkit-appearance: none;
+      background-image: none;
+      box-sizing: border-box;
+      display: inline-block;
+      outline: none;
+
+      &:hover,
+      &.hover,
+      &:focus,
+      &:active,
+      &.active {
+        border-color: $pagination-active-border-color;
+      }
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+
+  &-small {
+    font-size: $pagination-small-font-size;
+
+    .#{$B + '-total'},
+    .#{$B + '-options'} {
+      margin-left: $pagination-small-page-margin;
+    }
+
+    .#{$B + '-total'} {
+      line-height: $pagination-small-size;
+    }
+
+    .#{$B + '-jumper'} {
+      margin-left: $s-2;
+
+      &-input {
+        width: $pagination-small-jumper-width;
+        height: $pagination-small-size;
+        margin-left: $s-1;
+      }
+    }
+  }
+
+  .#{$prefix}-select {
+    width: $pagination-select-width;
+  }
+}

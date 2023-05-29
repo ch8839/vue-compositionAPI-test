@@ -1,0 +1,144 @@
+@use "sass:math";
+
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(radio) {
+  line-height: 1;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  color: $radio-text-color;
+  cursor: pointer;
+  font-size: $radio-text-font-size;
+
+  &-text {
+    padding-left: $radio-text-left-spacing;
+    padding-right: $radio-text-right-spacing;
+    min-width: 0;
+    flex: 1 1 auto;
+    line-height: $radio-text-line-height;
+  }
+
+  @include e("inner") {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: $radio-size;
+    height: $radio-size;
+    flex: 0 0 auto;
+    border: $radio-border-width solid $radio-border-color;
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+    background-color: $color-white;
+  }
+
+  &-small {
+    font-size: $radio-small-text-font-size;
+
+    .#{$B + "-inner"} {
+      width: $radio-small-size;
+      height: $radio-small-size;
+    }
+
+    .#{$B + "-text"} {
+      line-height: $radio-small-text-line-height;
+      padding-left: $radio-small-text-left-spacing;
+    }
+  }
+
+  &-large {
+    font-size: $radio-large-text-font-size;
+
+    .#{$B + "-inner"} {
+      width: $radio-large-size;
+      height: $radio-large-size;
+    }
+
+    .#{$B + "-text"} {
+      line-height: $radio-large-text-line-height;
+      padding-left: $radio-large-text-left-spacing;
+    }
+  }
+
+  &:hover {
+    @if $radio-hover-color !=$radio-text-color {
+      color: $radio-hover-color;
+    }
+  }
+
+  &:hover &-inner {
+    border-color: $radio-hover-border-color;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &-checked {
+    color: $radio-checked-text-color;
+  }
+
+  &-checked &-inner {
+    border-color: $radio-checked-border-color;
+    background-color: $radio-checked-bgc;
+  }
+
+  &-inner:after {
+    $radio-checked-after-offset: math.div($radio-size - 2 * $radio-border-width - $radio-dot-size , 2);
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    content: "";
+    top: $radio-checked-after-offset;
+    left: $radio-checked-after-offset;
+    width: $radio-dot-size;
+    height: $radio-dot-size;
+    border-radius: 50%;
+    background-color: $radio-checked-dot-bgc;
+    transform: scale(0);
+  }
+
+  &-checked &-inner:after {
+    transform: scale(1);
+    transition: transform 0.1s ease-in-out;
+  }
+
+  &-small &-inner:after {
+    $radio-checked-after-offset-small: math.div($radio-small-size - 2 * $radio-border-width - $radio-small-dot-size , 2);
+    top: $radio-checked-after-offset-small;
+    left: $radio-checked-after-offset-small;
+    width: $radio-small-dot-size;
+    height: $radio-small-dot-size;
+  }
+
+  &-large &-inner:after {
+    $radio-checked-after-offset-large: math.div($radio-large-size - 2 * $radio-border-width - $radio-large-dot-size , 2);
+    top: $radio-checked-after-offset-large;
+    left: $radio-checked-after-offset-large;
+    width: $radio-large-dot-size;
+    height: $radio-large-dot-size;
+  }
+
+  &-disabled {
+    // opacity: $radio-disabled-opacity;
+    color: $radio-disabled-color;
+    cursor: not-allowed;
+    opacity: $radio-disabled-opacity;
+  }
+
+  &-disabled &-inner {
+    background: $radio-disabled-bgc;
+    border-color: $radio-disabled-border-color;
+    box-shadow: none;
+  }
+
+  &-disabled.#{$prefix}-radio-checked &-inner {
+    background-color: $radio-disabled-checkecd-bgc;
+  }
+
+  &-disabled &-inner:after {
+    background-color: $radio-disabled-dot-bgc;
+  }
+
+  &-disabled:hover &-inner {
+    border-color: $radio-disabled-border-color;
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "props": {
+    "name": "header",
+    "desc": "分类标题",
+    "type": "string",
+    "optionalValue": "",
+    "default": "",
+    "version": ""
+  }
+}

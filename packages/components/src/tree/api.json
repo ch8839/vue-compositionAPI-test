@@ -1,0 +1,317 @@
+{
+  "props": [
+    {
+      "name": "node-class",
+      "desc": "节点的 class",
+      "type": [
+        "string",
+        "function (node, data): string"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "expand-icon",
+      "desc": "展开图标",
+      "type": "string",
+      "optionalValue": "",
+      "default": "triangle-right",
+      "version": ""
+    },
+    {
+      "name": "data",
+      "desc": "展示数据，详细字段说明见下表",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": "checkable",
+      "desc": "节点前添加 Checkbox 复选框",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "checked-keys",
+      "desc": "受控属性, 支持 .sync, 选中的节点",
+      "type": "string[]",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": "check-strictly",
+      "desc": "勾选节点复选框是否完全受控（true 时父子节点选中状态不再关联）",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "disabled-strictly",
+      "desc": "父节点禁止选中时，子节点是否继承状态（false 时父子节点禁用状态不再关联）",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "checked-strategy",
+      "desc": "定义选中时回填的方式",
+      "type": "string",
+      "optionalValue": "'all'(返回所有选中的节点) 'parent'(父子节点都选中时只返回父节点) 'children'(父子节点都选中时只返回子节点)",
+      "default": "all",
+      "version": ""
+    },
+    {
+      "name": "selected-keys",
+      "desc": "受控属性, 支持 .sync, 设置选中的树节点",
+      "type": "string[]",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": "selectable",
+      "desc": "设置节点是否可被选中",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "expanded-keys",
+      "desc": "受控属性, 支持 .sync, 展开的节点",
+      "type": "string[]",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": "default-expand-all",
+      "desc": "是否默认展开所有节点，仅当未设置 expanded-keys 属性生效",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "load-data",
+      "desc": "当 node isLeaf 为 false 时，并且 children 为空时，点击则调用此方法， 需要使用第二个参数 callback，来表明获取到的数据及状态",
+      "type": "function (node, callback)",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "loaded-keys",
+      "desc": "受控属性, 支持 .sync, 已经加载的节点，需要配合 loadData 使用",
+      "type": "string[]",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": "expand-on-click-node",
+      "desc": "是否点击整行展开",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "check-on-click-node",
+      "desc": "是否点击整行选择节点，只有当 checkable 为 true 时生效",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "node-key",
+      "desc": "每个树节点用来作为唯一标识的属性，整棵树应该是唯一的",
+      "type": "string",
+      "optionalValue": "",
+      "default": "id",
+      "version": ""
+    },
+    {
+      "name": "indent",
+      "desc": "相邻级节点间的水平缩进，单位为 px",
+      "type": "number",
+      "optionalValue": "",
+      "default": "20",
+      "version": ""
+    },
+    {
+      "name": "empty-text",
+      "desc": "空数据时显示的内容，也可以用 empty 插槽",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "fieldNames",
+      "desc": "自定义数据源字段名",
+      "type": "object",
+      "optionalValue": "",
+      "default": "{ <br>title: 'title', <br>children: 'children', <br>icon: 'icon', <br>isLeaf: 'isLeaf', <br>disabled: 'disabled', <br>disableCheckbox: 'disableCheckbox', <br>checkable: 'checkable'<br> }",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "draggable",
+      "desc": "是否可拖拽节点",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "allow-drag",
+      "desc": "判断节点能否被拖拽",
+      "type": "function(node: Node): boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "allow-drop",
+      "desc": "拖拽时判定目标节点能否被放置。type 参数有三种情况：'prev'、'inner' 和 'next'，分别表示放置在目标节点前、插入至目标节点和放置在目标节点后",
+      "type": "function(draggingNode, dropNode, type): boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "virtual",
+      "desc": "配置是否使用虚拟滚动，前提是树要设置固定的高度height（树节点少于200不建议使用）",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "height",
+      "desc": "配置树的高度（px），在使用虚拟滚动的时候建议配置该属性",
+      "type": "string，number",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    }
+  ],
+  "events": [
+    {
+      "name": "update:expandedKeys",
+      "desc": "展开发生变化时触发",
+      "signature": "function (expandedKeys)",
+      "args": ""
+    },
+    {
+      "name": "toggle-expand",
+      "desc": "update:expanded-keys 事件后触发, 其中参数 node 为当前触发的节点信息，  expanded 为当前展开状态, nodes 则为当前展开的全部节点信息",
+      "signature": "function (expandedKeys, { node, expanded, nodes })",
+      "args": ""
+    },
+    {
+      "name": "update:checkedKeys",
+      "desc": "选中发生变化时",
+      "signature": "function (checkedKeys)",
+      "args": ""
+    },
+    {
+      "name": "toggle-checked",
+      "desc": "update:checked-keys 事件后触发。参数 checkedKeys 同 update:checked-keys。 node 为当前节点信息, checked 为当前操作是否为选中, nodes 则根据 checked-strategy 属性值获取当前选中的所有节点",
+      "signature": "function (checkedKeys, { node, checked, nodes })",
+      "args": ""
+    },
+    {
+      "name": "node-click",
+      "desc": "点击节点时触发",
+      "signature": "function (node, data)",
+      "args": ""
+    },
+    {
+      "name": "toggle-selected",
+      "desc": "节点单选被选中时触发",
+      "signature": "function (node, selected)",
+      "args": ""
+    },
+    {
+      "name": "node-drag-start",
+      "desc": "节点开始拖拽时触发的事件，参数为被拖拽节点对应的 Node",
+      "signature": "function (draggingNode)",
+      "args": "",
+      "version": ""
+    },
+    {
+      "name": "node-drag-enter",
+      "desc": "拖拽进入其他节点时触发的事件，参数依次为：被拖拽节点对应的 Node、所进入节点对应的 Node",
+      "signature": "function (draggingNode, dropNode)",
+      "args": "",
+      "version": ""
+    },
+    {
+      "name": "node-drag-leave",
+      "desc": "拖拽离开某个节点时触发的事件，参数依次为：被拖拽节点对应的 Node、所离开节点对应的 Node",
+      "signature": "function (draggingNode, dropNode)",
+      "args": "",
+      "version": ""
+    },
+    {
+      "name": "node-drag-over",
+      "desc": "在拖拽节点时触发的事件（类似浏览器的 mouseover 事件），参数依次为：被拖拽节点对应的 Node、当前进入节点对应的 Node",
+      "signature": "function (draggingNode, dropNode)",
+      "args": "",
+      "version": ""
+    },
+    {
+      "name": "node-drag-end",
+      "desc": "拖拽结束时（可能未成功）触发的事件，参数依次为：被拖拽节点对应的 Node、结束拖拽时最后进入的节点（可能为空）、被拖拽节点的放置位置（before、after、inner）",
+      "signature": "function (draggingNode, dropNode, dropType)",
+      "args": "",
+      "version": ""
+    },
+    {
+      "name": "node-drop",
+      "desc": "拖拽成功完成时触发的事件，参数依次为：被拖拽节点对应的 Node、结束拖拽时最后进入的节点、被拖拽节点的放置位置（before、after、inner）",
+      "signature": "function (draggingNode, dropNode, dropType)",
+      "args": "",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "empty",
+      "desc": "空状态下展示"
+    },
+    {
+      "name": "default",
+      "desc": "标题, node 为当前节点， data 为当前 tree 整个数据",
+      "args": "{ node, data }"
+    }
+  ],
+  "methods": [
+    {
+      "name": "getCheckedNodes(): Node[]",
+      "desc": "获取选中的节点数组",
+      "version": ""
+    },
+    {
+      "name": "getHalfCheckedNodes(): Node[]",
+      "desc": "获得半选的节点数组",
+      "args": "",
+      "version": ""
+    },
+    {
+      "name": "getNodeByKey(key: string): Node",
+      "desc": "根据传入的 key 获取到对应的 Node 对象",
+      "args": "",
+      "version": ""
+    }
+  ]
+}

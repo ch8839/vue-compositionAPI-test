@@ -1,0 +1,12 @@
+{
+  "props": [
+    {
+      "name": "fold",
+      "desc": "是否折叠",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    }
+  ]
+}

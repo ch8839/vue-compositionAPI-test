@@ -1,0 +1,27 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(dropdown) {
+  display: inline-block;
+  vertical-align: middle;
+
+  &-popper {
+    box-shadow: $dropdown-menu-shadow;
+  }
+
+  .#{$icon-prefix}-down,
+  .#{$icon-prefix}-down-thick {
+    color: $dropdown-icon-color;
+    transform: rotate(0deg);
+    transition: transform 0.3s linear;
+  }
+
+  &-expended {
+
+    .#{$icon-prefix}-down,
+    .#{$icon-prefix}-down-thick {
+      transform: rotate(180deg);
+      // color:
+    }
+  }
+}

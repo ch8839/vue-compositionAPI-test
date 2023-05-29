@@ -1,0 +1,18 @@
+{
+  "props": [
+    {
+      "name": "header",
+      "desc": "分类列表名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "header",
+      "desc": "列表组名"
+    }
+  ]
+}

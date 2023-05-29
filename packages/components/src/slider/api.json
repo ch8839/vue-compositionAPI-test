@@ -1,0 +1,152 @@
+{
+  "props": [
+    {
+      "name": "min",
+      "desc": "最小值",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "max",
+      "desc": "最大值",
+      "type": "number",
+      "optionalValue": "",
+      "default": "100",
+      "version": ""
+    },
+    {
+      "name": "modelValue",
+      "desc": "当前值",
+      "type": [
+        "number",
+        "number[]"
+      ],
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "step",
+      "desc": "步长，如果设置步长则将根据步长计算出 steps",
+      "type": "number",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "steps",
+      "desc": "离散点",
+      "type": "number[]",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "thresholds",
+      "desc": "阈值",
+      "type": "{ values: number[], colors: color[] }",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "fixed-value",
+      "desc": "固定起始值",
+      "type": "number",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "format-tooltip",
+      "desc": "格式化 tooltip message",
+      "type": " string function(value)  ",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "vertical",
+      "desc": "垂直",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "大小",
+      "type": "string",
+      "optionalValue": [
+        "不设置",
+        "small"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "range",
+      "desc": "是否为范围选择",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "marks",
+      "desc": "刻度列表, key 为刻度的值，value 为刻度显示的内容",
+      "type": "{ [number]: string }",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "fixed-range",
+      "desc": "是否固定滑块范围（仅当设置range才有效）",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "no-shade",
+      "desc": "不使用滑块轨道的遮罩层，展示全部背景色",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "gradients",
+      "desc": "是否渐变（配置thresholds的时候生效）",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": "MTD 3.0"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "desc": "值改变时触发（使用鼠标拖曳时，只在松开鼠标后触发）",
+      "signature": "function (value: number)",
+      "args": ""
+    },
+    {
+      "name": "input",
+      "desc": "值改变时触发（实时的）",
+      "signature": "function (value: number)",
+      "args": "MTD 3.0"
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "props": [
+    {
+      "name": "genre",
+      "desc": "类型",
+      "type": "string",
+      "optionalValue": [
+        "不设置",
+        "area",
+        "line"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "大小",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "不设置",
+        "large"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "clearable",
+      "desc": "是否有清空按钮",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "invalid",
+      "desc": "是否是错误状态",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "readonly",
+      "desc": "是否只读",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "modelValue",
+      "desc": "输入框的内容",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "prefix-icon",
+      "desc": "输入框头部图标",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "suffix-icon",
+      "desc": "输入框尾部图标",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "max-length",
+      "desc": "输入框最大字数",
+      "type": "number",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "show-count",
+      "desc": "是否显示文字计数",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "status",
+      "desc": "状态",
+      "type": "string",
+      "optionalValue": [
+        "success",
+        "不设置",
+        "warning",
+        "error"
+      ],
+      "default": "不设置",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "has-feedback",
+      "desc": "是否状态icon，仅当status生效时有用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "type",
+      "desc": "输入框业务场景类型",
+      "type": "string",
+      "optionalValue": [
+        "text",
+        "password"
+      ],
+      "default": "text",
+      "version": "MTD 3.0"
+    }
+  ],
+  "slots": [
+    {
+      "name": "prefix",
+      "desc": "输入框头部图标插槽"
+    },
+    {
+      "name": "suffix",
+      "desc": "输入框尾部图标插槽"
+    },
+    {
+      "name": "prepend",
+      "desc": "输入框前置内容"
+    },
+    {
+      "name": "append",
+      "desc": "输入框后置内容"
+    }
+  ],
+  "events": [
+    {
+      "name": "input",
+      "desc": "当输入值改变时触发",
+      "args": "(value: string)"
+    },
+    {
+      "name": "change",
+      "desc": "当输入值改变时触发",
+      "args": "(value: string)"
+    },
+    {
+      "name": "clear",
+      "desc": "当点击清空按钮时触发",
+      "args": ""
+    },
+    {
+      "name": "click-prefix",
+      "desc": "点击 prefix-icon 时触发",
+      "args": "(event: Event)"
+    },
+    {
+      "name": "click-suffix",
+      "desc": "点击 suffix-icon 时触发",
+      "args": "(event: Event)"
+    },
+    {
+      "name": "enter",
+      "desc": "用户按下回车时触发，在中文输入过程中按下回车不会触发",
+      "args": "(event: Event)",
+      "version": ""
+    }
+  ]
+}

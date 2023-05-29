@@ -1,0 +1,35 @@
+@use "sass:math";
+
+@mixin multiple-size($height, $tagHeight) {
+
+  min-height: $height;
+
+  .#{$prefix}-select-placeholder,
+  .#{$prefix}-select-search-field {
+    min-height: $height - 2px;
+    line-height: $height - 2px;
+  }
+
+
+  .#{$prefix}-select-choice .#{$prefix}-select-search-field,
+  .#{$prefix}-select-tags-li {
+    line-height: $height - 2px; // 2 * border-width;
+  }
+
+  $space: math.div($height - $tagHeight - 2px, 2);
+
+  .#{$prefix}-tag {
+    margin-left: $space;
+    margin-top: $space;
+    margin-bottom: $space;
+  }
+
+  &.#{$prefix}-multiple-has-value {
+    padding-left: 0;
+  }
+
+  // 下拉icon 居中
+  .#{$prefix}-input-suffix-inner {
+    transform: translateY(math.div($height, 2)) translateY(-55%);
+  }
+}

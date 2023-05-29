@@ -1,0 +1,7 @@
+{
+  "@index": "@ss/mtd-vue3/es/index",
+  "@components": "@ss/mtd-vue3/es/components",
+  "@utils": "@ss/mtd-vue3/es/components/__utils__",
+  "@hooks": "@ss/mtd-vue3/es/components/hooks",
+  "@ss/mtd-adapter": "@ss/mtd-adapter-vue3",
+}

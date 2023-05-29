@@ -1,0 +1,28 @@
+{
+  "props": [
+    {
+      "name": "loading",
+      "desc": "搜索 loading",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "enter-button",
+      "desc": "是否将按钮外置",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": "MTD 3.0"
+    }
+  ],
+  "events": [
+    {
+      "name": "search",
+      "desc": "点击搜索或按下回车键时的回调",
+      "args": "function(value)",
+      "version": "MTD 3.0"
+    }
+  ]
+}

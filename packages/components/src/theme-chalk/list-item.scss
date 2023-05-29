@@ -1,0 +1,15 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(list-item) {
+
+  &:hover,
+  &.hover {
+    background-color: $list-item-hover-bgc;
+  }
+
+  &:active,
+  &.active {
+    background-color: $list-item-active-bgc;
+  }
+}

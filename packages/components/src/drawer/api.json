@@ -1,0 +1,140 @@
+{
+  "props": [
+    {
+      "name": "visible",
+      "desc": "<strong>受控</strong> 抽屉是否显示，可使用 v-model 双向绑定数据",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "title",
+      "desc": "抽屉标题，如果使用 slot 自定义了页头，则 title 无效",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "width",
+      "desc": "抽屉宽度，number 时为像素，string 时需要带上单位",
+      "type": [
+        "number",
+        "string"
+      ],
+      "optionalValue": "",
+      "default": "232",
+      "version": ""
+    },
+    {
+      "name": "height",
+      "desc": "抽屉高度，在 placement 为 top 或 bottom 时使用",
+      "type": [
+        "number",
+        "string"
+      ],
+      "optionalValue": "",
+      "default": "232",
+      "version": ""
+    },
+    {
+      "name": "closable",
+      "desc": "是否显示右上角的关闭按钮，同时是否支持 esc 关闭",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "mask",
+      "desc": "是否显示蒙层",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "mask-closable",
+      "desc": "是否允许点击遮罩层关闭",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "lock-scroll",
+      "desc": "是否在 Drawer 出现时将 body 滚动锁定",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "destroy-on-close",
+      "desc": "是否在关闭时销毁 Drawer 里的子元素",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "placement",
+      "desc": "抽屉的方向",
+      "type": "string",
+      "optionalValue": [
+        "top",
+        "right",
+        "bottom",
+        "left"
+      ],
+      "default": "right",
+      "version": ""
+    },
+    {
+      "name": "get-popup-container",
+      "desc": "获取 Drawer 挂载的 HTML 节点方法，需要返回 Element 对象",
+      "type": "function (): Element",
+      "optionalValue": "",
+      "default": " document.body",
+      "version": ""
+    },
+    {
+      "name": "append-to-container",
+      "desc": " 是否将弹出框插入至 getPopupContainer 属性获取到的元素中。false 时则表示插入至当前节点",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "close",
+      "desc": "点击遮罩层或右上角叉的事件",
+      "signature": "function ()",
+      "args": ""
+    },
+    {
+      "name": "open",
+      "desc": "打开抽屉时触发。",
+      "signature": "function ()",
+      "args": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "desc": "抽屉主体内容"
+    },
+    {
+      "name": "title",
+      "desc": "自定义标题栏"
+    },
+    {
+      "name": "footer",
+      "desc": "自定义底部栏",
+      "version": "MTD 3.0"
+    }
+  ]
+}

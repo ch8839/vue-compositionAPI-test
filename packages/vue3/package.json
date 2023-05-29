@@ -1,0 +1,50 @@
+{
+  "name": "@ss/mtd-vue3",
+  "version": "1.2.3-alpha.8",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "typings": "es/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf es lib dist test/**/coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "sideEffects": [
+    "lib/*",
+    "*.vue",
+    "*.css",
+    "*.scss",
+    "*.md"
+  ],
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.16.5",
+    "@ss/mtd-adapter-vue3": "1.2.0",
+    "@vue/babel-plugin-jsx": "^1.1.1",
+    "async-validator": "^4.2.5",
+    "dayjs": "^1.11.7",
+    "js-calendar": "^1.2.3",
+    "normalize-wheel": "^1.0.1",
+    "popper.js": "^1.16.1",
+    "resize-observer-polyfill": "^1.5.1",
+    "throttle-debounce": "^3.0.1"
+  },
+  "devDependencies": {
+    "@ss/mtd-vue-core": "^1.0.11",
+    "@ss/mtd-vue-eslint": "^0.0.8",
+    "@types/jest": "^27.4.0",
+    "@types/webpack-env": "^1.18.0",
+    "@vue/compiler-sfc": "^3.2.47",
+    "typescript": "^4.9.5",
+    "vue": "^3.2.47",
+    "vue-loader": "^17.0.1",
+    "vue-router": "4"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}

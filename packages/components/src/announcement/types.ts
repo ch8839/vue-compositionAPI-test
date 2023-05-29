@@ -1,0 +1,1 @@
+export type AnnouncementType = 'warning' | 'error' | 'info' | 'success' | 'secondary'

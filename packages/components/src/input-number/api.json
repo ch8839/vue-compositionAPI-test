@@ -1,0 +1,153 @@
+{
+  "props": [
+    {
+      "name": "modelValue",
+      "desc": "当前值",
+      "type": "number",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "输入框大小",
+      "type": "string",
+      "optionalValue": [
+        "large",
+        "不设置",
+        "small"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "max",
+      "desc": "最大值",
+      "type": "number",
+      "optionalValue": "",
+      "default": "Infinity",
+      "version": ""
+    },
+    {
+      "name": "min",
+      "desc": "最小值",
+      "type": "number",
+      "optionalValue": "",
+      "default": "-Infinity",
+      "version": ""
+    },
+    {
+      "name": "precision",
+      "desc": "数值精度",
+      "type": "number",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "step",
+      "desc": "每次改变的步数，可以是小数",
+      "type": "number",
+      "optionalValue": "",
+      "default": "1",
+      "version": ""
+    },
+    {
+      "name": "formatter",
+      "desc": "指定输入框展示值的格式",
+      "type": "function(value: number | string ): string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "parser",
+      "desc": "指定从 formatter 里转换回数字的方式，和 formatter 搭配使用",
+      "type": "function(string): number",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "controls",
+      "desc": "是否使用控制按钮",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "controls-position",
+      "desc": "控制按钮位置",
+      "type": "string",
+      "optionalValue": [
+        "right",
+        "不设置"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "allow-empty",
+      "desc": "当有 min 或 precision 时，是否允许清空选项。备注: 如果没有 min、precision 时则恒为 true。 ",
+      "type": "boolean",
+      "optionalValue": "-",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "status",
+      "desc": "状态",
+      "type": "string",
+      "optionalValue": [
+        "success",
+        "不设置",
+        "warning",
+        "error"
+      ],
+      "default": "不设置",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "allow-empty",
+      "desc": "当有 min 或 precision 时，是否允许清空选项。备注: 如果没有 min、precision 时则恒为 true。 ",
+      "type": "boolean",
+      "optionalValue": "-",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "illegal-clear",
+      "desc": "用于配置用户输入非法值的时候是否清空，true 时表示清空输入，false 时表示取最近的合法值。",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "desc": "数值变化回调",
+      "args": "(value: string | number)"
+    },
+    {
+      "name": "focus",
+      "desc": "input 获得焦点时触发",
+      "args": "(event)"
+    },
+    {
+      "name": "blur",
+      "desc": "input 失去焦点时触发",
+      "args": "(event)"
+    }
+  ]
+}

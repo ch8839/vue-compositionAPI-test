@@ -1,0 +1,95 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(collapse-item) {
+  $collapse-item-icon-width: 2*$collapse-header-padding-horizontal + $collapse-header-icon-font-size;
+  font-size: $font-size-2;
+  overflow: hidden;
+  border-bottom: $collapse-border-width solid $collapse-border-color;
+
+  &-header {
+    cursor: pointer;
+    color: $collapse-header-color;
+    background-color: $collapse-header-bgc;
+    font-size: $collapse-header-font-size;
+    padding: $collapse-header-padding-vertical $collapse-header-padding-horizontal;
+    // padding-left: $collapse-item-icon-width;
+    line-height: $collapse-header-line-height;
+
+    position: relative;
+    //
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    @if $collapse-header-font-weight !=inherit {
+      font-weight: $collapse-header-font-weight;
+    }
+
+    &-right {
+      padding-left: $collapse-item-icon-width;
+    }
+
+    &-left {
+      padding-right: $collapse-item-icon-width;
+    }
+  }
+
+  &-wrapper {
+    border-top: $collapse-border-width solid $collapse-border-color;
+  }
+
+  &-content {
+    color: $collapse-content-color;
+    padding: $collapse-content-padding-vertical $collapse-content-padding-right $collapse-content-padding-vertical $collapse-content-padding-left;
+  }
+
+  .#{$prefix}-collapse-arrow {
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    text-align: center;
+    top: 0;
+    width: $collapse-item-icon-width;
+    line-height: $collapse-header-height;
+    color: $collapse-header-icon-color;
+    transition: transform .3s;
+    font-size: $collapse-header-icon-font-size;
+  }
+
+  &-active {
+    .#{$prefix}-collapse-arrow-right {
+      transform: rotate(-90deg);
+    }
+
+    .#{$prefix}-collapse-arrow-left {
+      transform: rotate(90deg);
+    }
+  }
+
+
+  &-collapse {
+    .#{$prefix}-collapse-arrow-right {
+      transform: rotate(90deg);
+    }
+
+    .#{$prefix}-collapse-arrow-left {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &-disabled &-header {
+    cursor: not-allowed;
+    color: $collapse-disabled-color;
+  }
+
+  &-disabled .#{$prefix}-collapse-arrow {
+    color: $collapse-disabled-icon-color;
+  }
+
+  &-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 121px;
+  }
+}

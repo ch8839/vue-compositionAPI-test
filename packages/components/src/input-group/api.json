@@ -1,0 +1,19 @@
+{
+  "props": [{
+    "name": "compact",
+    "desc": "是否用紧凑模式",
+    "type": "boolean",
+    "optionalValue": "",
+    "default": "false",
+    "version": ""
+  }],
+  "slots": [{
+    "name": "prepend",
+    "desc": "前置内容",
+    "version": ""
+  },{
+    "name": "append",
+    "desc": "后置内容",
+    "version": ""
+  }]
+}

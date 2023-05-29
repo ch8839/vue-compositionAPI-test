@@ -1,0 +1,56 @@
+{
+	"props":[{
+		"name": "name",
+		"desc": "唯一标识",
+		"type": "string",
+		"optionalValue": "",
+		"default": "",
+		"version": ""
+	},
+	{
+		"name": "disabled",
+		"desc": "是否禁用",
+		"type": "boolean",
+		"optionalValue": "",
+		"default": "false",
+		"version": ""
+	},
+	{
+		"name": "icon",
+		"desc": " 菜单的图标",
+		"type": "string",
+		"optionalValue": "",
+		"default": "",
+		"version": ""
+	},
+	{
+		"name": "route",
+		"desc": "Vue Router",
+		"type": "string / object",
+		"optionalValue": "",
+		"default": "",
+		"version": ""
+	},
+	{
+		"name": "href",
+		"desc": "同 a 标签 href 属性",
+		"type": "string",
+		"optionalValue": "",
+		"default": ""
+	},
+	{
+		"name": "target",
+		"desc": "同 a 标签 target 属性，详细可查看 <a href='https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target' target='_blank'>HTML a 元素</a>",
+		"type": "string",
+		"optionalValue": "",
+		"default": ""
+	}],
+	"slots":[{
+		"name": "icon",
+		"desc": "自定义图标"
+	},
+	{
+		"name": "default",
+		"desc": "自定义菜单标题"
+	}]
+}

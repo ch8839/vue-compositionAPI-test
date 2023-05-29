@@ -1,0 +1,86 @@
+{
+  "props": [
+    {
+      "name": "affix",
+      "desc": "固定模式",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "offset-top",
+      "desc": "距离窗口顶部达到指定偏移量后触发",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "offset-bottom",
+      "desc": "距离窗口底部达到指定偏移量后触发",
+      "type": "number",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "bounds",
+      "desc": "锚点区域边界，单位：px",
+      "type": "number",
+      "optionalValue": "",
+      "default": "5",
+      "version": ""
+    },
+    {
+      "name": "scroll-offset",
+      "desc": "点击滚动的额外距离",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "container",
+      "desc": "指定滚动的容器",
+      "type": [
+        "string",
+        "HTMLElement"
+      ],
+      "optionalValue": "",
+      "default": "window",
+      "version": ""
+    },
+    {
+      "name": "show-ink",
+      "desc": "是否显示高亮滚动条",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "placement",
+      "desc": "锚点组件中竖线的位置",
+      "type": "string",
+      "optionalValue": [
+        "left",
+        "right"
+      ],
+      "default": "left",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "select",
+      "desc": "点击锚点时触发，返回链接",
+      "args": "(href: string): void"
+    },
+    {
+      "name": "change",
+      "desc": "链接改变时触发，返回新链接和旧链接",
+      "args": "(newHref: string, oldHref: string): void"
+    }
+  ]
+}

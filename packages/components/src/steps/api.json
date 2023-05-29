@@ -1,0 +1,75 @@
+{
+  "props": [
+    {
+      "name": "size",
+      "desc": "指定大小，目前只支持普通和小号（small）",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "不设置"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "dot",
+      "desc": "点状步骤条",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "space",
+      "desc": "每个 step 的宽度、高度，不填写则自适应。支持百分比。",
+      "type": [
+        "number",
+        "string"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "direction",
+      "desc": "显示方向",
+      "type": "string",
+      "optionalValue": [
+        "vertical",
+        "horizontal"
+      ],
+      "default": "horizontal",
+      "version": ""
+    },
+    {
+      "name": "active",
+      "desc": "设置当前激活步骤，支持 .sync / v-model",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "status",
+      "desc": "指定当前步骤的状态",
+      "type": "string",
+      "optionalValue": [
+        "wait",
+        "process",
+        "finish",
+        "error",
+        "cancel"
+      ],
+      "default": "process",
+      "version": ""
+    },
+    {
+      "name": "is-center",
+      "desc": "是否居中对齐",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    }
+  ]
+}

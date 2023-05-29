@@ -1,0 +1,69 @@
+@use "sass:math";
+
+@mixin input-number-size($borderRadius,
+  $fontSize,
+  $iconFontSize,
+  $fontWeight,
+  $width,
+  $narrow-width,
+  $height,
+  $paddingH,
+  $paddingV: 0) {
+  $iconWidth: $height - $input-number-border-width * 2;
+  $halfIconWidth: math.div($iconWidth, 2);
+
+  width: $width;
+  height: $height;
+  font-size: $fontSize;
+
+  .#{$B} {
+
+    padding: $paddingV $paddingH;
+    font-weight: $fontWeight;
+
+    &-handle {
+      width: $iconWidth;
+      height: $iconWidth;
+      font-size: $iconFontSize;
+      line-height: $iconWidth;
+    }
+  }
+
+  &.#{$B}-wrapper {
+    border-radius: $borderRadius;
+  }
+
+  &.#{$B}-controls-right {
+    width: $narrow-width;
+    $narrowIconWidth: math.div($iconWidth, 2)+4px;
+
+    .#{$B} {
+      padding-left: $paddingH - $iconWidth;
+      padding-right: $paddingH - $iconWidth + $narrowIconWidth;
+    }
+
+    .#{$B}-handle {
+      width: $narrowIconWidth;
+      height: $halfIconWidth;
+      font-size: $fontSize;
+      line-height: $halfIconWidth;
+
+      i {
+        transform: scale(0.6);
+      }
+    }
+
+    .#{$B}-handle-down {
+      top: $halfIconWidth;
+    }
+  }
+
+  &.#{$B}-without-controls {
+    width: $width - $iconWidth * 2;
+
+    .#{$B} {
+      padding: $paddingV $paddingH - $iconWidth;
+    }
+
+  }
+}

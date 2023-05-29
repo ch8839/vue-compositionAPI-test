@@ -1,0 +1,30 @@
+{
+	"props": [{
+		"name": "value",
+		"desc": "输入框的内容",
+		"type": "string",
+		"optionalValue": "",
+		"default": "",
+		"version": ""
+	}],
+	"slots": [
+		{
+			"name": "示例",
+			"desc": "-"
+		}
+	],
+	"events": [
+		{
+			"name": "示例",
+			"desc": "示例",
+			"args": "(a: A, b: B)"
+		}
+	],
+	"methods": [
+		{
+			"name": "focus()",
+			"desc": "示例",
+			"args": ""
+		}
+	]
+}

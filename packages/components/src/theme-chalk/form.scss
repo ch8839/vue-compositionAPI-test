@@ -1,0 +1,23 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(form) {
+  &-item-top {
+    .#{$prefix}-form-item-label {
+      float: none;
+      text-align: left;
+      display: block;
+      line-height: $form-inline-label-line-height;
+      padding-right: 0;
+      margin-bottom: $s-1;
+    }
+  }
+
+  &-inline {
+    .#{$prefix}-form-item {
+      display: inline-block;
+      margin-right: $form-inline-item-margin-right;
+      vertical-align: top;
+    }
+  }
+}

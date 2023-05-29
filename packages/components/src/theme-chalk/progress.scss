@@ -1,0 +1,147 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(progress) {
+  display: inline-flex;
+  align-items: center;
+  color: $progress-default-color;
+  line-height: 1;
+
+  &-bar {
+    display: inline-block;
+    width: 100%;
+    padding-right: $progress-text-width;
+    margin-right: -$progress-text-width;
+
+    &-outer {
+      width: 100%;
+      height: 100%;
+      background: $progress-bgc;
+      border-radius: $progress-border-radius;
+    }
+
+    &-inner {
+      width: 0%;
+      height: 100%;
+      max-width: 100%;
+      background-color: currentColor;
+      border-radius: $progress-border-radius;
+      transition: all .3s;
+    }
+  }
+
+  &-stroke-linecap-square {
+    .#{$B}-bar-inner {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &-error {
+    color: $progress-error-color;
+
+    .#{$B}-bar-inner {
+      background-color: $progress-error-color;
+    }
+  }
+
+  &-success {
+    color: $progress-success-color;
+
+    .#{$B}-bar-inner {
+      background-color: $progress-success-color;
+    }
+  }
+
+  &-text {
+    color: $progress-text-color;
+    display: inline-block;
+    font-size: $progress-text-font-size;
+  }
+
+  &-icon {
+    display: inline-block;
+    font-size: $progress-icon-font-size;
+  }
+
+  // line
+  &-line {
+    text-align: left;
+    width: 100%;
+  }
+
+  &-line &-percentage {
+    display: inline-block;
+    margin-left: $progress-text-margin-left;
+
+  }
+
+  // circle
+
+  &-circle {
+    circle {
+      transition: all .3s;
+    }
+
+    .#{$icon-prefix}-check,
+    .#{$icon-prefix}-close {
+      font-weight: 1000;
+    }
+
+    &-text {
+      position: absolute;
+      z-index: 1; // 🐟for lowcode render
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $progress-text-color;
+    }
+
+  }
+
+  &-percentage {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-circle &-percentage {
+    position: absolute;
+    z-index: 1; // 🐟for lowcode render
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    transform: translateY(-50%);
+    font-size: $font-size-2;
+  }
+
+  &-circle {
+    display: inline-block;
+    position: relative;
+  }
+
+  &-circle &-icon {
+    display: inline;
+  }
+
+  &-circle-outer {
+    color: $progress-bgc;
+    stroke: $progress-bgc;
+  }
+
+  // @Pie
+  &-pie {
+    display: inline-block;
+    border-radius: $border-radius-half;
+  }
+
+
+  //
+  &-hide-rate {
+    .#{$B}-bar {
+      padding-right: 0
+    }
+  }
+}

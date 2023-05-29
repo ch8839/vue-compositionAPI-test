@@ -1,0 +1,20 @@
+@import "common/var";
+@import "../theme-chalk/tooltip.scss";
+
+
+@include c(tooltip) {
+  &-yellow {
+    @include tooltip-theme($tooltip-light-color,
+      $color-primary,
+      $tooltip-light-border-width,
+      $color-primary );
+  }
+
+  &-blue {
+    @include tooltip-theme($tooltip-color,
+      $color-blue-primary,
+      $tooltip-border-width,
+      $color-blue-primary );
+  }
+
+}

@@ -1,0 +1,4 @@
+{
+  "extends": "../vue2/tsconfig.json"
+}
+// 在这里修改VSCode 的 ts检查，不影响构建

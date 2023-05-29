@@ -1,0 +1,34 @@
+@import "common/var";
+@import "../theme-chalk/submenu.scss";
+
+@include c(menu) {
+
+  .#{$prefix}-menu-item-active {
+    .#{$prefix}-menu-item-icon {
+      color: $menu-light-active-color;
+    }
+  }
+
+  .#{$prefix}-submenu-active,
+  .#{$prefix}-submenu-child-active {
+    .#{$prefix}-submenu-icon {
+      color: $menu-light-active-color;
+    }
+  }
+
+  &-dark {
+    .#{$prefix}-menu-item-active {
+      .#{$prefix}-menu-item-icon {
+        color: $color-primary;
+      }
+    }
+
+    .#{$prefix}-submenu-active,
+    .#{$prefix}-submenu-child-active {
+      .#{$prefix}-submenu-icon {
+        color: $color-primary
+      }
+    }
+  }
+
+}

@@ -1,0 +1,32 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "desc": "选项的值",
+      "type": [
+        "string",
+        "number",
+        "object"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "label",
+      "desc": "选项的展示内容，若不设置则默认使用 value.toString()",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用该选项",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    }
+  ]
+}

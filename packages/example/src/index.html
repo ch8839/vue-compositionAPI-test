@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="/mtd/vue/favicon.png?1593345401990" rel="icon">
+  <title>美团UI Vue2.x</title>
+  <meta name="lx:category" content="techportal">
+  <meta name="lx:defaultAppnm" content="">
+  <meta name="lx:cid" content="c_techportal_k457sylz">
+  <meta name="lx:appnm" content="mtd">
+  <meta name="lx:autopv" content="off" />
+  <meta name="lx:mvDelay" content="2" />
+
+  <link rel="dns-prefetch" href="//wreport.meituan.net" />
+  <link rel="dns-prefetch" href="//report.meituan.com" />
+  <link rel="dns-prefetch" href="//lx.meituan.net" />
+  <link rel="dns-prefetch" href="//lx1.meituan.net" />
+  <link rel="dns-prefetch" href="//plx.meituan.com" /> 
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+
+  <script>
+    // 灵犀种子代码开始（以下这部分不能动）
+    !(function (win, doc, ns) { 
+      win['_MeiTuanALogObject'] = ns; 
+      if (!win[ns]) { 
+        var _LX = function () {     
+          var t = function(){ 
+            var inst = function() { 
+              inst.q.push([arguments, +new Date()]); 
+            } 
+            inst.q = []; 
+            t.q.push([arguments, inst]); 
+            return inst;   
+          }     
+          t.q = []; 
+          t.t = +new Date(); 
+          _LX.q.push([arguments, t]); 
+          return t; 
+        }; 
+        _LX.q = _LX.q || []; 
+        _LX.l = +new Date(); 
+        win[ns] = _LX; 
+      }  
+    })(window, document, 'LXAnalytics'); 
+    // 灵犀种子代码结束（以上这部分不能动) 
+   
+    // 灵犀初始化配置
+    LXAnalytics('config', {
+      defaultCategory: 'techportal', // 页面默认通道 
+      appName: '写入申请的应用标识' // 页面应用名
+    });
+   
+    // 创建通道追踪器，第二个参数为通道名，若未传通道名，则默认取config命令配置的defaultCategory
+    var tracker = LXAnalytics('getTracker');
+    // 使用追踪器创建页面实例，会发送一条PV事件
+    var pageCase = tracker('pageView', null, { /* 你的环境信息 or null */ }, 'c_techportal_i7k2ppmf');
+   </script>
+     
+   <script type="text/javascript" src="//lx.meituan.net/lx.5.min.js" async></script>
+
+
+  <% if ((process.env.NODE_ENV && process.env.NODE_ENV !=='production' ) || process.env.DEPLOY_ENV==='test' ) { %>
+    <script crossorigin="anonymous"
+      src="//s3plus.meituan.net/v1/mss_55f12fa2cfcf4ec080d69868a087b2c0/mtdframe-test/index.js"></script>
+    <% } else { %>
+      <script crossorigin="anonymous"
+        src="//s3plus.meituan.net/v1/mss_55f12fa2cfcf4ec080d69868a087b2c0/mtdframe/index.js"></script>
+      <% } %>
+</body>
+
+</html>
