@@ -1,0 +1,27 @@
+{
+  "type": "mapi",
+  "component": "entertainment_order_list",
+  "condition": "${JS=> Platform.appID === '10'}",
+  "params": {
+    "headers": {
+      "isprefetch": "*{true}"
+    },
+    "params": {
+      "ordersearchscene": "Joy",
+      "ordertab": "0",
+      "pageno": 1,
+      "pagesize": 20,
+      "platform": "${JS=> Platform.OS == 'ios' ? 'iphone':'android'}",
+      "version": "${KNB.getAppInfo=>version}",
+      "token": "${KNB.getUserInfo=>token}",
+      "channel":  "mt"
+    },
+    "baseURL": "https://mapi.dianping.com", 
+    "method": "GET",
+    "isMapi": true,
+    "options": {
+      "interceptors": ["prenetwork"]
+    },
+    "url": "https://mapi.dianping.com/dztrade/general/mtorderlist.api"
+  }
+}

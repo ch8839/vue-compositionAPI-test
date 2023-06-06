@@ -1,0 +1,31 @@
+{
+    "name": "@nibfe/tra-app-platform-mrn-components",
+    "version": "1.0.9",
+    "description": "",
+    "author": "xiaosa03@meituan.com",
+    "license": "MIT",
+    "stylelint": {
+        "extends": [
+            "@vant/stylelint-config"
+        ]
+    },
+    "browserslist": [
+        "Android >= 4.0",
+        "iOS >= 8"
+    ],
+    "dependencies": {
+        "@mrn/mrn-base": "^3.0.15",
+        "@mrn/mrn-module-component": "3.0.26",
+        "@nibfe/mrn-materials": "^0.5.5",
+        "big.js": "^6.2.1",
+        "react-native-svg": "^12.1.1"
+    },
+    "peerDependencies": {
+        "@mrn/mrn-utils": "^1.5.0",
+        "@mrn/react-native-safe-area-view": "^0.14.9",
+        "@nibfe/doraemon-practice": "^1.1.32",
+        "@types/react": "16.9.0",
+        "react": "^16.12.0",
+        "react-dom": "16.9.0"
+    }
+}

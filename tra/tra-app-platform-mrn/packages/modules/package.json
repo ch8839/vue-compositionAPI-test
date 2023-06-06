@@ -1,0 +1,25 @@
+{
+  "name": "@nibfe/tra-app-platform-mrn-modules",
+  "version": "1.0.7",
+  "description": "交易侧mrn业务模型和逻辑",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mrn/mrn-utils": "^1.5.0",
+    "@nibfe/multi-platform-env": "3.0.1-beta.3",
+    "@types/big.js": "^6.0.2",
+    "@types/lodash": "^4.14.171",
+    "big.js": "6.0.0",
+    "dayjs": "1.8.28",
+    "lodash": "4.17.20",
+    "qs": "^6.8.0",
+    "react-native-overlayer": "^0.2.1"
+  },
+  "resolutions": {
+    "@mrn/mrn-knb": "0.4.5"
+  }
+}

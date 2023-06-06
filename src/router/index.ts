@@ -26,6 +26,16 @@ const pageList = [
     component: () => import('../views/component/provide/optional/parent1.vue')
   },
   {
+    path: '/css/layers',
+    name: 'Layers',
+    component: () => import('../views/css/layers.vue')
+  },
+  {
+    path: '/css/transition',
+    name: 'Transition',
+    component: () => import('../views/css/transition.vue')
+  },
+  {
     path: '/jsx-slot',
     name: 'JsxSlot',
     component: () => import('../views/slot/index')
@@ -54,6 +64,11 @@ const pageList = [
     path: '/tips/no-render',
     name: 'NoRender',
     component: () => import('../views/tips/no-render/index.vue')
+  },
+  {
+    path: '/VNode',
+    name: 'VNode',
+    component: () => import('../views/VNode/index')
   },
 ]
 

@@ -14,7 +14,7 @@ export default {
     const x = ref(0)
     const y = ref(0)
 
-    const update = (e) => {
+    const update = (e: MouseEvent) => {
       x.value = e.pageX
       y.value = e.pageY
     }

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "checkJs": false,
+    "declaration": true,
+    "target": "esnext",
+    "module": "esnext",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "jsx": "react-native",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "strict": false,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@nibfe/tra-app-platform-mrn-modules": ["./packages/modules/*"],
+      "@nibfe/tra-app-platform-mrn-components": ["./packages/components/*"],
+      "@nibfe/tra-app-platform-core": ["./packages/core/*"]
+    }
+  },
+}

@@ -1,0 +1,42 @@
+{
+  "name": "prepay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A-MRN-PROJECT",
+  "author": "xiaosa03",
+  "scripts": {
+    "build": "mrn build",
+    "lint": "tsc && eslint --ext .ts,.tsx,.js,.jsx ./",
+    "fix": "yarn lint --fix",
+    "start": "mrn start"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.16.4",
+    "@mrn/mrn-base": "^3.0.22",
+    "@mrn/mrn-utils": "^1.5.0",
+    "@mrn/react-navigation": "^2.9.22",
+    "@nibfe/doraemon-practice": "^1.1.32",
+    "@nibfe/tra-app-platform-core": "0.0.1-mrn-beta.10",
+    "@nibfe/tra-app-platform-mrn-modules": "1.0.0-beta.2",
+    "@nibfe/tra-app-platform-mrn-components": "1.0.0-beta.3"
+  },
+  "devDependencies": {
+    "@mrn/mrn-cli": "^3.0.2",
+    "@nibfe/slink": "^0.0.3"
+  },
+  "resolutions": {
+    "@mrn/mrn-knb": "0.4.5",
+    "react-devtools-core": "4.14.0",
+    "@types/react": "17.0.0"
+  },
+  "eslintIgnore": [
+    "dist"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "post-merge": "yarn"
+    }
+  },
+  "main": "index.tsx"
+}
