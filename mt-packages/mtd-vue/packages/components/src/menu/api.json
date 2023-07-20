@@ -1,0 +1,117 @@
+{
+  "props": [
+    {
+      "name": "mode",
+      "desc": "菜单类型",
+      "type": "string",
+      "optionalValue": [
+        "horizontal",
+        "vertical",
+        "inline"
+      ],
+      "default": "inline",
+      "version": ""
+    },
+    {
+      "name": "theme",
+      "desc": "主题",
+      "type": "string",
+      "optionalValue": [
+        "light",
+        "dark"
+      ],
+      "default": "light",
+      "version": ""
+    },
+    {
+      "name": "modelValue",
+      "desc": "选中菜单的 name 值",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "expanded-names",
+      "desc": "<strong>受控</strong>，展开的 SubMenu 的 name 集合",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": "default-expanded-names",
+      "desc": "默认展开的 SubMenu 的 name 集合",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": "accordion",
+      "desc": "是否开启手风琴模式，开启后每次至多展开一个子菜单",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "collapse",
+      "desc": "是否水平折叠收起菜单（仅在 mode 为 inline 时可用）",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "router",
+      "desc": "是否使用 vue-router 的模式，启用该模式会在激活导航时以 name 作为 path 进行路由跳转",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "indent",
+      "desc": "仅当 mode='inline' 生效，相邻级节点间的水平缩进，单位为 px",
+      "type": "number",
+      "optionalValue": "",
+      "default": "24",
+      "version": ""
+    },
+    {
+      "name": "base-indent",
+      "desc": "当 mode='inline' 或 mode='vertical' 生效，基础缩进，单位为 px",
+      "type": "number",
+      "optionalValue": "",
+      "default": "24",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "select",
+      "desc": "选择菜单（MenuItem）时触发",
+      "signature": "function (menuItem)",
+      "args": ""
+    },
+    {
+      "name": "update:expandedNames",
+      "desc": "SubMenu 展开 / 关闭的回调",
+      "signature": "function (names: string[])",
+      "args": ""
+    },
+    {
+      "name": "open",
+      "desc": "SubMenu 展开时的回调",
+      "signature": "function (name: string)",
+      "args": ""
+    },
+    {
+      "name": "close",
+      "desc": "SubMenu 关闭时的回调",
+      "signature": "function (name: string)",
+      "args": ""
+    }
+  ]
+}

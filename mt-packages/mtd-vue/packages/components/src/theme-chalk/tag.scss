@@ -1,0 +1,193 @@
+@import './common/var.scss';
+@import 'mixins/mixins';
+@import 'mixins/tag';
+@import './button.scss';
+
+@include c(tag) {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  position: relative;
+  vertical-align: middle;
+  border: 1px solid;
+  transition: all 0.3s;
+  font-size: 0;
+
+  @if $tag-font-weight  !=inherit {
+    font-weight: $tag-font-weight;
+  }
+
+  &-clickable {
+    cursor: pointer;
+  }
+
+  &-content {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
+    @include text-ellipsis;
+
+    &-prefix {
+      margin-right: $tag-prefix-margin-right;
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  &-close {
+    flex: 0 0 auto;
+    margin-left: 0.5em;
+    vertical-align: middle;
+    cursor: pointer;
+    color: currentColor;
+    line-height: 0;
+    padding: 1px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      border-radius: $border-radius-round;
+    }
+
+    i {
+      transform: scale(0.8);
+    }
+  }
+
+  // 颜色的遍历
+  &-normal-color {
+    background-color: rgba(0, 0, 0, 0.06);
+    color: $color-text-5;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+
+    &.#{$B}-ghost {
+      background-color: $color-white;
+    }
+
+    &.#{$B}-pure {
+      border: none
+    }
+  }
+
+  &-gray {
+    @include tag-color($tag-gray-color);
+    //@include tag-pure-color($tag-gray-pure-color, $tag-gray-pure-bgc);
+  }
+
+  &-blue {
+    @include tag-color($tag-blue-color);
+    //@include tag-pure-color($tag-blue-pure-color, $tag-blue-pure-bgc);
+  }
+
+  &-green {
+    @include tag-color($tag-green-color);
+    //@include tag-pure-color($tag-green-pure-color, $tag-green-pure-bgc);
+  }
+
+  &-red {
+    @include tag-color($tag-red-color);
+    // @include tag-pure-color($tag-red-pure-color, $tag-red-pure-bgc);
+  }
+
+  &-purple {
+    @include tag-color(#9152f5);
+    //@include tag-pure-color($color-white, #9152f5);
+  }
+
+  &-brown {
+    @include tag-color(#c76a00);
+    //@include tag-pure-color($color-white, #c76a00);
+  }
+
+  &-yellow {
+    @include tag-color(#FFD100);
+
+    &.#{$B}-fuzzy {
+      color: #A36A00;
+    }
+
+    &.#{$B}-ghost {
+      color: #A36A00;
+    }
+
+    &.#{$B}-pure {
+      color: $color-text-5;
+    }
+  }
+
+  &-unbordered {
+    border-color: transparent !important;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    border-color: $tag-disabled-border-color  !important;
+    background-color: $tag-disabled-bgc  !important;
+    color: $tag-disabled-color  !important;
+    opacity: $tag-disabled-opacity;
+
+    .#{$B}-close {
+      pointer-events: none;
+      color: $tag-disabled-close-color;
+    }
+  }
+
+  // Size
+  // map真的是个好东西啊
+  $tag-size-map: (
+    small: (min-width: $tag-small-min-width,
+      max-width: $tag-small-max-width,
+      height: $tag-small-height,
+      padding: $tag-small-padding,
+      font-size: $tag-small-font-size,
+      border-radius: $tag-small-border-radius,
+      close-margin-left: $tag-small-close-margin-left,
+    ),
+    normal: (min-width: $tag-min-width,
+      max-width: $tag-max-width,
+      height: $tag-height,
+      padding: $tag-horizontal-padding,
+      font-size: $tag-font-size,
+      border-radius: $tag-border-radius,
+      close-margin-left: $tag-close-margin-left,
+    ),
+    large: (min-width: $tag-large-min-width,
+      max-width: $tag-large-max-width,
+      height: $tag-large-height,
+      padding: $tag-large-padding,
+      font-size: $tag-large-font-size,
+      border-radius: $tag-large-border-radius,
+      close-margin-left: $tag-large-close-margin-left,
+    ),
+  );
+
+// 尺寸的遍历
+@each $name,
+$value in $tag-size-map {
+  @if $name =='normal' {
+    @include tag-size(map_get($value, font-size),
+      map_get($value, min-width),
+      map_get($value, max-width),
+      map_get($value, height),
+      map_get($value, padding),
+      map_get($value, border-radius),
+      map_get($value, close-margin-left));
+  }
+
+  @else {
+    &-#{$name} {
+      @include tag-size(map_get($value, font-size),
+        map_get($value, min-width),
+        map_get($value, max-width),
+        map_get($value, height),
+        map_get($value, padding),
+        map_get($value, border-radius),
+        map_get($value, close-margin-left));
+    }
+  }
+}
+
+&-rounded {
+  border-radius: 100px; // larger than tag height
+}
+}

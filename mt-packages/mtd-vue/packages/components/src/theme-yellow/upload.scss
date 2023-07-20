@@ -1,0 +1,288 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./progress.scss";
+
+@include c(upload) {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+
+  @include e(input) {
+    display: none;
+  }
+
+  [class^="#{$icon-prefix}-"] {
+    display: inline-block;
+  }
+
+  &-tip {
+    font-size: 12px;
+    color: $color-text-2;
+    margin-top: 7px;
+  }
+
+  iframe {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  /* 照片墙模式 */
+  &-picture-card {
+    transition: all 0.3s;
+    background-color: $color-fill-2;
+    border-radius: $upload-pic-border-radius;
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    line-height: 100px;
+    vertical-align: top;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      font-size: 28px;
+    }
+
+    &:hover,
+    &.hover {
+      // border-color: $color-primary;
+      background-color: $color-fill-3;
+    }
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    color: $color-primary;
+
+    .#{$prefix}-upload-dragger {
+      border-color: $color-primary;
+    }
+  }
+}
+
+@include c(upload-dragger) {
+  background-color: $color-fill-2;
+  border-radius: $upload-pic-border-radius;
+  box-sizing: border-box;
+  width: 360px;
+  height: 180px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+
+  .#{$icon-prefix}-export-o {
+    font-size: 36px;
+    color: $color-text-4;
+    margin: 40px 0 10px;
+    line-height: 50px;
+  }
+
+  .#{$icon-prefix}-add {
+    display: inline-block;
+  }
+
+  +.#{$prefix}-upload-tip {
+    text-align: center;
+  }
+
+  ~.#{$prefix}-upload-files {
+    border-top: $btn-border-color;
+    margin-top: 7px;
+    padding-top: 5px;
+  }
+
+  .#{$prefix}-upload-text {
+    color: $color-text-4;
+    font-size: 14px;
+    text-align: center;
+
+  }
+
+  &:hover,
+  &.hover {
+    // border-color: $color-primary;
+    background-color: $color-fill-3;
+  }
+
+  @include when(dragover) {
+    background-color: rgba(32, 159, 255, .06);
+    border: 2px dashed $color-primary;
+  }
+}
+
+@include c(upload-list) {
+  margin: 0;
+  margin-top: $s-3;
+
+  padding: 0;
+  list-style: none;
+
+  &-enter-active,
+  &-leave-active {
+    transition: all 1s;
+  }
+
+  &-enter,
+  &-leave-active {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  &-item {
+    transition: all .5s cubic-bezier(.55, 0, .1, 1);
+    font-size: $upload-item-filename-font-size;
+    color: $color-text-2;
+    line-height: $upload-item-filename-line-height;
+    font-weight: $upload-item-filename-font-weight;
+    margin-top: 5px;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 2px;
+    width: $upload-item-width;
+    padding-left: $upload-item-padding-horizontal;
+    padding-right: $upload-item-padding-horizontal;
+    background-color: $upload-item-bgc;
+
+    .#{$prefix}-progress {
+      position: absolute;
+      top: 10px;
+      width: 100%;
+    }
+
+    .#{$prefix}-upload-list-item-text {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      text-align: left;
+      font-size: 12px;
+      transform: translate(0%, -50%);
+      padding: 0 5px;
+    }
+
+    .#{$prefix}-progress-text {
+      display: none;
+    }
+
+    .#{$prefix}-progress-bar {
+      margin-right: 0;
+      padding-right: 0;
+    }
+
+    &:first-child {
+      margin-top: $upload-itemlist-margin-top;
+    }
+
+    &:hover,
+    &.hover {
+      background-color: $upload-hover-bgc;
+
+      .#{$icon-prefix}-item-text {
+        display: none;
+      }
+
+      .#{$icon-prefix}-item-text-hover {
+        display: inline-block;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &-name {
+      color: $upload-item-filename-color;
+      display: block;
+      margin-right: 40px;
+      overflow: hidden;
+      padding-left: 4px;
+      text-overflow: ellipsis;
+      transition: color .3s;
+      white-space: nowrap;
+      cursor: pointer;
+
+      &:hover,
+      &.hover {
+        color: $upload-hover-item-filename-color;
+        text-decoration: none;
+      }
+
+      .#{$icon-prefix} {
+        height: 100%;
+        margin-right: $upload-filetypeicon-margin-right;
+        color: #808AB1;
+        line-height: inherit;
+        font-size: $upload-filetypeicon-size;
+      }
+    }
+
+    &-status-text {
+      position: absolute;
+      right: 20px;
+      top: 3px; // (20 - 14) / 2
+      line-height: inherit;
+      background: #abc;
+      z-index: 1;
+
+      .#{$icon-prefix}-item-text,
+      .#{$icon-prefix}-error-circle,
+      .#{$icon-prefix}-download-o,
+      .#{$icon-prefix}-refresh-o {
+        color: $upload-operateicon-color;
+        display: inline-block;
+        position: absolute;
+        cursor: pointer;
+        font-size: $upload-operateicon-size;
+
+        &:hover,
+        &.hover {
+          color: $upload-hover-operateicon-color;
+        }
+      }
+
+      .#{$icon-prefix}-item-text-hover {
+        display: none;
+        position: absolute;
+      }
+
+      .#{$icon-prefix}-refresh-o {
+        right: 15px;
+        color: $color-danger-1;
+      }
+
+      .#{$icon-prefix}-error-circle {
+        color: #B5BBD1;
+        font-weight: 600;
+      }
+
+      .#{$icon-prefix}-download-o {
+        color: #B5BBD1;
+        right: $upload-operateicon-spacing;
+        font-weight: 600;
+      }
+
+      .#{$icon-prefix}-fail {
+        color: $color-danger-1;
+      }
+    }
+  }
+
+  &-picture-card {
+    margin: 0;
+    display: inline;
+    vertical-align: top;
+
+    .#{$prefix}-file-type-picture-card {
+      margin: 0 8px 8px 0;
+    }
+
+  }
+}

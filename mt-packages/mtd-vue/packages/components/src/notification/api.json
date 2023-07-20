@@ -1,0 +1,124 @@
+{
+  "params": [
+    {
+      "name": "title",
+      "desc": "标题",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "message",
+      "desc": "说明文字",
+      "type": [
+        "string",
+        "VNode"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "type",
+      "desc": "主题样式，如果不在可选值内将被忽略",
+      "type": "string",
+      "optionalValue": [
+        "success",
+        "warning",
+        "info",
+        "error"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "className",
+      "desc": "自定义类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "icon",
+      "desc": "自定义icon类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "duration",
+      "desc": "显示时间, 毫秒。设为 0 则不会自动关闭",
+      "type": "number",
+      "optionalValue": "",
+      "default": "4500",
+      "version": ""
+    },
+    {
+      "name": "dangerouslyUseHTMLString",
+      "desc": "是否将 message 属性作为 HTML 片段处理",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "showClose",
+      "desc": "是否显示关闭按钮 ",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "colorful",
+      "desc": "是否使用彩色主题",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "onClose",
+      "desc": "关闭时的回调函数",
+      "type": "function",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "offset",
+      "desc": "偏移的距离，在同一时刻，所有的 Notification 实例应当具有一个相同的偏移量",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "getPopupContainer",
+      "desc": "配置渲染节点的输出位置，需要返回 HTMLElement 对象",
+      "type": "function (): HTMLElement",
+      "optionalValue": "",
+      "default": "() => document.body",
+      "version": ""
+    }
+  ],
+  "methods": [
+    {
+      "name": "close()",
+      "desc": "关闭当前的 Notification",
+      "signature": "function ()",
+      "args": ""
+    }
+  ],
+  "staticMethods": [
+    {
+      "name": "closeAll()",
+      "desc": "关闭所有的 Notification",
+      "signature": "function ()",
+      "args": ""
+    }
+  ]
+}

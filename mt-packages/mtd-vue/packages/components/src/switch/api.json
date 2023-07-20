@@ -1,0 +1,70 @@
+{
+  "props": [
+    {
+      "name": "size",
+      "desc": "尺寸",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "不设置"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "loading",
+      "desc": "加载中的开关",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "modelValue",
+      "desc": "指定当前是否选中,可以使用 v-model 双向绑定数据",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "name",
+      "desc": "switch 组件的 name 属性",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "desc": "开关变化时触发，返回当前的状态",
+      "args": "(actived: boolean)"
+    }
+  ],
+  "slots": [
+    {
+      "name": "loading",
+      "desc": "自定义 loading 内容"
+    },
+    {
+      "name": "checkedChildren",
+      "desc": "开关为激活时内部内容",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "unCheckedChildren",
+      "desc": "开关为关闭时内部内容",
+      "version": "MTD 3.0"
+    }
+  ]
+}

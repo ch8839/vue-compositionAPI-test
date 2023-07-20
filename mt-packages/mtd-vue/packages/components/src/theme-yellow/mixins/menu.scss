@@ -1,0 +1,103 @@
+@mixin menu-theme ($color, $bgc,
+  $hover-color, $hover-bgc,
+  $active-color, $active-bgc,
+  $disabled-color, $disabled-bgc, $disabled-opacity,
+  $horizontal-hover-bgc,
+  $horizontal-active-bgc) {
+  color: $color;
+  background: $bgc;
+
+  .#{$prefix}-menu-item-title,
+  .#{$prefix}-submenu-title {
+
+    &:hover,
+    &.hover {
+      background: $hover-bgc;
+      color: $hover-color;
+    }
+  }
+
+  .#{$prefix}-menu-item-active {
+    .#{$prefix}-menu-item-title {
+      color: $active-color;
+      background: $active-bgc;
+      font-weight: $menu-light-active-font-weight;
+
+      &:hover,
+      &.hover {
+        color: $active-color;
+        background: $active-bgc;
+      }
+    }
+  }
+
+  .#{$prefix}-submenu-active {
+    .#{$prefix}-submenu-title {
+      color: $active-color;
+      background: $active-bgc;
+    }
+  }
+
+  .#{$prefix}-submenu-child-active {
+    .#{$prefix}-submenu-title {
+      color: $active-color;
+    }
+  }
+
+  .#{$prefix}-menu-item-disabled .#{$prefix}-menu-item-title,
+  .#{$prefix}-submenu-disabled>.#{$prefix}-submenu-title {
+    color: $disabled-color;
+    background: $disabled-bgc;
+    opacity: $disabled-opacity;
+    cursor: not-allowed;
+
+    &:hover,
+    &.hover {
+      color: $disabled-color;
+      background: $disabled-bgc;
+    }
+  }
+
+  .#{$prefix}-menu-item-active.#{$prefix}-menu-item-disabled .#{$prefix}-menu-item-title {
+    color: $active-color;
+    background: $active-bgc;
+    opacity: $disabled-opacity;
+  }
+
+  // 水平
+  &.#{$prefix}-menu-horizontal {
+
+    .#{$prefix}-menu-item-title,
+    .#{$prefix}-submenu-title {
+
+      &:hover,
+      &.hover {
+        background: $horizontal-hover-bgc;
+      }
+
+      .#{$prefix}-submenu-direction {
+        color: $color;
+      }
+    }
+
+    .#{$prefix}-menu-item-active {
+      .#{$prefix}-menu-item-title {
+        background: $horizontal-active-bgc;
+
+        &:hover,
+        &.hover {
+          background: $horizontal-active-bgc;
+        }
+      }
+    }
+
+    .#{$prefix}-submenu-active .#{$prefix}-submenu-title {
+      color: $active-color;
+      background: $horizontal-active-bgc;
+
+      .#{$prefix}-submenu-direction {
+        color: $active-color;
+      }
+    }
+  }
+}

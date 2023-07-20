@@ -1,0 +1,347 @@
+{
+  "props": [
+    {
+      "name": "visible",
+      "desc": "<strong>受控</strong>，非必须，是否显示下拉",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "default-visible",
+      "desc": "默认是否显示下拉",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "modelValue",
+      "desc": "当前选中项",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "data",
+      "desc": "数据源",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": "no-data-text",
+      "desc": "空数据时显示文案",
+      "type": "string",
+      "optionalValue": "",
+      "default": "'暂无数据'",
+      "version": ""
+    },
+    {
+      "name": "fieldNames",
+      "desc": "自定义数据源字段名",
+      "type": "object",
+      "optionalValue": "",
+      "default": {
+        "label": "label",
+        "value": "value",
+        "children": "children",
+        "loading": "loading",
+        "isLeaf": "isLeaf",
+        "disabled": "disabled"
+      },
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "change-on-select",
+      "desc": "是否允许选择任意一级的选项",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "expand-trigger",
+      "desc": "展开方式",
+      "type": "string",
+      "optionalValue": [
+        "click",
+        "hover"
+      ],
+      "default": "click",
+      "version": ""
+    },
+    {
+      "name": "formatter",
+      "desc": "格式化输入框中显示的内容,labels 为当前匹配到的 label 数组，selectedOptions 为当前选中的option数组，value为当前级联的值",
+      "type": "function(labels, selectedOptions, value): string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "separator",
+      "desc": "选项分割符，未配置 formatter 属性时生效",
+      "type": "string",
+      "optionalValue": "",
+      "default": "'/'",
+      "version": ""
+    },
+    {
+      "name": "load-data",
+      "desc": "当 data.isLeaf 为 false 时，并且 children 为空时，展开时调用此方法，需要使用第二个参数 resolve，来表明获取到的数据及状态，过程中会自动为数据源设置 loading 属性",
+      "type": "function(item, resolve): void",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "filterable",
+      "desc": "是否可搜索",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "debounce",
+      "desc": "搜索关键词去抖延迟，单位毫秒",
+      "type": "number",
+      "optionalValue": "",
+      "default": "300",
+      "version": ""
+    },
+    {
+      "name": "filter-method",
+      "desc": "过滤方法，接受 query(当前过滤条件)，item(当前项) 2个参数。符合过滤条件时应当返回true",
+      "type": "function(query,item): boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "remote",
+      "desc": "是否为远程搜索，如果为 true 时，filter-method 属性失效",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "remote-method",
+      "desc": "远程搜索的方法",
+      "type": "function(query): void",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "no-match-text",
+      "desc": "搜索条件无匹配时显示的文字",
+      "type": "string",
+      "optionalValue": "",
+      "default": "暂无搜索结果",
+      "version": ""
+    },
+    {
+      "name": "loading",
+      "desc": "是否为加载中状态",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "loading-text",
+      "desc": "搜索时的文案",
+      "type": "string",
+      "optionalValue": "",
+      "default": "'正在加载中'",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "clearable",
+      "desc": "是否支持清空",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "大小",
+      "type": "string",
+      "optionalValue": [
+        "不设置",
+        "small",
+        "large"
+      ],
+      "default": "不设置"
+    },
+    {
+      "name": "placeholder",
+      "desc": "输入框占位文本",
+      "type": "string",
+      "optionalValue": "",
+      "default": "'请选择'",
+      "version": ""
+    },
+    {
+      "name": "popper-class",
+      "desc": "下拉框类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "placement",
+      "desc": "显示的位置",
+      "type": "string",
+      "optionalValue": [
+        "top",
+        "top-start",
+        "top-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+        "left",
+        "left-start",
+        "left-end",
+        "right",
+        "right-start",
+        "right-end"
+      ],
+      "default": "bottom-start",
+      "version": ""
+    },
+    {
+      "name": "append-to-container",
+      "desc": "是否将下拉框插入至容器元素中。在下拉框的定位出现问题时，可将该属性设置为 false",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "get-popup-container",
+      "desc": "获取容器元素方法，需要返回 HTMLElement 对象",
+      "type": "function():HTMLElement",
+      "optionalValue": "",
+      "default": "默认返回 document.body",
+      "version": ""
+    },
+    {
+      "name": "popper-options",
+      "desc": "自定义 popper.js 的配置项，具体配置查看 <a target='_blank' href='https://popper.js.org/docs/v1/#modifiers--codeobjectcode'>popper.js 文档</a>",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "reserve-keyword",
+      "desc": "多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "multiple",
+      "desc": "是否多选。<strong></strong>",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "check-strictly",
+      "desc": "父子节点不互相关联（true 时父子节点选中状态不再关联）。<strong></strong>",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "checked-strategy",
+      "desc": "定义选中时回填的方式。<strong></strong>",
+      "type": "string",
+      "optionalValue": [
+        "all",
+        "parent",
+        "children"
+      ],
+      "default": "all",
+      "version": ""
+    },
+    {
+      "name": "max-count",
+      "desc": "多选时生效，设置最大能显示tag的数量，设置responsive的时候为自动计算",
+      "type": "number / 'responsive'",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "desc": "绑定值发生变化时触发",
+      "args": "function(value:array,selectedOptions:array)"
+    },
+    {
+      "name": "update:visible",
+      "desc": "下拉框显示/隐藏时触发",
+      "args": "function(visible: boolean)"
+    },
+    {
+      "name": "active-item-change",
+      "desc": "当 change-on-select 为 false 时，父级选项变化时触发，参数为各父级项组成的数组",
+      "args": "function(item:array)"
+    }
+  ],
+  "methods": [
+    {
+      "name": "focus()",
+      "desc": "使 cascader 获取焦点",
+      "args": ""
+    },
+    {
+      "name": "blur()",
+      "desc": "使 cascader 失去焦点",
+      "args": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "desc": "自定义行内容，参数: node 为当前节点， data 为当前行的数据。详细字段见下文",
+      "args": "{ node, data }",
+      "version": ""
+    },
+    {
+      "name": "addendum-header",
+      "desc": "顶部附加信息",
+      "args": "",
+      "version": "1.1.0"
+    },
+    {
+      "name": "addendum-footer",
+      "desc": "底部附加信息",
+      "args": "",
+      "version": "1.1.0"
+    }
+  ]
+}

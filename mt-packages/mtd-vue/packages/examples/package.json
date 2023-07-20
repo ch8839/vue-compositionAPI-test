@@ -1,0 +1,30 @@
+{
+  "name": "@ss/mtd-vue-example",
+  "version": "0.0.6",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx webpack serve --progress --config webpack/webpack.config.js",
+    "build:doc": "npm run clean && export NODE_ENV=production && webpack --progress --config webpack/webpack.config.js",
+    "clean": "rimraf lib es dist "
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@roo/pizza-import": "^0.2.3",
+    "@types/node": "^16.11.12",
+    "default-passive-events": "^2.0.0",
+    "js-cookie": "^3.0.1",
+    "mitt": "^3.0.0",
+    "rimraf": "^3.0.2",
+    "vue-router": "^3.5.3"
+  },
+  "devDependencies": {
+    "@ss/mtd-vue": "^0.3.28",
+    "@ss/mtd-vue-eslint": "^0.0.6",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack-merge": "4.2.2"
+  },
+  "private": true,
+  "gitHead": "2760ec80d3fb28ef1840808103ead26dd5ed1e7e"
+}

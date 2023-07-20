@@ -1,0 +1,50 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(list) {
+  border: $list-border-width solid $list-border-color;
+  border-radius: $list-border-radius;
+  font-size: $list-item-font-size;
+  line-height: $list-item-line-height;
+  width: 100%;
+
+  &-loading {
+    text-align: center;
+  }
+
+  &-split {
+    .#{$B}-item {
+      &:not(:last-child) {
+        border-bottom: $list-border-width solid $list-border-color;
+      }
+    }
+  }
+
+  &-small {
+    font-size: $list-item-small-font-size;
+    line-height: $list-item-small-line-height;
+
+    .#{$B}-item,
+    .#{$B}-loading {
+      padding: $list-item-small-padding-vertical $list-item-small-padding-horizontal;
+    }
+  }
+
+  &-normal {
+
+    .#{$B}-item,
+    .#{$B}-loading {
+      padding: $list-item-padding-vertical $list-item-padding-horizontal;
+    }
+  }
+
+  &-large {
+    font-size: $list-item-large-font-size;
+    line-height: $list-item-large-line-height;
+
+    .#{$B}-item,
+    .#{$B}-loading {
+      padding: $list-item-large-padding-vertical $list-item-large-padding-horizontal;
+    }
+  }
+}

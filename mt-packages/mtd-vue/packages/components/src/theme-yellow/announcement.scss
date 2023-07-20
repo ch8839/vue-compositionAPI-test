@@ -1,0 +1,127 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/announcement.scss";
+
+@include c(announcement) {
+  padding: $announcement-padding-vertical $announcement-padding-horizontal;
+  box-sizing: border-box;
+  border-radius: $announcement-border-radius;
+  position: relative;
+  background-color: $announcement-bgc;
+  overflow: hidden;
+  opacity: $announcement-opacity;
+  transition: opacity $announcement-transition-duration;
+  color: $announcement-color;
+  text-align: left;
+  display: flex;
+  // align-items: center;
+  width: 100%;
+
+  @include e(success) {
+    @include announcement-color($announcement-text-info-color,
+      $announcement-info-bgc,
+      $announcement-icon-info-color );
+  }
+
+  @include e(success) {
+    @include announcement-color($announcement-text-success-color,
+      $announcement-success-bgc,
+      $announcement-icon-success-color );
+  }
+
+  @include e(warning) {
+    @include announcement-color($announcement-text-warning-color,
+      $announcement-warning-bgc,
+      $announcement-icon-warning-color );
+  }
+
+  @include e(error) {
+    @include announcement-color($announcement-text-danger-color,
+      $announcement-danger-bgc,
+      $announcement-icon-danger-color );
+  }
+
+  @include e(info) {
+    @include announcement-color($announcement-text-info-color,
+      $announcement-info-bgc,
+      $announcement-icon-info-color );
+  }
+
+  @include e(secondary) {
+    @include announcement-color($announcement-text-secondary-color,
+      $announcement-secondary-bgc,
+      $announcement-icon-secondary-color );
+  }
+
+  @include e(icon) {
+    font-size: $announcement-icon-size;
+    margin-top: 1px;
+  }
+
+  &.#{$prefix}-announcement-closable &-content {
+    padding-right: $announcement-closable-padding-right + $announcement-close-size;
+  }
+
+  &-icon+&-content {
+    margin-left: $announcement-icon-margin-right;
+  }
+
+  &-content {
+    flex: 1 1 auto;
+    word-break: break-word;
+  }
+
+  &-has-description {
+    padding: $announcement-description-padding-vertical $announcement-description-padding-horizontal;
+  }
+
+  @include e(title) {
+    font-size: $announcement-message-font-size;
+    line-height: $announcement-message-line-height;
+    font-weight: $announcement-message-font-weight;
+
+    &-large {
+      font-size: $announcement-title-font-size;
+      line-height: $announcement-title-line-height;
+      font-weight: $announcement-title-font-weight;
+
+      &.#{$B}-icon {
+        line-height: $announcement-title-line-height;
+      }
+    }
+  }
+
+  @include e(description) {
+    font-size: $announcement-description-font-size;
+    line-height: $announcement-description-line-height;
+    font-weight: $announcement-description-font-weight;
+    margin-top: $announcement-description-margin-top;
+    color: $announcement-description-color;
+  }
+
+  @include e(close) {
+    font-size: $announcement-close-size;
+    line-height: 1;
+    color: $announcement-close-color;
+    position: absolute;
+    top: $announcement-close-top;
+    right: $announcement-close-right;
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    height: $announcement-message-line-height;
+
+    &:hover,
+    &.hover,
+    &:focus {
+      color: $announcement-hover-close-color;
+      text-decoration: none;
+    }
+  }
+}
+
+.#{$prefix}-announcement-fade-enter,
+.#{$prefix}-announcement-fade-leave-active {
+  opacity: 0;
+}

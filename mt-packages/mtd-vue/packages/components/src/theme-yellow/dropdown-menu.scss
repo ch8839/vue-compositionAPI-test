@@ -1,0 +1,58 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/dropdown-menu.scss";
+
+@include c(dropdown-menu) {
+  list-style-type: none;
+  margin: 0;
+  padding: $dropdown-menu-padding-vertical 0;
+  overflow: auto;
+  border-radius: $dropdown-menu-border-radius;
+  border: $dropdown-menu-border-width solid $dropdown-menu-border-color;
+  @include dropdown-menu-size($dropdown-menu-font-size,
+    $dropdown-menu-max-height,
+    $dropdown-menu-min-width );
+
+  &-small {
+    @include dropdown-menu-size($dropdown-menu-small-font-size,
+      $dropdown-menu-max-height,
+      $dropdown-menu-min-width );
+
+    .#{$prefix}-dropdown-menu-item {
+      @include dropdown-menu-item-size($dropdown-menu-item-small-height,
+        $dropdown-menu-item-small-padding-horizontal );
+    }
+  }
+
+  &-large {
+
+    @include dropdown-menu-size($dropdown-menu-large-font-size,
+      $dropdown-menu-max-height,
+      $dropdown-menu-min-width );
+
+    .#{$prefix}-dropdown-menu-item {
+      @include dropdown-menu-item-size($dropdown-menu-item-large-height,
+        $dropdown-menu-item-large-padding-horizontal );
+    }
+  }
+
+  //group
+
+  &-item-group:not(:first-child) {
+    margin-top: $dropdown-menu-item-group-margin-top;
+  }
+
+  &-item-group {
+    &-title {
+      font-size: $select-group-title-font-size;
+      line-height: $select-group-title-height;
+      color: $select-group-title-color;
+      letter-spacing: 0;
+      padding: 0 $dropdown-menu-item-padding-horizontal;
+    }
+  }
+
+  &-cascader {
+    box-shadow: $dropdown-menu-shadow;
+  }
+}

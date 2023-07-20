@@ -1,0 +1,94 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(multiple) {
+  &-select-choices {
+    text-align: left;
+  }
+}
+
+@mixin multiple-input($height) {
+  min-height: $height;
+
+  .#{$prefix}-select-placeholder,
+  .#{$prefix}-select-search-field {
+    min-height: $height - 2px;
+    line-height: $height - 2px;
+  }
+
+}
+
+.#{$prefix}-select-placeholder {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  max-width: 100%;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.24);
+
+  >span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.#{$prefix}-select-choices {
+  overflow: hidden;
+}
+
+.#{$prefix}-select-search-field {
+  max-width: 100%;
+}
+
+.#{$prefix}-select-search-line {
+  max-width: 100%;
+  min-width: 10px;
+}
+
+.#{$prefix}-select-multiple-input {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: 32px;
+  height: 100%;
+
+  @include multiple-input(32px);
+
+  &.#{$prefix}-input-small {
+    @include multiple-input(24px);
+  }
+
+  &.#{$prefix}-input-large {
+    @include multiple-input(40px);
+  }
+}
+
+.#{$prefix}-select-multiple-mirror {
+  position: absolute;
+  visibility: hidden;
+  z-index: -1;
+  white-space: pre;
+  top: 0;
+  left: 0;
+}
+
+.#{$prefix}-select-tags-popper {
+  max-height: 40vh;
+  overflow: auto;
+}
+
+.#{$prefix}-select-multiple-input-test {
+  opacity: 0;
+  height: 40px;
+  width: 5000px;
+  position: fixed;
+  top: -500px;
+  display: flex;
+}

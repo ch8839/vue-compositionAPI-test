@@ -1,0 +1,42 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(skeleton) {
+
+  &-content {
+    background: linear-gradient(90deg,
+        $skeleton-bgc 25%,
+        $skeleton-active-bgc 37%,
+        $skeleton-bgc 63%);
+    background-size: 400% 100%;
+  }
+
+  &-active {
+    animation: skeleton-loading 1.4s ease infinite;
+  }
+
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0 50%;
+    }
+  }
+
+  &-paragraph {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  &-avatar {
+    border-radius: 50%;
+  }
+
+  &-picture {
+    width: 190px;
+    height: 110px;
+    border-radius: 8px;
+  }
+}

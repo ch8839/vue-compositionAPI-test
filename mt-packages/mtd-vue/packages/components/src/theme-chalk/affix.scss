@@ -1,0 +1,7 @@
+@import "./common/_var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(affix) {
+  position: fixed;
+  z-index: $affix-zIndex;
+}

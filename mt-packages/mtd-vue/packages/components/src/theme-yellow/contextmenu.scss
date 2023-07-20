@@ -1,0 +1,33 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(contextmenu) {
+  position: fixed;
+  z-index: 2000;
+  background-color: white;
+
+  border-radius: $border-radius-3;
+  overflow: hidden;
+}
+
+
+.fade-in-#{$B} {
+  &-enter-active {
+    animation: fade-in-ctxmenu 0.2s;
+  }
+
+  &-leave-active {
+    animation: fade-in-ctxmenu 0.2 reverse;
+  }
+}
+
+
+@keyframes fade-in-ctxmenu {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

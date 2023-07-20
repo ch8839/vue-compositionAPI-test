@@ -1,0 +1,240 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/input.scss";
+
+
+
+@include c(input) {
+
+  // reset input
+  font-size: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: currentColor;
+  padding: 0;
+  background: transparent;
+  border: 0px solid $input-border-color;
+  border-radius: 0;
+  flex: 1 1 0;
+
+  &:hover {
+    border-color: $input-hover-border-color;
+  }
+
+  &:focus {
+    border-color: $input-focus-border-color;
+    outline: none;
+  }
+
+  &-wrapper {
+    display: inline-flex;
+    align-items: stretch;
+    position: relative;
+    color: $input-color;
+    background-color: $input-bgc;
+    border: 1px solid $input-border-color;
+    border-radius: $input-border-radius;
+  }
+
+  &-clear {
+    cursor: pointer;
+  }
+
+  &-prefix-inner,
+  &-suffix-inner {
+    color: $input-icon-color;
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+
+    &:hover {
+      color: $input-icon-hover-color
+    }
+
+    >i {
+      flex: 0 0 auto;
+    }
+
+    .#{$icon-prefix}-loading {
+      color: $color-text-2;
+
+      &:hover {
+        color: $color-text-2;
+      }
+    }
+  }
+
+  &-prefix-inner {
+    margin-right: 4px;
+  }
+
+  &-suffix-inner {
+    margin-left: 4px;
+  }
+
+  &-count {
+    color: $input-count-color;
+    font-size: $input-count-font-size;
+    margin-left: $s-1;
+  }
+
+  &-focused {
+    border-color: $input-focus-border-color;
+    z-index: 1;
+  }
+
+  &-hover {
+    z-index: 1;
+    border-color: $input-hover-border-color;
+  }
+
+  &-readonly {
+    color: $input-readonly-color;
+    background-color: $input-readonly-bgc;
+    border-color: $input-readonly-border-color;
+  }
+
+  &-disabled {
+    background-color: $input-disabled-bgc;
+    color: $input-disabled-color;
+    border-color: $input-disabled-border-color;
+    cursor: not-allowed;
+
+    .#{$B} {
+      cursor: not-allowed;
+    }
+
+    .#{$prefix}-input-prefix-inner,
+    .#{$prefix}-input-suffix-inner {
+      color: $input-disabled-icon-color;
+    }
+  }
+
+  &-error {
+    border-color: $input-invalid-border-color;
+
+    .status-icon {
+      color: $input-invalid-border-color;
+      margin-left: 4px;
+    }
+  }
+
+  &-success {
+    border-color: $input-success-border-color;
+
+    .status-icon {
+      color: $input-success-border-color;
+      margin-left: 4px;
+    }
+  }
+
+  &-warning {
+    border-color: $input-warning-border-color;
+
+    .status-icon {
+      color: $input-warning-border-color;
+      margin-left: 4px;
+    }
+  }
+
+  &-line {
+    /*  &-prefix-inner,
+      &-suffix-inner {
+        text-align: left;
+      }
+
+      &:first-child {
+        padding-left: 0px;
+      }
+
+      &:focus {
+        box-shadow: none;
+      } */
+
+    background-color: transparent;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-radius: 0px;
+
+    &.#{$B}-wrapper {
+      padding-left: 0;
+    }
+
+    &.#{$B}-disabled {
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    &.#{$B}-readonly {
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+
+  }
+
+  &-area {
+    color: $input-area-color;
+    background-color: $input-area-bgc;
+    border: 1px solid transparent;
+
+    ::placeholder {
+      color: $input-area-placeholder-color;
+    }
+
+    &.#{$B}-hover {
+      background-color: $input-area-hover-bgc;
+      //border-color: $input-area-hover-bgc;
+    }
+
+    &.#{$B}-focused {
+      background-color: $input-bgc;
+      border-color: $input-focus-border-color;
+    }
+
+    // &.#{$prefix}-input-error {
+    //   .#{$B} {
+    //     box-shadow: $input-area-error-shadow;
+    //   }
+    // }
+    &.#{$B}-disabled {
+      color: $input-disabled-color;
+      background: rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    &.#{$B}-readonly {
+      color: rgba(0, 0, 0, 0.50);
+      background-color: rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+  }
+
+
+
+  // size
+  &-wrapper {
+    @include input-size($input-font-size,
+      $input-width,
+      $input-height,
+      $input-padding-horizontal );
+  }
+
+  &-small {
+    @include input-size($input-small-font-size,
+      $input-small-width,
+      $input-small-height,
+      $input-small-padding-horizontal );
+
+    border-radius: $border-radius-2
+  }
+
+  &-large {
+    @include input-size($input-large-font-size,
+      $input-large-width,
+      $input-large-height,
+      $input-large-padding-horizontal );
+  }
+}
+
+
+
+@import "./input-group.scss";

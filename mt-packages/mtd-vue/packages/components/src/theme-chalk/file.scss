@@ -1,0 +1,194 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(file) {
+  position: relative;
+  vertical-align: top;
+
+  &:hover {
+    background-color: $color-hover-grey-2;
+  }
+
+  // 面板型
+  &-type-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $s-2;
+
+    height: 60px;
+
+    border: 1px solid $color-line-1;
+    border-radius: $border-radius-3;
+  }
+
+
+  // type 填充面板型
+  &-type-filled-panel {
+    border: none;
+    background-color: $color-hover-grey-2;
+
+    &:hover {
+      background-color: $color-hover-grey-3;
+    }
+
+    &.#{$B}-fail {
+      background-color: $color-danger-2;
+    }
+  }
+
+  // type 照片墙型
+  &-type-picture-card {
+    border-radius: $upload-pic-border-radius;
+
+    background-color: $color-fill-1;
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+
+    display: inline-flex;
+
+    &.#{$B}-fail {
+      &>div {
+        border-color: $color-danger-6;
+      }
+    }
+
+    .#{$B}-thumbnail {
+      height: 100%;
+      width: 100%;
+    }
+
+    &>div {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      border-radius: $border-radius-3;
+      border: 1px solid $color-line-1;
+      background-color: $color-fill-1;
+    }
+
+    &-uploading {
+      height: 100%;
+      width: 100%;
+      padding: $s-2;
+      font-size: $font-size-1;
+      color: $color-text-5;
+
+      display: inline-flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &:hover {
+      .#{$B}-pic-actions {
+        display: inline-flex;
+      }
+    }
+  }
+
+  &-content {
+    text-align: left;
+    flex-grow: 1;
+    padding: 0 $s-2;
+    overflow: hidden;
+  }
+
+  &-title {
+    color: $color-text-5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &-msg {
+    font-size: $font-size-1;
+    color: $color-text-2;
+
+    display: inline-flex;
+    align-items: center;
+
+    &>span:not(:last-child) {
+      margin-right: $s-2
+    }
+  }
+
+  &-icon {
+    height: 100%;
+    display: inline-flex;
+
+    &>i {
+      font-size: $font-size-3;
+      color: $color-text-5;
+      cursor: pointer;
+      margin-left: $s-3;
+      transition: all;
+
+      &:hover {
+        font-weight: $font-weight-semi-bold;
+      }
+
+    }
+
+  }
+
+  &-fail {
+    border-color: $color-danger-8;
+
+    .#{$B}-msg {
+      color: $color-danger-6
+    }
+  }
+
+  &-pic-actions {
+    height: 24px;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    display: flex;
+    z-index: 1;
+    display: none;
+
+    &>div {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      font-size: 14px;
+
+      color: $color-white;
+      background-color: #4c4c4c;
+
+      &:hover {
+        background-color: #616161;
+      }
+    }
+
+    &>div:last-child {
+      border-bottom-right-radius: 12px;
+      border-top-right-radius: 12px;
+
+      & i {
+        margin-right: $s-1
+      }
+    }
+
+    &>div:first-child {
+      border-bottom-left-radius: 12px;
+      border-top-left-radius: 12px;
+
+      & i {
+        margin-left: $s-1
+      }
+    }
+  }
+
+  &-pic {
+    border-radius: $border-radius-2;
+    border: 1px solid $color-line-8;
+    background-size: 100% 100%;
+  }
+
+}

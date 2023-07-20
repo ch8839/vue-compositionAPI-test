@@ -1,0 +1,223 @@
+{
+  "cnName": "选择器",
+  "name": "picker",
+  "maintainer": "wangchenyu02",
+  "props": [
+    {
+      "name": "options",
+      "desc": "数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能",
+      "type": "{ label, value }[]",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "value",
+      "desc": "当前选中值，多选时为数组",
+      "type": "any",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "value-key",
+      "desc": "仅当 value 值为 object、object[] 时生效，作为 value 唯一标识的键名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "icon",
+      "desc": "选择框右侧的 icon",
+      "type": "string",
+      "optionalValue": "",
+      "default": "'down'",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "clearable",
+      "desc": "是否有清空按钮",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "filterable",
+      "desc": "是否可搜索",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "debounce",
+      "desc": "搜索防抖延迟，单位毫秒",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "multiple",
+      "desc": "是否多选",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "append-to-container",
+      "desc": "是否将弹出框插入至 body 元素。在弹出框的定位出现问题时，可将该属性设置为 false",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "placeholder",
+      "desc": "占位符",
+      "type": "string",
+      "optionalValue": "",
+      "default": "请选择",
+      "version": ""
+    },
+    {
+      "name": "no-match-text",
+      "desc": "搜索条件无匹配时显示的文字",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "no-data-text",
+      "desc": "选项为空时显示的文字",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "filter-method",
+      "desc": "自定义搜索方法，query为当前查询条件，value为当前option的值",
+      "type": "function(query,value): boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "remote",
+      "desc": "是否远程搜索",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "remote-method",
+      "desc": "远程搜索的方法",
+      "type": "function(query)",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "loading",
+      "desc": "是否正在从远程获取数据",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "loading-text",
+      "desc": "搜索时的文案",
+      "type": "string",
+      "optionalValue": "",
+      "default": "'搜索中'",
+      "version": ""
+    },
+    {
+      "name": "popper-class",
+      "desc": "Select 下拉框的类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "show-select-all",
+      "desc": "多选时生效，是否显示全选",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "formatter",
+      "desc": "格式化当前输入框中显示的内容",
+      "type": "function({value,label}): string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "separator",
+      "desc": "多选时生效，多个选项间连字符",
+      "type": "string",
+      "optionalValue": "",
+      "default": "、",
+      "version": ""
+    },
+    {
+      "name": "max-count",
+      "desc": "标题中最多显示多少个选中选项，0 为不限制",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "desc": "选中值发生变化时触发",
+      "args": "(value: any)"
+    },
+    {
+      "name": "update:visible",
+      "desc": "下拉框显示／隐藏状态变化时触发",
+      "args": "(visible: boolean)"
+    }
+  ],
+  "slots": [
+    {
+      "name": "empty",
+      "desc": "空数据时展示的内容"
+    },
+    {
+      "name": "loading",
+      "desc": "加载时展示的内容"
+    },
+    {
+      "name": "noMatched",
+      "desc": "无匹配内容时展示的内容，<strong>请勿在其中放置 Option 组件</strong>"
+    }
+  ],
+  "scopeSlots": [
+    {
+      "name": "selected",
+      "desc": "自定义选中展示结果，参数为{<br /> selected: Option[] // 全部选中的 tag 项 <br />}"
+    }
+  ],
+  "componentId": "ZMKcVWCFgg446Jd1xfri2"
+}

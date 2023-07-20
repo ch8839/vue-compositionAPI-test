@@ -1,0 +1,151 @@
+{
+  "params": [
+    {
+      "name": "type",
+      "desc": "消息类型，用于显示图标",
+      "type": "string",
+      "optionalValue": [
+        "success",
+        "info",
+        "warning",
+        "error"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "title",
+      "desc": "Confirm 标题",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "className",
+      "desc": "Confirm 的类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "message",
+      "desc": "Confirm 消息正文内容",
+      "type": [
+        "string",
+        "VNode"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "closable",
+      "desc": "是否显示关闭按钮，同时是否支持 esc 关闭",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "maskClosable",
+      "desc": "点击蒙层是否允许关闭",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "okButtonProps",
+      "desc": "确定按钮的额外属性",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "okButtonText",
+      "desc": "确定按钮的文本内容",
+      "type": "string",
+      "optionalValue": "",
+      "default": "确定",
+      "version": ""
+    },
+    {
+      "name": "showOkButton",
+      "desc": "是否显示确定按钮",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "cancelButtonProps",
+      "desc": "取消按钮的额外属性",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "cancelButtonText",
+      "desc": "取消按钮的自定义类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "取消",
+      "version": ""
+    },
+    {
+      "name": "showCancelButton",
+      "desc": "是否显示取消按钮",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "width",
+      "desc": "宽度 (当为 string 时需要带上单位)",
+      "type": [
+        "string",
+        "number"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "onOk",
+      "desc": "点击确认按钮后的回调, 0.1.42 版本起支持返回 Promise, 当其 resolve 后自动关闭",
+      "type": "function",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "onCancel",
+      "desc": "点击取消按钮后的回调, 0.1.42 版本起支持返回 Promise, 当其 resolve 后自动关闭",
+      "type": "function",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "dangerouslyUseHTMLString",
+      "desc": "是否将 message 属性作为 HTML 片段处理",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "getPopupContainer",
+      "desc": "配置渲染节点的输出位置，需要返回 HTMLElement 对象",
+      "type": "function (): HTMLElement",
+      "optionalValue": "",
+      "default": "默认返回 document.body",
+      "version": ""
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+@import "./common/var.scss";
+@import "./dropdown-menu-item.scss";
+
+@include c(option) {
+
+  &-label-wrapper {
+    .text__highlight {
+      background: transparent;
+      color: $color-primary;
+    }
+  }
+}

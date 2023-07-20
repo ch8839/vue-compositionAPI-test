@@ -1,0 +1,12 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(breadcrumb-item) {
+
+  .#{$B}-disabled,
+  .#{$B}-disabled:hover {
+    color: $color-text-1;
+    cursor: not-allowed;
+    text-decoration: none;
+  }
+}

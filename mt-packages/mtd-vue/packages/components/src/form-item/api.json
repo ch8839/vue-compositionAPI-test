@@ -1,0 +1,165 @@
+{
+  "props": [
+    {
+      "name": "prop",
+      "desc": "对应表单域 model 里的字段",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "label",
+      "desc": "标签文本",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "label-width",
+      "desc": "标签的宽度，不设置时继承 Form 中的配置，等于 0 时表示 auto",
+      "type": "number",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "label-position",
+      "desc": "表单标签的位置，默认继承 Form 中的 label-position 值",
+      "type": "string",
+      "optionalValue": [
+        "top",
+        "right"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "label-for",
+      "desc": "指定原生的 label 标签的 for 属性",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "rules",
+      "desc": "表单验证规则",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "required",
+      "desc": "是否必填, change 时触发校验, 也可在 rules.required 属性上配置",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "error",
+      "desc": "表单域验证错误信息",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "show-message",
+      "desc": "是否显示校验错误信息",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "helper",
+      "desc": "帮助信息",
+      "type": "string",
+      "optionalValue": "",
+      "default": "-",
+      "version": ""
+    },
+    {
+      "name": "helper-placement",
+      "desc": "helper的位置",
+      "type": "string",
+      "optionalValue": [
+        "bottom",
+        "right"
+      ],
+      "default": "bottom",
+      "version": ""
+    },
+    {
+      "name": "validate-placement",
+      "desc": "校验信息的位置",
+      "type": "string",
+      "optionalValue": [
+        "right",
+        "bottom"
+      ],
+      "default": "bottom",
+      "version": ""
+    },
+    {
+      "name": "use-html-message",
+      "desc": "是否使用 html 格式展示错误提示",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "validate-status",
+      "desc": "校验状态，如不设置，则会根据校验规则自动生成",
+      "type": "string",
+      "optionalValue": [
+        "success",
+        "warning",
+        "error",
+        "validating"
+      ],
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "has-feedback",
+      "desc": "配合 validateStatus 属性使用，展示校验状态图标，建议只配合 Input 组件使用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "label",
+      "desc": "标签内容"
+    },
+    {
+      "name": "default",
+      "desc": "默认插槽"
+    },
+    {
+      "name": "helper",
+      "desc": "帮助信息"
+    },
+    {
+      "name": "error",
+      "desc": "错误提示",
+      "args": "{ <br />message: string; // 错误提示内容 <br />}",
+      "version": ""
+    }
+  ],
+  "methods": [
+    {
+      "name": "clearValidate()",
+      "desc": "清空表单项的校验结果",
+      "args": ""
+    }
+  ]
+}

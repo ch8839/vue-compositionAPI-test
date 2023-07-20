@@ -1,0 +1,78 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import './modal.scss';
+@import './button.scss';
+
+@include c(confirm) {
+
+  // padding-top: 30px;
+  &-icon {
+    float: left;
+    width: $confirm-icon-size;
+    height: $confirm-icon-size;
+    font-size: $confirm-icon-size;
+
+    i {
+      vertical-align: top;
+      line-height: $confirm-title-line-height;
+    }
+  }
+
+  &-warning {
+    color: $confirm-warning-color;
+  }
+
+  &-error {
+    color: $confirm-danger-color;
+  }
+
+  &-success {
+    color: $confirm-success-color;
+  }
+
+  &-info {
+    color: $confirm-info-color;
+  }
+
+  &-message {
+    font-size: $confirm-message-font-size;
+    color: $confirm-message-color;
+    line-height: $confirm-message-line-height;
+  }
+
+  &-title {
+    font-size: $confirm-title-font-size;
+    color: $confirm-title-color;
+    letter-spacing: 0;
+    margin-bottom: $confirm-title-margin-bottom;
+    font-weight: $confirm-title-font-weight;
+    line-height: $confirm-title-line-height;
+  }
+
+  &-footer {
+    text-align: right;
+
+    button+button {
+      margin-left: 12px;
+    }
+  }
+
+  &-typed {
+    $top: $confirm-content-padding-vertical - $modal-content-padding-vertical;
+    $left: $confirm-content-padding-horizontal - $modal-content-padding-horizontal;
+    margin: $top $left 0;
+
+  }
+
+  &-typed &-right {
+    margin-left: $confirm-icon-size + $confirm-icon-margin-right;
+  }
+
+  &-wrapper {
+    @if $confirm-border-top-width  !=0px {
+      .#{$prefix}-modal {
+        border-top: $confirm-border-top-width solid $confirm-border-top-color;
+      }
+    }
+  }
+}

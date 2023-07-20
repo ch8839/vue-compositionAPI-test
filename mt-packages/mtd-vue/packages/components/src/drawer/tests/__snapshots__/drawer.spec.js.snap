@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer render top drawer 1`] = `<div class="mtd-teleport mtd-teleport-hidden"></div>`;
+
+exports[`Drawer 点击遮罩层不要关闭 mask-closable 1`] = `<div class="mtd-teleport mtd-teleport-hidden"></div>`;

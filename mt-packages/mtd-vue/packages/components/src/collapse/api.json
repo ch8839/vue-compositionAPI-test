@@ -1,0 +1,50 @@
+{
+  "props": [
+    {
+      "name": "modelValue",
+      "desc": "当前展开的面板值，可以是数组也可以是单个值，当是数组时则表示可以同时展开多个",
+      "type": [
+        "any[]",
+        "any"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "type",
+      "desc": "面板类型",
+      "type": "string",
+      "optionalValue": [
+        "不设置",
+        "sample",
+        "area"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "right-align-arrow",
+      "desc": "是否箭头在右侧",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "triangle-arrow",
+      "desc": "是否箭头为实心三角形",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": "MTD 3.0"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "desc": "当切换展开面板时触发",
+      "args": "(value: any[] | any)"
+    }
+  ]
+}

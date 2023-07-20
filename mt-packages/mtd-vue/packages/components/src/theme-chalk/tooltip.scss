@@ -1,0 +1,72 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/tooltip.scss";
+
+@include c(tooltip) {
+  @include tooltip-theme($tooltip-color,
+    $tooltip-bgc,
+    $tooltip-border-width,
+    $tooltip-border-color );
+  line-height: $tooltip-line-height;
+  padding: $tooltip-padding-vertical $tooltip-padding-horizontal;
+  font-size: $tooltip-font-size;
+  max-width: $tooltip-max-width;
+  border-radius: $tooltip-border-radius;
+  font-weight: $tooltip-font-weight;
+  word-wrap: break-word;
+
+  &-small {
+    padding: $tooltip-small-padding-vertical $tooltip-small-padding-horizontal;
+    font-size: $tooltip-small-font-size;
+    line-height: $tooltip-small-line-height;
+  }
+
+  &-light {
+    @include tooltip-theme($tooltip-light-color,
+      $tooltip-light-bgc,
+      $tooltip-light-border-width,
+      $tooltip-light-border-color );
+  }
+
+  &-yellow {
+    @include tooltip-theme($tooltip-light-color,
+      $color-brand,
+      $tooltip-light-border-width,
+      $color-brand );
+  }
+
+  &-red {
+    @include tooltip-theme($tooltip-color,
+      $color-danger-6,
+      $tooltip-border-width,
+      $color-danger-6);
+  }
+
+  &-green {
+    @include tooltip-theme($tooltip-color,
+      $color-success-1,
+      $tooltip-border-width,
+      $color-success-1 );
+  }
+
+  &-brown {
+    @include tooltip-theme($tooltip-color,
+      $color-warning-4,
+      $tooltip-border-width,
+      $color-warning-4 );
+  }
+
+  &-blue {
+    @include tooltip-theme($tooltip-color,
+      $color-primary,
+      $tooltip-border-width,
+      $color-primary );
+  }
+
+  &-purple {
+    @include tooltip-theme($tooltip-color,
+      $color-auxiliary-purple,
+      $tooltip-border-width,
+      $color-auxiliary-purple );
+  }
+}

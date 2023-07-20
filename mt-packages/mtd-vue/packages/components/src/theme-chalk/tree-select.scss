@@ -1,0 +1,22 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(tree-select) {
+  cursor: pointer;
+  width: 180px;
+
+  &-drop {
+    max-height: 300px;
+    overflow: auto;
+  }
+
+  .#{$prefix}-input-readonly {
+    background-color: white;
+  }
+
+  &-selected {
+    .#{$prefix}-select-multiple-input {
+      padding-left: $s-1 - 1px;
+    }
+  }
+}

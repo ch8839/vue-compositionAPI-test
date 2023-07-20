@@ -1,0 +1,702 @@
+@use "sass:math";
+@import './common/var.scss';
+@import 'mixins/mixins.scss';
+@import 'mixins/tabs.scss';
+@import 'mixins/button.scss';
+
+// base
+@include c(tabs) {
+  color: $tabs-color;
+  transition: all linear .3s;
+
+  .width-skeleton {
+    font-weight: $tabs-active-font-weight;
+    visibility: hidden;
+    overflow: hidden;
+    color: transparent;
+    height: 0;
+    overflow: hidden;
+  }
+
+  &-item {
+    white-space: nowrap;
+    // overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: $tabs-font-weight;
+  }
+
+  .#{$prefix}-tab-active {
+    font-weight: $tabs-active-font-weight;
+
+  }
+
+  &-flex {
+    display: flex;
+    flex-direction: column;
+
+    .#{$prefix}-tabs-nav {
+      flex: 0 0 auto;
+    }
+  }
+}
+
+// content
+.#{$prefix}-tabs-content {
+  padding: $tabs-content-padding;
+  text-align: left;
+}
+
+.#{$prefix}-tabs-large {
+  .#{$prefix}-tabs-content {
+    padding: $tabs-large-content-padding;
+  }
+}
+
+.#{$prefix}-tabs-small {
+  .#{$prefix}-tabs-content {
+    padding: $tabs-small-content-padding;
+  }
+}
+
+// slider
+@include c(tabs-bottom-border) {
+  width: 100%;
+  height: $tabs-slider-height;
+  position: absolute;
+  bottom: 0;
+  background-color: $tabs-nav-border-bottom;
+  z-index: 1;
+}
+
+.#{$prefix}-tabs-card,
+.#{$prefix}-tabs-border-card {
+  .#{$prefix}-tabs-bottom-border {
+    display: none;
+  }
+}
+
+// size
+@include c(tabs) {
+  &-item-small {
+    @include tabs-size($tabs-small-min-width,
+      $tabs-small-max-width,
+      $tabs-small-height,
+      $tabs-small-padding,
+      $tabs-small-label-padding-horizontal,
+      $tabs-small-font-size,
+      $tabs-small-margin-right,
+      0,
+      $tabs-small-active-max-width);
+    @include tabs-iconfont($tabs-small-icon-font-size);
+  }
+
+  &-item-normal {
+    @include tabs-size($tabs-min-width,
+      $tabs-max-width,
+      $tabs-height,
+      $tabs-padding,
+      $tabs-label-padding-horizontal,
+      $tabs-font-size,
+      $tabs-margin-right,
+      0,
+      $tabs-active-max-width);
+    @include tabs-iconfont($tabs-icon-font-size);
+  }
+
+  &-item-large {
+    @include tabs-size($tabs-large-min-width,
+      $tabs-large-max-width,
+      $tabs-large-height,
+      $tabs-large-padding,
+      $tabs-large-label-padding-horizontal,
+      $tabs-large-font-size,
+      $tabs-large-margin-right,
+      0,
+      $tabs-large-active-max-width);
+    @include tabs-iconfont($tabs-large-icon-font-size);
+  }
+
+  >.#{$prefix}-tabs-nav {
+    .#{$prefix}-tabs-action {
+      font-size: $tabs-action-font-size;
+      padding: math.div(($tabs-action-height - 2px - $tabs-action-font-size), 2);
+    }
+  }
+
+  &-small {
+    >.#{$prefix}-tabs-nav {
+      .#{$prefix}-tabs-action {
+        font-size: $tabs-small-action-font-size;
+        padding: math.div(($tabs-small-action-height - 2px - $tabs-small-action-font-size), 2);
+      }
+    }
+  }
+
+  &-large {
+    >.#{$prefix}-tabs-nav {
+      .#{$prefix}-tabs-action {
+        font-size: $tabs-large-action-font-size;
+        padding: math.div(($tabs-large-action-height - 2px - $tabs-large-action-font-size), 2);
+      }
+    }
+  }
+
+}
+
+.#{$prefix}-tabs-card,
+.#{$prefix}-tabs-border-card {
+  >.#{$prefix}-tabs-nav {
+    @if $tabs-card-nav-bgc !=transparent {
+      background-color: $tabs-card-nav-bgc;
+    }
+
+    .#{$prefix}-tabs-item-small {
+      max-width: none;
+      padding: 0 $tabs-small-card-padding;
+      height: $tabs-small-card-height;
+      line-height: $tabs-small-card-height;
+      @include tabs-close($tabs-small-icon-font-size);
+    }
+
+    .#{$prefix}-tabs-item-normal {
+      max-width: none;
+      padding: 0 $tabs-card-padding;
+      height: $tabs-card-height;
+      line-height: $tabs-card-height;
+      @include tabs-close($tabs-icon-font-size);
+
+    }
+
+    .#{$prefix}-tabs-item-large {
+      max-width: none;
+      padding: 0 $tabs-large-card-padding;
+      height: $tabs-large-card-height;
+      line-height: $tabs-large-card-height;
+      @include tabs-close($tabs-large-icon-font-size);
+    }
+
+    @include c(tabs-add) {
+      margin-left: $tabs-add-margin-left;
+      padding: 0px;
+      width: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+// card, border-card
+.#{$prefix}-tabs-card,
+.#{$prefix}-tabs-border-card {
+  >.#{$prefix}-tabs-nav {
+    .#{$prefix}-tabs-item {
+      border-radius: $tabs-card-border-radius $tabs-card-border-radius 0 0;
+
+      &-label {
+        display: flex;
+        align-items: center;
+
+        span {
+          display: inline-block;
+          max-width: $tabs-card-item-maxwidth;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+        }
+      }
+    }
+  }
+}
+
+//text
+@include c(tabs-text) {
+
+
+  >.#{$prefix}-tabs-nav {
+    @include c(tabs-item) {
+      position: relative;
+      text-align: center;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      .#{$prefix}-picker-selected {
+        vertical-align: top;
+        color: currentColor;
+        font-weight: inherit;
+      }
+
+      &:hover,
+      &.hover {
+        color: $tabs-text-item-active-color;
+
+        .#{$icon-prefix} {
+          color: $tabs-hover-color;
+        }
+      }
+    }
+
+    .#{$prefix}-tab-active {
+      color: $tabs-text-item-active-color;
+      font-size: $tabs-text-item-active-font-size;
+
+      .#{$prefix}-picker-selected {
+        color: $tabs-text-item-active-color;
+      }
+    }
+  }
+
+  .#{$prefix}-tabs-bottom-border {
+    background-color: transparent;
+  }
+
+  .#{$prefix}-tabs-content {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+}
+
+// old
+
+.#{$prefix}-tabs-nav {
+  position: relative;
+}
+
+.#{$prefix}-tabs-nocard {
+  .#{$prefix}-tabs-content {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  &.#{$prefix}-tabs-left {
+    display: flex;
+
+    >.#{$prefix}-tabs-content {
+      // padding: math.div(($tabs-large-height - $line-height-3), 2) $tabs-content-padding;
+      padding: 0 $tabs-aside-content-padding;
+    }
+  }
+
+  /* .#{$prefix}-tab-icon {
+    color: $tabs-icon-color;
+  } */
+
+  @include c(tabs-bar) {
+    position: absolute;
+    align-self: flex-end;
+    background-color: $tabs-bar-background-color;
+    transition: transform .3s cubic-bezier(.645, .045, .355, 1);
+    z-index: $tabs-bar-z-index;
+    height: $tabs-bar-height;
+    // bottom: 0;
+    border-radius: $tabs-bar-border-radius;
+  }
+}
+
+@include c(tabs-nav-container) {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+@include c(tabs-nav-scroll) {
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+}
+
+@include c(tabs-nav-animated) {
+  position: relative;
+  display: flex;
+  transition: transform .3s;
+}
+
+.#{$prefix}-tabs-nocard {
+  .#{$prefix}-tabs-item {
+    .#{$prefix}-input-wrapper {
+      font-size: 1em;
+      color: currentColor;
+      vertical-align: baseline;
+    }
+
+    &-label {
+      display: flex;
+      align-items: center;
+
+      >span {
+        display: inline-block;
+        max-width: $tabs-card-item-maxwidth;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .#{$prefix}-tab-active {
+    .#{$prefix}-input-wrapper {
+      font-weight: $tabs-active-font-weight;
+    }
+  }
+
+  @include c(tabs-item) {
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &:hover,
+    &.hover {
+      color: $tabs-hover-color;
+      background-color: $tabs-hover-bgc;
+
+      .#{$icon-prefix} {
+        color: $tabs-hover-color;
+      }
+
+      .#{$prefix}-input {
+        color: $tabs-hover-color;
+      }
+    }
+
+    &.#{$prefix}-tab-active {
+      color: $tabs-active-color;
+
+      .#{$prefix}-picker-selected,
+      .#{$prefix}-tab-icon {
+        .#{$prefix}-picker-icon {
+          color: $tabs-active-color;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      // padding-left: 2px;
+    }
+
+    &:last-child {
+      // padding-right: 2px;
+      // margin: 0;
+    }
+
+    .#{$prefix}-tabs-select-item {
+
+      // width: 100px;
+      .#{$prefix}-input {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+        width: 30px;
+      }
+
+      .#{$prefix}-input-wrapper {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+      }
+
+      .#{$prefix}-input-disabled .#{$prefix}-input {
+        background-color: transparent;
+      }
+    }
+
+    .#{$prefix}-picker-selected {
+      vertical-align: top;
+      color: currentColor;
+      font-weight: inherit;
+    }
+
+    &.#{$prefix}-tab-active {
+      .#{$prefix}-input {
+        color: $tabs-hover-color;
+      }
+    }
+  }
+}
+
+
+
+// @include c(tabs-page-line) {
+//   display: inline-block;
+//   vertical-align: middle;
+//   width: 1px;
+//   height: 100%;
+//   background-color: $tabs-page-border-color;
+// }
+
+@include c(tabs) {
+  &-left {
+    >.#{$prefix}-tabs-nav {
+      float: left;
+      border-bottom: none;
+
+      @include c(tabs-nav-animated) {
+        flex-direction: column;
+      }
+
+      .#{$prefix}-tabs-bar {
+        bottom: auto;
+        right: 0;
+        width: $tabs-bar-height;
+      }
+
+      .#{$prefix}-tabs-nav-container {
+        display: block;
+      }
+
+      .#{$prefix}-tabs-item {
+        text-align: right;
+      }
+
+      .#{$prefix}-tabs-bottom-border {
+        height: 100%;
+        right: 0;
+        width: $tabs-slider-height;
+      }
+
+      .#{$prefix}-tabs-item-small {
+        @include tabs-left-size($tabs-small-padding,
+          $tabs-small-left-margin-right,
+          $tabs-small-left-margin-bottom)
+      }
+
+      .#{$prefix}-tabs-item-normal {
+        @include tabs-left-size($tabs-padding,
+          $tabs-left-margin-right,
+          $tabs-left-margin-bottom)
+      }
+
+      .#{$prefix}-tabs-item-large {
+        @include tabs-left-size($tabs-large-padding,
+          $tabs-large-left-margin-right,
+          $tabs-large-left-margin-bottom)
+      }
+    }
+
+    >.#{$prefix}-tabs-content {
+      float: left;
+    }
+  }
+
+  &-right {
+    display: flex;
+    justify-content: space-between;
+
+    >.#{$prefix}-tabs-nav {
+      float: right;
+      border-bottom: none;
+
+      @include c(tabs-nav-animated) {
+        flex-direction: column;
+      }
+
+      .#{$prefix}-tabs-bar {
+        bottom: auto;
+        left: 0;
+        width: $tabs-bar-height;
+      }
+
+      .#{$prefix}-tabs-nav-container {
+        display: block;
+      }
+
+      .#{$prefix}-tabs-item {
+        text-align: left;
+      }
+
+      .#{$prefix}-tabs-bottom-border {
+        height: 100%;
+        left: 0;
+        width: $tabs-slider-height;
+      }
+
+      .#{$prefix}-tabs-item-small {
+        @include tabs-left-size($tabs-small-padding,
+          $tabs-small-left-margin-right,
+          $tabs-small-left-margin-bottom)
+      }
+
+      .#{$prefix}-tabs-item-normal {
+        @include tabs-left-size($tabs-padding,
+          $tabs-left-margin-right,
+          $tabs-left-margin-bottom)
+      }
+
+      .#{$prefix}-tabs-item-large {
+        @include tabs-left-size($tabs-large-padding,
+          $tabs-large-left-margin-right,
+          $tabs-large-left-margin-bottom)
+      }
+    }
+
+    >.#{$prefix}-tabs-content {
+      float: left;
+    }
+  }
+}
+
+// card border-card
+.#{$prefix}-tabs-card,
+.#{$prefix}-tabs-border-card {
+  >.#{$prefix}-tabs-nav {
+    @include c(tabs-item) {
+      position: relative;
+      text-align: center;
+      box-sizing: border-box;
+      background-color: $tabs-card-item-bgc;
+      border: $tabs-item-border-width solid $tabs-item-border-color;
+      border-bottom: none;
+      margin-right: $tabs-card-item-spacing;
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+      .#{$prefix}-tabs-tab-close {
+        position: relative;
+        width: 0;
+        vertical-align: middle;
+        overflow: hidden;
+        top: -1px;
+        transform-origin: 100% 50%;
+        display: inline-block;
+        transition: all .3s cubic-bezier(.645, .045, .355, 1);
+      }
+
+      cursor: pointer;
+
+      &:hover,
+      &.hover {
+        @include tabs-card-active($tabs-card-item-hover-color,
+          $tabs-item-border-color,
+          $tabs-card-item-hover-bgc );
+
+      }
+
+      &.#{$prefix}-tab-active {
+        @include tabs-card-active($tabs-card-item-active-color,
+          $tabs-card-item-active-bgc,
+          $tabs-card-item-active-bgc );
+
+        position: relative;
+
+        /* &::after {
+          content: '';
+          position: absolute;
+          left: -6px;
+          bottom: 0;
+          width: 6px;
+          height: 6px;
+          background: radial-gradient(circle at 0% 0%, transparent 6px, #00caf5 0)
+        } */
+      }
+
+      &:last-child {
+        // margin: 0;
+      }
+    }
+
+    @include c(tabs-scroll) {
+      border: $tabs-scroll-border-width solid $tabs-card-border-color;
+    }
+
+    .#{$prefix}-tabs-item-disabled {
+      background-color: $tabs-card-item-disabled-bgc;
+      color: $tabs-card-item-disabled-color;
+      opacity: $tabs-card-item-disabled-opacity;
+
+      &:hover,
+      &.hover {
+        color: $tabs-card-item-disabled-color;
+        //background-color: $color-transparent;
+        font-weight: $tabs-font-weight;
+      }
+    }
+  }
+
+  @include c(tabs-content) {
+    margin-top: $tabs-content-margin-top;
+    border-top: $tabs-content-border-width solid $tabs-card-border-color;
+  }
+}
+
+@include c(tabs-border-card) {
+  @include c(tabs-content) {
+    border: $tabs-content-border-width solid $tabs-card-border-color;
+    border-radius: $tabs-content-border-radius;
+    border-top-left-radius: 0;
+  }
+}
+
+@include c(tabs-action) {
+  //border: 1px solid $tabs-action-border-color;
+  border-radius: $tabs-action-border-radius;
+  line-height: 1;
+  color: $tabs-action-color;
+  text-align: center;
+
+  &:hover,
+  &.hover {
+    cursor: pointer;
+    @include btn-default-hover();
+  }
+
+  &-disabled {
+    color: $btn-disabled-color;
+    background-color: $btn-disabled-bgc;
+
+    &:hover,
+    &.hover {
+      cursor: not-allowed;
+      color: $btn-disabled-color;
+      border-color: $tabs-action-border-color;
+      background-color: $btn-disabled-bgc;
+    }
+  }
+}
+
+@include c(tabs-page) {
+  margin-left: 15px;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: auto; // fix to ie10
+
+  .#{$prefix}-tabs-action {
+    &:first-child {
+      border-right: none;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
+// disabled
+@include c(tabs-item-disabled) {
+  &.#{$prefix}-tabs-item {
+    // 提升权重
+    color: $tabs-disabled-color;
+    opacity: $tabs-disabled-opacity;
+    background-color: $color-transparent;
+
+    &:hover,
+    &.hover {
+      color: $tabs-disabled-color;
+      cursor: not-allowed;
+      background-color: $color-transparent;
+    }
+  }
+}
+
+@include c(tabs-select) {
+  .#{$prefix}-dropdown-menu {
+    min-width: 0px;
+  }
+}

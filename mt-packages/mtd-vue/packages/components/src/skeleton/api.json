@@ -1,0 +1,68 @@
+{
+  "props": [
+    {
+      "name": "type",
+      "desc": "骨架屏的类型：（头像、段落、图片）",
+      "type": "string",
+      "optionalValue": [
+        "avatar",
+        "paragraph",
+        "picture"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "active",
+      "desc": "是否打开渐变动画",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "loading",
+      "desc": "是否显示骨架屏",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "lineNum",
+      "desc": "type = paragraph时生效，显示多少个段落",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "骨架屏元素大小（px）：头像（直径），段落（行高）",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "16",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "示例",
+      "desc": "-"
+    }
+  ],
+  "events": [
+    {
+      "name": "示例",
+      "desc": "示例",
+      "args": "(a: A, b: B)"
+    }
+  ],
+  "methods": [
+    {
+      "name": "focus()",
+      "desc": "示例",
+      "args": ""
+    }
+  ]
+}

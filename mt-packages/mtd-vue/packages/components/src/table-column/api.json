@@ -1,0 +1,261 @@
+{
+  "props": [
+    {
+      "name": "type",
+      "desc": "对应列的类型。多选框设置 selection；可展开的按钮设置 expand",
+      "type": "string",
+      "optionalValue": [
+        "selection",
+        "expand",
+        "不设置"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "label",
+      "desc": "标题",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "prop",
+      "desc": "对应列内容的字段名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "width",
+      "desc": "对应列的宽度",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "min-width",
+      "desc": "对应列的最小宽度，与 width 的区别是 width 是固定的，min-width 会把剩余宽度按比例分配给设置了 min-width 的列",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "fixed",
+      "desc": "列是否固定在左侧或者右侧，true 表示固定在左侧",
+      "type": [
+        "string",
+        "boolean"
+      ],
+      "optionalValue": [
+        "true",
+        "left",
+        "right"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "sortable",
+      "desc": "对应列是否可以排序，如果设置为 'custom'，则代表用户希望远程排序，需要监听 Table 的 change 事件事件,需要配置 'prop' 属性",
+      "type": [
+        "boolean",
+        "string"
+      ],
+      "optionalValue": [
+        "true",
+        "false",
+        "custom"
+      ],
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "sort-method",
+      "desc": "对数据进行排序的时候使用的方法，仅当 sortable 设置为 true 的时候有效，需返回一个数字，和 Array.sort 表现一致",
+      "type": "function(a, b): number",
+      "optionalValue": "",
+      "default": ""
+    },
+    {
+      "name": "sort-orders",
+      "desc": "数据在排序时所使用排序策略的轮转顺序，仅当 sortable 为 true 时有效。需传入一个数组，随着用户点击表头，该列依次按照数组中元素的顺序进行排序",
+      "type": "string[]",
+      "optionalValue": "",
+      "default": "['ascending','descending',null]",
+      "version": ""
+    },
+    {
+      "name": "align",
+      "desc": "对齐方式",
+      "type": "string",
+      "optionalValue": [
+        "left",
+        "center",
+        "right"
+      ],
+      "default": "left",
+      "version": ""
+    },
+    {
+      "name": "header-align",
+      "desc": "表头对齐方式，优先级高于表格的对齐方式",
+      "type": "string",
+      "optionalValue": [
+        "left",
+        "center",
+        "right"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "class-name",
+      "desc": "列的 className",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "label-class",
+      "desc": "当前列标题的自定义类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "show-overflow-tooltip",
+      "desc": "当内容过长时展示省略号，hover 时是否显示 tooltip 展示全部内容，设置在table-column 上优先于 table ",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "formatter",
+      "desc": "用来格式化内容",
+      "type": "function(row, column, cellValue, index): string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "filters",
+      "desc": "表头的筛选菜单项",
+      "type": "{ text: string, value: any }[]",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "filtered-value",
+      "desc": "筛选的受控属性，支持.sync，外界可用此控制列的筛选状态，值为已筛选的 value 数组。",
+      "type": "any[]",
+      "optionalValue": "",
+      "default": "[]",
+      "version": ""
+    },
+    {
+      "name": "filter-dropdown-visible",
+      "desc": "用于控制自定义筛选菜单是否可见，支持 .sync。",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "filter-method",
+      "desc": "数据过滤使用的方法，支持.sync，返回 true 就会显示",
+      "type": "(value: any, row: Object, column: Object) => boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "filter-multiple",
+      "desc": "是否多选",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "show-filter-actions",
+      "desc": "是否显示过滤下拉中的操作按钮，仅在单选时生效",
+      "type": "boolean",
+      "optionalValue": "true",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "column-key",
+      "desc": "column 的 key，如果没有配置的话，会尝试使用 prop 属性。如果需要使用 change 事件，则需要此属性标识是哪个 column 的筛选条件。",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "resizable",
+      "desc": "对应列是否可以通过拖动改变宽度，目前需要设置 mtd-table 的 bordered 属性为 true，后续版本会删除此限制",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "overflow-selector",
+      "desc": "用于获取内容超长的元素，用获取到的元素来判断是否展示超长 tooltip，超出内容宽度即展示文字提示",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "header",
+      "desc": "自定义表头的内容",
+      "args": "{ column, $index, fixed }"
+    },
+    {
+      "name": "default",
+      "desc": "自定义列的内容",
+      "args": "{ row, column, $index, fixed }"
+    },
+    {
+      "name": "group",
+      "desc": "自定义多级表头",
+      "args": "{ row, column, $index, fixed }"
+    },
+    {
+      "name": "selection",
+      "desc": "自定义复选框内容，仅在type='selection'下生效",
+      "args": "{ onClick: Function, 'onUpdate:checked': Function, disabled: boolean, checked: boolean }"
+    },
+    {
+      "name": "filter-icon",
+      "desc": "自定义过滤显示的 icon，参数 actived 表示当前下拉菜单是否激活, filtered 表示当前是否过滤中",
+      "args": "{ actived: boolean, filtered: boolean }",
+      "version": ""
+    },
+    {
+      "name": "filter-dropdown",
+      "desc": "自定义过滤的下拉菜单，参数为",
+      "args": "{ <br>&nbsp;&nbsp;selectedValue:string[], // 当前过滤项的值 <br>&nbsp;&nbsp;setSelected: (string[])=>void, // 设置当前过滤项的值 <br>&nbsp;&nbsp; confirm:(options)=>void, // 确认过滤，可通过设置参数options.closed=false 阻止面板的关闭 <br>&nbsp;&nbsp; clear: (options)=>void // 重置过滤，可通过设置参数 options.closed=false 阻止面板的关闭 }",
+      "version": ""
+    },
+    {
+      "name": "expand",
+      "desc": "非 tree 情况下自定义展开按钮，详细请查看 <a href='https://ones.sankuai.com/ones/product/4348/workItem/requirement/detail/5539732' target='_blank'>Ones</a>",
+      "args": "{ <br />disabled?: boolean, <br />expanded?: boolean, <br />toogle: function ($event) => void, <br /> row: any,  <br />$index: number <br />}",
+      "version": ""
+    }
+  ]
+}

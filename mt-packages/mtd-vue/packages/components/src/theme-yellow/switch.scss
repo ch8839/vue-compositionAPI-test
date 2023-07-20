@@ -1,0 +1,129 @@
+@import "./common/var.scss";
+@import "mixins/mixins";
+@import "mixins/switch";
+
+@keyframes rotating {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@include c(switch) {
+  position: relative;
+  vertical-align: middle;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-white;
+  background: $switch-bgc;
+  border-radius: $switch-border-radius;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.3s, background-color 0.3s;
+  font-weight: $font-weight-medium;
+
+  .#{$prefix}-loading-circle {
+    color: $switch-bgc
+  }
+
+  &:hover {
+    background: $switch-hover-bgc;
+  }
+
+  &:active {
+    background: $switch-active-bgc;
+
+    .#{$B}-btn {
+      width: 24px;
+    }
+  }
+
+  &-input {
+    display: none;
+  }
+
+  &-btn {
+    display: inline-flex;
+    box-sizing: border-box;
+    font-size: $switch-loading-size;
+    align-items: center;
+    justify-content: center;
+
+    background-color: $switch-btn-bgc;
+    border: $switch-btn-border-width solid $switch-btn-border-color;
+    border-radius: 2000px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.2s ease-in-out;
+
+    box-shadow: $switch-btn-shadow;
+  }
+
+  &-active {
+    background: $switch-open-bgc;
+    color: $color-text-5;
+
+    .#{$prefix}-loading-circle {
+      color: $switch-open-bgc
+    }
+
+    &:hover {
+      background: $switch-open-hover-bgc;
+    }
+
+    &:active {
+      background: $switch-open-active-bgc;
+    }
+  }
+
+  &-inner {
+    display: inline-flex;
+    align-items: center;
+
+  }
+
+  &-loading {
+    opacity: $switch-disabled-opacity;
+    cursor: not-allowed;
+  }
+
+  &-disabled {
+    opacity: $switch-disabled-opacity;
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: $switch-disabled-bgc;
+
+    .#{$prefix}-loading-circle {
+      color: $switch-bgc
+    }
+
+    &.#{$B}-active {
+      background-color: $switch-disabled-active-bgc;
+
+      .#{$prefix}-loading-circle {
+        color: $switch-disabled-active-bgc
+      }
+    }
+  }
+
+  @include switch-size($switch-width, $switch-height, $switch-btn-spacing);
+
+  &-small {
+    @include switch-size($switch-small-width,
+      $switch-small-height,
+      $switch-btn-spacing );
+
+    &:active {
+      .#{$B}-btn {
+        width: 19px;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,724 @@
+@import "./mixins/mixins.scss";
+@import "./common/var.scss";
+@import "./checkbox-group.scss";
+@import "./checkbox.scss";
+@import "./dropdown-menu-item.scss";
+
+$table-resize-width: 2px;
+
+@mixin table-border-pseudo () {
+  content: '';
+  position: absolute;
+  background-color: $table-border-color;
+  z-index: 1;
+}
+
+@include c(table) {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 100%;
+  background-color: $table-bgc;
+  font-size: $table-font-size;
+  color: $table-color;
+  text-align: left;
+
+  th {
+    color: $table-header-color;
+    font-weight: $font-weight-medium;
+    background-color: $table-header-bgc;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-bottom: $table-border-width solid $table-border-color;
+    padding: $table-header-padding-vertical 0;
+
+    &:hover {
+      .divider {
+        opacity: 1;
+      }
+    }
+  }
+
+  .divider {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    transform: translateX(-1px);
+    box-sizing: content-box;
+    width: $table-resize-width;
+    background-color: rgba(0, 0, 0, 0.04);
+    z-index: 1;
+
+    &.hover {
+      opacity: 1;
+    }
+
+    &:hover,
+    &.active {
+      background-color: $color-primary;
+      opacity: 1;
+    }
+  }
+
+  td {
+    padding: $table-padding-vertical 0;
+    border-bottom: $table-border-width solid $table-border-color;
+
+
+    background-color: $table-bgc;
+  }
+
+
+  th,
+  td {
+    min-width: 0;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    // position: relative;
+    font-size: 0;
+
+    // 固定列样式
+    &.#{$B}-is-fixed-left {
+      position: sticky;
+      left: 0;
+    }
+
+    &.#{$B}-is-fixed-right {
+      position: sticky;
+      right: 0;
+    }
+  }
+
+  &-is-fixed-left {
+    position: sticky;
+    left: 0;
+
+    &-side::after {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 30px;
+      transform: translateX(100%)
+    }
+  }
+
+  &-is-fixed-right {
+    position: sticky;
+    right: 0;
+
+    &-side::after {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 30px;
+      transform: translateX(-100%)
+    }
+  }
+
+  tr {
+    background-color: $table-bgc;
+
+    &.#{$prefix}-table-current-row {
+      background-color: $table-current-row-bgc;
+    }
+  }
+
+  &-cell {
+    display: flex;
+    align-items: center;
+    // position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+    line-height: $table-line-height;
+    padding-left: $table-padding-horizontal;
+    padding-right: $table-padding-horizontal;
+    font-size: $table-font-size; // td、th is set font-size to 0.
+
+    >.#{$prefix}-checkbox {
+      vertical-align: top;
+    }
+  }
+
+  &-cell-tooltip {
+    @include text-ellipsis();
+  }
+
+  &-text-center {
+    text-align: center;
+  }
+
+  &-text-left {
+    text-align: left;
+  }
+
+  &-text-right {
+    text-align: right;
+  }
+
+
+  // 数据为空
+  &-empty-block {
+    position: relative;
+    min-height: $table-empty-height;
+    text-align: center;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-loading-block {
+    min-height: 60px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-loading {
+    .#{$prefix}-table-body {
+      opacity: .5;
+    }
+
+    .#{$prefix}-table-body-wrapper {
+      min-height: 120px;
+    }
+  }
+
+  // 展开行
+  &-expand-column {
+    .#{$prefix}-table-cell {
+      // padding: 0;
+      text-align: center;
+    }
+  }
+
+  &-expand-icon {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &-expand-icon,
+  &-tree-expand-icon {
+    position: relative;
+    cursor: pointer;
+    color: $table-expand-icon-color;
+    font-size: $table-expand-font-size;
+    transition: transform 0.2s ease-in-out;
+    height: $table-expand-height;
+    text-align: center;
+
+    &.#{$prefix}-table-expand-icon-expanded {
+      transform: rotate(90deg);
+    }
+  }
+
+  &-tree-expand-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    margin-right: 8px;
+    font-size: 16px;
+  }
+
+  &-expanded-cell {
+    background-color: $table-bgc;
+
+    // 纯属为了增加权重
+    &[class*="#{$prefix}-table-cell"] {
+      padding: $table-expand-cell-padding-vertical $table-expand-cell-padding-horizontal;
+    }
+
+    >.#{$prefix}-table-cell {
+      padding: 0;
+    }
+
+    &:hover,
+    &.hover {
+      background-color: transparent !important;
+    }
+  }
+
+  &-large {
+    th {
+      padding: $table-large-header-padding-vertical 0;
+    }
+
+    td {
+      padding: $table-large-padding-vertical 0;
+    }
+
+    th,
+    td {
+      .#{$prefix}-table-cell {
+        font-size: $table-large-font-size;
+        line-height: $table-large-line-height;
+      }
+    }
+  }
+
+  &-small {
+    th {
+      padding: $table-small-header-padding-vertical 0;
+    }
+
+    td {
+      padding: $table-small-padding-vertical 0;
+    }
+
+    th,
+    td {
+      .#{$prefix}-table-cell {
+        line-height: $table-small-line-height;
+        font-size: $table-small-font-size;
+      }
+    }
+  }
+
+  &-border {
+    border: $table-border-width solid $table-border-color; // 会使得 js 宽度计算相差 2px
+    border-right: none;
+    border-bottom: none;
+
+    th,
+    td {
+      border-right: $table-border-width solid $table-border-color;
+    }
+
+    &::after {
+      @include table-border-pseudo();
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 100%;
+    }
+
+    &::before {
+      @include table-border-pseudo();
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+    }
+  }
+
+  // 拥有多级表头
+  &-group,
+  &-border {
+    // 表格右部伪 border
+  }
+
+  // 表格底部伪 border，总是有的
+
+
+  // table border
+
+  &-header-wrapper,
+  &-body-wrapper,
+  &-footer-wrapper {
+    width: 100%;
+  }
+
+  &-footer-wrapper {
+    margin-top: -1px;
+
+    td {
+      border-top: $table-border-width solid $table-border-color;
+      background-color: $table-footer-bgc;
+      font-weight: $table-footer-font-weight;
+    }
+  }
+
+  &-header {
+    th>.#{$B}-cell {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  &-footer {
+    td {
+      background-color: $color-hover-grey-2;
+    }
+  }
+
+  &-header,
+  &-body,
+  &-footer {
+    table-layout: fixed;
+    border-collapse: separate;
+  }
+
+  &-header-wrapper,
+  &-footer-wrapper {
+    overflow: hidden;
+  }
+
+
+  // 控制 fixed 列的阴影
+  &-scrolling-middle {
+    .#{$B}-is-fixed-left-side {
+      &::after {
+        box-shadow: inset 10px 0 10px -10px rgb(0, 0, 0, 0.12);
+      }
+    }
+
+    .#{$B}-is-fixed-right-side {
+      &::after {
+        box-shadow: inset -10px 0 10px -10px rgb(0, 0, 0, 0.12);
+      }
+    }
+  }
+
+  &-scrolling-left {
+    .#{$B}-is-fixed-right-side {
+      &::after {
+        box-shadow: inset -10px 0 10px -10px rgb(0, 0, 0, 0.12);
+      }
+    }
+  }
+
+  &-scrolling-right {
+    .#{$B}-is-fixed-left-side {
+      &::after {
+        box-shadow: inset 10px 0 10px -10px rgb(0, 0, 0, 0.12);
+      }
+    }
+  }
+
+  &-body-wrapper {
+    overflow: hidden;
+    position: relative;
+
+  }
+
+  &-body-show-summary {
+    &>table {
+      &>tbody {
+        &>tr:last-child {
+          &>td {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+
+  &-border {
+    .#{$B}-scrolling-middle {
+      .#{$B}-is-fixed-left {
+        border-right: $table-border-width solid $table-border-color;
+      }
+
+      .#{$B}-is-fixed-right {
+        border-left: $table-border-width solid $table-border-color;
+      }
+    }
+
+    .#{$B}-scrolling-left {
+      .#{$B}-is-fixed-right {
+        border-left: $table-border-width solid $table-border-color;
+      }
+    }
+
+    .#{$B}-scrolling-right {
+      .#{$B}-is-fixed-left {
+        border-right: $table-border-width solid $table-border-color;
+      }
+    }
+  }
+
+  &-scrollable-x {
+    .#{$prefix}-table-body-wrapper {
+      overflow-x: auto;
+    }
+  }
+
+  &-scrollable-y {
+    .#{$prefix}-table-body-wrapper {
+      overflow-y: auto;
+    }
+  }
+
+  &-is-sortable {
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-hover-grey-3;
+    }
+
+    &:active {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+
+    // &:hover{
+    //   background: $table-filter-hover-bgc;
+    // }
+    // &:before{
+    //   content: ' ';
+    //   position: absolute;
+    //   top: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   left: 0;
+
+    //   z-index: 1;
+    // }
+    // >.#{$prefix}-table-cell{
+    //   :hover{
+    //   }
+
+    // }
+  }
+
+  &-sortable {
+    // sort icon
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: top;
+    position: relative;
+
+    transform: scale(0.8);
+
+    &-icon {
+      width: 0;
+      height: 0;
+      border: solid 5px transparent;
+      position: absolute;
+      left: 5px;
+    }
+
+    &-ascending {
+      border-bottom-color: $color-text-3;
+      border-top: none;
+      top: 3px;
+    }
+
+    &-descending {
+      border-top-color: $color-text-3;
+      border-bottom: none;
+      bottom: 3px;
+    }
+
+  }
+
+  .ascending .#{$prefix}-table-sortable-ascending {
+    border-bottom-color: $table-color-primary;
+  }
+
+  .descending .#{$prefix}-table-sortable-descending {
+    border-top-color: $table-color-primary;
+  }
+
+  &-hidden-columns {
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  &-striped {
+    & .#{$B}-body {
+      & tr.#{$B}-row-striped {
+        td {
+          background: $table-striped-bgc;
+        }
+
+        &:hover>td {
+          background-color: $table-row-hover-bgc;
+        }
+      }
+
+    }
+  }
+
+  &-column-has-actions {
+    user-select: none;
+  }
+
+  &-column-has-filters {
+    padding-right: 32px;
+
+    &>.#{$prefix}-table-cell {
+      overflow: visible;
+      position: relative;
+
+      .#{$prefix}-table-column-filter-trigger {
+        position: absolute;
+        height: calc($table-header-padding-vertical * 2 + 100%);
+        right: -8px;
+      }
+    }
+  }
+
+  &-column-filter-trigger {
+
+    text-align: center;
+    height: $table-filter-height;
+    width: $table-filter-width;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    i {
+      color: $table-filter-color;
+      font-size: $table-filter-font-size;
+    }
+
+    &-filtered {
+      i {
+        color: $table-filter-active-color;
+      }
+    }
+
+    &:hover,
+    &.hover {
+      background: $table-filter-hover-bgc;
+
+      i {
+        // color: $table-filter-hover-color;
+      }
+    }
+  }
+
+  &-filter-panel-dropdown {
+    padding: $s-1;
+  }
+
+  &-filter-checkbox-group {
+    >.#{$prefix}-checkbox {
+      display: block;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  &-filter-footer {
+    padding: $table-filter-footer-padding-vertical $table-filter-footer-padding-horizontal;
+    overflow: hidden;
+
+    &-clear {
+      float: right;
+    }
+
+    &-confirm {
+      margin-right: $table-filter-footer-action-offset;
+    }
+
+    >a {
+      cursor: pointer;
+      text-decoration: none;
+      color: $table-filter-footer-action-color;
+
+      &:hover {
+        color: $table-filter-footer-action-hover-color;
+      }
+    }
+  }
+
+  &-column-resize-proxy {
+    position: absolute;
+    left: 200px;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    border-left: $table-resize-width solid $table-border-color;
+    transform: translateX(-1px);
+    z-index: 10;
+  }
+
+  /***
+    &-enable-row-transition {
+      .#{$prefix}-table-body td {
+        transition: background-color .25s ease;
+      }
+    }
+  ***/
+  &-body {
+
+    tr:hover,
+    tr.hover {
+      >td {
+        background-color: $table-row-hover-bgc;
+      }
+    }
+
+    &-striped>tbody>tr>td {
+      border: none
+    }
+  }
+
+  &-fluid-height {
+
+    .#{$prefix}-table-fixed,
+    .#{$prefix}-table-fixed-right {
+      bottom: 0;
+      overflow: hidden;
+    }
+  }
+
+  .#{$prefix}-table-expanded-cell {
+    // 增加权重
+    padding: 0px;
+    font-size: 1em;
+  }
+
+  th {
+    .drag-line {
+      position: absolute;
+      right: 0px;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.07);
+      // display: none;
+    }
+
+    &:hover {
+      .drag-line {
+        display: block;
+      }
+    }
+  }
+}
+
+@include c(table-column) {
+  &-selection {
+    text-align: center;
+
+    .#{$prefix}-table-cell {
+      display: inline-flex;
+      align-items: center;
+      overflow: visible; // 解决当 cell 设置小时会出现省略号问题
+      padding-right: $s-6;
+    }
+  }
+
+  &-index {
+    text-align: center;
+  }
+
+  &-resizable {}
+}

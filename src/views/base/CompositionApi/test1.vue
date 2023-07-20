@@ -13,7 +13,7 @@ export default {
     }
 
     onMounted(() => {
-      console.log(`The initial count is ${count}.`);
+      console.log(`test1: The initial count is ${count.value}.`);
     });
     return {
       count,

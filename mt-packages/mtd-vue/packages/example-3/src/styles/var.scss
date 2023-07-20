@@ -1,0 +1,19 @@
+@import "@components/themes/common/_var.scss";
+$content-width: 960px;
+$sidebar-width: 240px + 15px;
+$header-height: 108px;
+$header-height-hide-top-nav: 70px;
+$header-padding: 10px 20px;
+$header-box-shadow: 0 2px 8px 0 rgba(93, 98, 106, 0.1);
+$border: 1px solid $color-line-2;
+
+$sidebar-expand-index: 1999;
+$header-index: 1899;
+$sidebar-index: 1999;
+$sidebar-mask-index: 1599;
+
+$page-up-width: 44px;
+$page-up-bottom: 30px;
+$min-width: 1200px;
+
+$nav-item-padding: 10px 20px;

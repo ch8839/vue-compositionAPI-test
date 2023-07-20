@@ -1,0 +1,9 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(teleport) {
+  &-hidden {
+    visibility: hidden;
+    display: none;
+  }
+}

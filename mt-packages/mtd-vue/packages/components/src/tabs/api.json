@@ -1,0 +1,138 @@
+{
+  "props": [
+    {
+      "name": "size",
+      "desc": "尺寸",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "large"
+      ],
+      "default": "large",
+      "version": ""
+    },
+    {
+      "name": "line-size",
+      "desc": "分割线高度",
+      "type": "number",
+      "optionalValue": "",
+      "default": "根据尺寸定 1／2",
+      "version": ""
+    },
+    {
+      "name": "show-line",
+      "desc": "是否展示分割线",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "type",
+      "desc": "风格类型",
+      "type": "string",
+      "optionalValue": [
+        "card",
+        "border-card",
+        "text"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "tab-position",
+      "desc": "选项卡位置",
+      "type": "string",
+      "optionalValue": [
+        "top",
+        "left"
+      ],
+      "default": "top",
+      "version": ""
+    },
+    {
+      "name": "model-value",
+      "desc": "选中选项卡的值",
+      "type": "any",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "closable",
+      "desc": "标签是否可关闭",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "addable",
+      "desc": "标签是否可添加",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "scroll-unit",
+      "desc": " 滚动单位",
+      "type": "number",
+      "optionalValue": "",
+      "default": "1",
+      "version": ""
+    },
+    {
+      "name": "vertical-height-number",
+      "desc": "垂直标签页 tab 展示数",
+      "type": "number",
+      "optionalValue": "",
+      "default": "1000",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "tab-click",
+      "desc": "标签被选中时触发，注: tab-drop 组件触发时 event 参数为 undefined",
+      "signature": "function (event, tab)",
+      "args": ""
+    },
+    {
+      "name": "tab-remove",
+      "desc": "点击移除按钮后触发",
+      "signature": "function (event, targetValue)",
+      "args": ""
+    },
+    {
+      "name": "tab-add",
+      "desc": "点击新增按钮后触发",
+      "signature": "function (event)",
+      "args": ""
+    },
+    {
+      "name": "prev-click",
+      "desc": "点击向前翻页按钮",
+      "signature": "function (event)",
+      "args": ""
+    },
+    {
+      "name": "next-click",
+      "desc": "点击向后翻页按钮",
+      "signature": "function (event)",
+      "args": ""
+    },
+    {
+      "name": "change",
+      "desc": "标签页切换的事件，参数为当前标签页的值",
+      "signature": "function (value)",
+      "args": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "label",
+      "desc": "标签文本的内容"
+    }
+  ]
+}

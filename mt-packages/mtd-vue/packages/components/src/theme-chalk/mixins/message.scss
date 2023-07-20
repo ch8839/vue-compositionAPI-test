@@ -1,0 +1,15 @@
+@mixin message-color($color, $bgc, $textColor: $message-content-color) {
+  .#{$prefix}-message-icon {
+    color: $color;
+  }
+
+  &.#{$prefix}-message-colorful {
+    background: $bgc;
+    box-shadow: none;
+    // border: 1px solid $color;
+
+    .#{$prefix}-message-content {
+      color: $textColor;
+    }
+  }
+}

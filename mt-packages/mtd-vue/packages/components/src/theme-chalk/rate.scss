@@ -1,0 +1,129 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./tooltip.scss";
+
+@include c(rate) {
+
+  display: inline-flex;
+  align-items: center;
+  vertical-align: top;
+
+  &:focus,
+  &:active,
+  &.active {
+    outline-width: 0;
+  }
+
+  &-item-wrapper {
+    width: $rate-hover-icon-size;
+  }
+
+  @include e(item) {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 0;
+    vertical-align: middle;
+    cursor: pointer;
+    height: $rate-hover-icon-size;
+    color: $rate-icon-color;
+
+    &:hover {
+
+      .#{$B}-icon,
+      .#{$B}-decimal {
+        font-size: $rate-hover-icon-size;
+        margin: 0;
+      }
+
+    }
+  }
+
+  &-icon,
+  &-decimal {
+    display: inline-flex;
+    align-items: flex-end;
+    font-size: $rate-icon-size;
+  }
+
+  &-icon {
+    color: $rate-icon-color;
+    transition: all .3s linear;
+  }
+
+  &-decimal {
+    position: absolute;
+    //top: 50%;
+    left: 0;
+    //bottom: 0;
+    overflow: hidden;
+    transition: all .3s linear;
+  }
+
+  &-text {
+    font-size: $rate-text-font-size;
+    line-height: $rate-hover-icon-size;
+    font-weight: $rate-text-font-weight;
+    vertical-align: middle;
+    color: $rate-text-color;
+    margin-left: $rate-text-margin-horizontal - $rate-icon-margin-horizontal;
+  }
+
+  &-item {
+    cursor: pointer;
+  }
+
+  &-item-wrapper {
+    font-size: 0;
+    display: inline-flex;
+    justify-content: center;
+
+  }
+
+  &-item-full {
+    color: $rate-icon-active-color;
+
+    .#{$B}-icon {
+      color: currentColor;
+    }
+  }
+
+  &-item-half {
+    color: $rate-icon-active-color;
+
+    .#{$B}-decimal {
+      color: currentColor;
+    }
+  }
+
+  &-disabled {
+    .#{$B}-item {
+      cursor: default;
+    }
+
+    pointer-events: none;
+  }
+
+  &-items-wrapper {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+
+  &-text {
+    &-right {
+      .#{$B}-text {
+        margin-left: $s-3;
+      }
+    }
+
+    &-bottom {
+      flex-direction: column;
+    }
+
+    &-top {
+      flex-direction: column-reverse;
+    }
+  }
+}

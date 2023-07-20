@@ -1,0 +1,10 @@
+@mixin notification-color($color, $bgc) {
+  .#{$prefix}-notification-icon {
+    color: $color;
+  }
+
+  &.#{$prefix}-notification-colorful {
+    background: $bgc;
+    border: 1px solid $color;
+  }
+}

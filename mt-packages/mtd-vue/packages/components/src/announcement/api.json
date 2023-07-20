@@ -1,0 +1,66 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "desc": "标题，也可通过默认 slot 传入，必选参数",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "description",
+      "desc": "辅助性文字。也可通过 slot='description' 传入",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "type",
+      "desc": "主题",
+      "type": "string",
+      "optionalValue": [
+        "success",
+        "warning",
+        "error",
+        "info"
+      ],
+      "default": "warning",
+      "version": ""
+    },
+    {
+      "name": "closable",
+      "desc": "是否可关闭",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "show-icon",
+      "desc": "是否显示图标",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "close",
+      "desc": "关闭 announcement 时触发的事件",
+      "args": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "desc": "标题"
+    },
+    {
+      "name": "description",
+      "desc": "辅助性文字"
+    }
+  ]
+}

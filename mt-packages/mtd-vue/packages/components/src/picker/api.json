@@ -1,0 +1,275 @@
+{
+  "props": [
+    {
+      "name": "modelValue",
+      "desc": "当前选中值，多选时为数组",
+      "type": "any",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "大小",
+      "type": "number",
+      "optionalValue": [
+        "small",
+        "不设置",
+        "large"
+      ],
+      "default": "不设置",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "value-key",
+      "desc": "仅当 value 值为 object、object[] 时生效，作为 value 唯一标识的键名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "icon",
+      "desc": "选择框右侧的 icon",
+      "type": "string",
+      "optionalValue": "",
+      "default": "'down'",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "clearable",
+      "desc": "是否有清空按钮",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "filterable",
+      "desc": "是否可搜索",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "filter-input-props",
+      "desc": "搜索输入框的透传属性，详见 <a href='/components/input#input-props'>input props</a>",
+      "type": "object",
+      "optionalValue": "object",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "debounce",
+      "desc": "搜索防抖延迟，单位毫秒",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "multiple",
+      "desc": "是否多选",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "append-to-container",
+      "desc": "是否将弹出框插入至 body 元素。在弹出框的定位出现问题时，可将该属性设置为 false",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "placeholder",
+      "desc": "占位符",
+      "type": "string",
+      "optionalValue": "",
+      "default": "请选择",
+      "version": ""
+    },
+    {
+      "name": "no-match-text",
+      "desc": "搜索条件无匹配时显示的文字",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "no-data-text",
+      "desc": "选项为空时显示的文字",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "filter-method",
+      "desc": "自定义搜索方法，query为当前查询条件，value为当前option的值",
+      "type": "function(query,value): boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "remote",
+      "desc": "是否远程搜索",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "remote-method",
+      "desc": "远程搜索的方法",
+      "type": "function(query)",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "loading",
+      "desc": "是否正在从远程获取数据",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "loading-text",
+      "desc": "搜索时的文案",
+      "type": "string",
+      "optionalValue": "",
+      "default": "'搜索中'",
+      "version": ""
+    },
+    {
+      "name": "popper-class",
+      "desc": "Select 下拉框的类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "show-select-all",
+      "desc": "多选时生效，是否显示全选",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "formatter",
+      "desc": "格式化当前输入框中显示的内容",
+      "type": "function({value,label}): string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "separator",
+      "desc": "多选时生效，多个选项间连字符",
+      "type": "string",
+      "optionalValue": "",
+      "default": "、",
+      "version": ""
+    },
+    {
+      "name": "reserve-keyword",
+      "desc": "多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false"
+    },
+    {
+      "name": "max-count",
+      "desc": "标题中最多显示多少个选中选项，0 为不限制",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0"
+    },
+    {
+      "name": "popper-options",
+      "desc": "自定义 popper.js 的配置项，具体配置查看 <a target='_blank' href='https://popper.js.org/docs/v1/#modifiers--codeobjectcode'>popper.js 文档</a>",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "options",
+      "desc": "options 数据，如果设置则不需要手动构造 selectOption 节点",
+      "type": "Option[]",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "fieldNames",
+      "desc": "option 配置字段",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "virtual",
+      "desc": "仅当配置options时候生效，是否虚拟滚动(建议选项超过200再使用否则起到反作用)",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": "MTD 3.0"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "desc": "选中值发生变化时触发",
+      "args": "(value: any)"
+    },
+    {
+      "name": "update:visible",
+      "desc": "下拉框显示／隐藏状态变化时触发",
+      "args": "(visible: boolean)"
+    }
+  ],
+  "slots": [
+    {
+      "name": "empty",
+      "desc": "空数据时展示的内容"
+    },
+    {
+      "name": "loading",
+      "desc": "加载时展示的内容"
+    },
+    {
+      "name": "noMatched",
+      "desc": "无匹配内容时展示的内容，<strong>请勿在其中放置 Option 组件</strong>",
+      "version": ""
+    }
+  ],
+  "scopeSlots": [
+    {
+      "name": "maxPlaceholder",
+      "desc": "当超出 max-count 时，自定义提示内容，参数为{<br /> omittedValues: Option[] //隐藏的 tag 项, <br /> selected: Option[] // 全部选中的 tag 项 <br />}"
+    },
+    {
+      "name": "selected",
+      "desc": "自定义选中展示结果，参数为{<br /> selected: Option[] // 全部选中的 tag 项 <br />}"
+    }
+  ]
+}

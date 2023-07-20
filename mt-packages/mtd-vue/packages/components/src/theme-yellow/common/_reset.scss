@@ -1,0 +1,150 @@
+@import './var.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; // 1
+}
+
+
+body {
+  font-family: $font-family;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-default;
+  line-height: $line-height-default; // 20 / 14
+  -webkit-font-smoothing: antialiased;
+  color: $color-text-default;
+  margin: 0;
+}
+
+code,
+pre {
+  font-family: $code-family;
+}
+
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  overflow: visible; // Show the overflow in Edge
+  padding: 0; // input default is padding 1 in chrome
+  font-family: inherit;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='number'],
+textarea {
+  -webkit-appearance: none;
+}
+
+// remove the clear button of a text input control in IE10+
+input::-ms-clear,
+input::-ms-reveal {
+  display: none;
+}
+
+::placeholder {
+  color: $placeholder-color;
+}
+
+button,
+select {
+  text-transform: none; // remove the inheritance of text transform in Firefox
+}
+
+a {
+  color: $color-link;
+  background-color: transparent; // remove the gray background on active links in IE 10.
+  -webkit-text-decoration-skip: objects; // remove gaps in links underline in iOS 8+ and Safari 8+.
+  transition: color .3s;
+  text-decoration: $link-text-decoration;
+
+  &:hover,
+  &.hover,
+  &.hover {
+    color: $color-link-hover;
+    text-decoration: $link-hover-text-decoration;
+  }
+
+  &:active,
+  &.active,
+  &.active {
+    color: $color-link-active;
+  }
+
+  &.black-link {
+    color: $color-text-5;
+
+    &:hover,
+    &:active {
+      color: $color-text-5;
+    }
+  }
+
+  &.grey-link {
+    color: $color-text-3;
+
+    &:hover,
+    &:active {
+      color: $color-text-5;
+    }
+  }
+
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &.use-visited {
+    &:visited {
+      color: $color-link-pressed;
+    }
+  }
+
+  &[disabled] {
+    color: $link-disabled-color;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &.disabled-link {
+    pointer-events: none;
+    color: $color-link-disabled;
+  }
+
+  i:last-child {
+    vertical-align: -10%;
+  }
+
+}
+
+
+
+
+
+h1 {
+  font-size: $font-size-7;
+  line-height: $line-height-7;
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  font-size: $font-size-6;
+  line-height: $line-height-6;
+  font-weight: $font-weight-medium;
+}
+
+h3 {
+  font-size: $font-size-5;
+  line-height: $line-height-5;
+  font-weight: $font-weight-regular;
+}
+
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  line-height: 20px;
+}

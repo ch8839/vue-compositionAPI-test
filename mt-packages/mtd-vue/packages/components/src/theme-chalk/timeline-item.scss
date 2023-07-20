@@ -1,0 +1,155 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/timeline.scss";
+
+@include c(timeline-item) {
+  // @include clearfix;
+  display: flex;
+  align-items: stretch;
+  text-align: left;
+
+
+  &-title {
+    color: $timeline-item-title-color;
+    width: $timeline-item-title-width;
+    text-align: right;
+    flex: 0 0 auto;
+    font-size: $timeline-item-title-font-size;
+    line-height: $timeline-item-title-line-height;
+    padding-right: $timeline-item-content-margin-horizontal;
+  }
+
+  &-holder {
+    flex: 0 0 auto;
+    padding-right: $timeline-item-content-margin-horizontal;
+  }
+
+  &-content-wrapper {
+    padding-left: $timeline-item-content-margin-horizontal;
+  }
+
+  &-content-wrapper-reverse {
+    padding-right: $timeline-item-content-margin-horizontal;
+  }
+
+  &-content-wrapper,
+  &-content-wrapper-reverse,
+  &-title {
+    margin-top: $timeline-item-content-margin-top;
+    padding-bottom: $timeline-item-margin-bottom;
+  }
+
+  &:last-of-type {
+    .#{$B}-line-tail {
+      display: none;
+    }
+  }
+
+  &-right {
+    flex-direction: row-reverse;
+    text-align: right;
+
+    .#{$B}-holder {
+      padding-left: 10px;
+      padding-right: 0px;
+    }
+
+    .#{$B}-title {
+      padding-left: 10px;
+      padding-right: 0px;
+    }
+
+    .#{$B}-content-wrapper {
+      padding-left: 0px;
+      padding-right: 10px;
+    }
+  }
+}
+
+@include c(timeline-item-dot) {
+  display: inline-flex;
+  color: $color-primary;
+  // width: $timeline-item-dot-width;
+  // height: $timeline-item-dot-width;
+  align-items: center;
+  justify-content: center;
+
+  >span {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  i {
+    font-size: 16px
+  }
+
+  &-normal,
+  &-solid {
+    @include timeline-item-dot($timeline-item-dot-size,
+      $timeline-item-dot-bgc,
+      $timeline-item-dot-border-width,
+      $timeline-item-dot-border-color,
+      $timeline-item-dot-shadow );
+  }
+
+  &-master {
+    @include timeline-item-dot($timeline-item-master-dot-size,
+      $timeline-item-master-dot-bgc,
+      $timeline-item-master-dot-border-width,
+      $timeline-item-master-dot-border-color,
+      $timeline-item-master-dot-shadow );
+  }
+
+  &-hollow {
+    @include timeline-item-dot($timeline-item-hollow-dot-size,
+      $timeline-item-hollow-dot-bgc,
+      $timeline-item-hollow-dot-border-width,
+      $timeline-item-hollow-dot-border-color,
+      $timeline-item-hollow-dot-shadow );
+  }
+
+  &-disabled {
+    @include timeline-item-dot($timeline-item-disabled-dot-size,
+      $timeline-item-disabled-dot-bgc,
+      $timeline-item-disabled-dot-border-width,
+      $timeline-item-disabled-dot-border-color,
+      $timeline-item-disabled-dot-shadow );
+  }
+
+
+  &-small {
+    .#{$B}-content {
+      width: $timeline-item-dot-small-width;
+      height: $timeline-item-dot-small-width;
+    }
+  }
+
+  &-large {
+    .#{$B}-content {
+      width: $timeline-item-dot-large-width;
+      height: $timeline-item-dot-large-width;
+    }
+  }
+}
+
+@include c(timeline-item-line) {
+  width: $timeline-item-dot-width;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 0 0 auto;
+
+  &-tail {
+    width: 0;
+    flex: 1 1 auto;
+    min-height: $timeline-item-min-height;
+    margin: $timeline-item-track-spacing auto;
+    // background: $timeline-item-track-bgc;
+    border-left: $timeline-item-track-width solid $timeline-item-track-bgc;
+
+    &-ghost {
+      border-left: $timeline-item-track-width dashed $timeline-item-track-bgc;
+    }
+  }
+}

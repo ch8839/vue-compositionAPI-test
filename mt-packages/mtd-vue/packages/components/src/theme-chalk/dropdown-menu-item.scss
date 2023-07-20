@@ -1,0 +1,54 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/dropdown-menu.scss";
+
+@include c(dropdown-menu-item) {
+  margin: 0 $dropdown-menu-item-margin-horizontal;
+
+  @include dropdown-menu-item-size($dropdown-menu-item-height,
+    $dropdown-menu-item-padding-horizontal );
+  text-align: left;
+  // min-width: $dropdown-menu-min-width;
+  cursor: pointer;
+  color: $dropdown-menu-item-color;
+  transition: all 0.3s;
+
+  &:hover,
+  &.hover {
+    background-color: $dropdown-menu-item-hover-bgc;
+    color: $dropdown-menu-item-hover-color;
+    border-radius: $dropdown-menu-item-border-radius;
+  }
+
+  &-selected {
+    background-color: $cascader-menu-item-active-bgc;
+    font-weight: $cascader-menu-active-font-weight;
+    color: $cascader-menu-active-color;
+    border-radius: $dropdown-menu-item-border-radius;
+
+    &:hover,
+    &.hover {
+      color: $cascader-menu-active-color;
+      background-color: $cascader-menu-item-active-bgc;
+    }
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    color: $dropdown-menu-item-disabled-color;
+
+    &:hover {
+      background-color: transparent;
+      color: $dropdown-menu-item-disabled-color;
+    }
+  }
+
+  &-icon {
+    margin: 0 $dropdown-menu-item-margin-horizontal;
+    font-size: 16px;
+  }
+
+  >.#{$prefix}-checkbox {
+    vertical-align: top;
+  }
+}

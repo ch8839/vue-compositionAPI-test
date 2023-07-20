@@ -1,0 +1,54 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "desc": "设置 title",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "shadow",
+      "desc": "设置阴影显示时机",
+      "type": "string",
+      "optionalValue": [
+        "hover",
+        "never",
+        "always"
+      ],
+      "default": "always",
+      "version": ""
+    },
+    {
+      "name": "body-class",
+      "desc": "设置 card-body 的 class",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "title-class",
+      "desc": "设置 title 的class",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "desc": "自定义卡片内容"
+    },
+    {
+      "name": "title",
+      "desc": "自定义标题插槽"
+    },
+    {
+      "name": "extra",
+      "desc": "卡片标题右上角操作按钮区域"
+    }
+  ]
+}

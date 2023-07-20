@@ -1,0 +1,96 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./input.scss";
+@import "./dropdown.scss";
+
+// date-picker、time-picker 中有部分 class 以 mtd-picker 开头，需要避免冲突
+@include c(picker) {
+  cursor: pointer;
+  max-width: 200px;
+  display: inline-flex;
+  align-items: center;
+
+  // dom
+  &-selection {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+
+  &-rendered {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+    flex: 1 1 auto;
+  }
+
+  &-icon {
+    flex: 0 0 auto;
+    color: $dropdown-icon-color;
+    margin-left: $s-1;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &-placeholder {
+    color: $color-text-3;
+  }
+
+  &-popper {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    padding: 4px 0px;
+  }
+
+  &-filter {
+    padding: 4px 8px;
+
+    .#{$prefix}-input-wrapper {
+      width: 100%;
+    }
+  }
+
+  &-menus {
+    border: none;
+    padding: 0;
+  }
+
+  // state
+  &-selected {
+    color: $color-text-5;
+    font-weight: bold;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    color: $color-text-4;
+    // i {
+    //   color: $color-text-4;
+    // }
+  }
+
+
+  &-no-matched,
+  &-loading,
+  &-empty {
+    padding: 4px;
+    height: 100px;
+    font-size: 14px;
+    color: $color-text-2;
+    letter-spacing: 0;
+    line-height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  // Size 大小
+  &-small {}
+
+  &-large {}
+}

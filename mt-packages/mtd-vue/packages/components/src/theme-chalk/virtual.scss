@@ -1,0 +1,13 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(virtual) {
+
+  &-container {
+    overflow: auto;
+  }
+
+  &-footer {
+    padding: 8px 4px
+  }
+}

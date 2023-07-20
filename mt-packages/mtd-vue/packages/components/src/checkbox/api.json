@@ -1,0 +1,75 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "desc": "支持 v-model，用于设置checkbox是否选中，使用 value === trueValue 来判断是否选中",
+      "type": "any",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "Checkbox的大小",
+      "type": "string",
+      "optionalValue": [
+        "不设置",
+        "large"
+      ],
+      "default": "string",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "禁用状态，可继承 CheckboxGroup 组件的 disabled 值",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "name",
+      "desc": "Checkbox 的 name，继承 CheckboxGroup 组件的 name 值",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "indeterminate",
+      "desc": "设置 indeterminate 状态，只负责样式控制",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "true-value",
+      "desc": "checkbox选中时的值",
+      "type": "any",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "false-value",
+      "desc": "checkbox未选中时的值",
+      "type": "any",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "input",
+      "desc": "在选项状态发生改变时触发，返回当前状态。在CheckboxGroup中无法监听该事件",
+      "args": "true-value / false-value"
+    },
+    {
+      "name": "change",
+      "desc": "在选项状态发生改变时触发，返回当前状态，同input表现一样。在CheckboxGroup中无法监听该事件",
+      "args": "true-value / false-value"
+    }
+  ]
+}

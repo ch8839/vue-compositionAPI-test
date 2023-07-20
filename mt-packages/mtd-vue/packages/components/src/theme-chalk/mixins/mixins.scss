@@ -1,0 +1,160 @@
+@use "sass:math";
+
+$prefix: 'mtd' !default;
+// component
+@mixin c($component) {
+  $B: $prefix + '-' + $component !global;
+  $E: $prefix + '-' + $component !global;
+  .#{$B} {
+    @content;
+  }
+}
+
+/*
+@param {string} $element 元素名
+@param {bool} $append 是否加载在当前类下,一般在 theme 中为 true
+
+// example1
+// sass
+@include c('component') {
+  @include e('element') {
+		color: black;
+	}
+}
+// css
+.#{$prefix}-component-element {
+  color: black;
+}
+
+// example 2
+// sass
+@include c('component') {
+  @include theme('dark') {
+    @include e('element', true) {
+      color: black;
+    }
+  }
+}
+// css
+.#{$prefix}-component-dark .#{$prefix}-component-element {
+  color: black;
+}
+*/
+
+// element
+@mixin e($element, $append: false) {
+  $E: $B + '-' + $element !global;
+  @if $append {
+    .#{$E} {
+      @content;
+    }
+  }
+  @else {
+    @at-root .#{$E} {
+      @content;
+    }
+  }
+}
+
+/*
+// example1
+// sass
+@include c('component'){
+  @include theme('dark') {
+    @include when('active') {
+      color: black;
+    }
+  }
+}
+// css
+.#{$prefix}-component-dark .#{$prefix}-component-active {
+  color: black;
+}
+
+// example2
+// sass
+@include c('component') {
+  @include e('element') {
+    @include when('active') {
+      color: white;
+    }
+  }
+}
+// css
+.#{$prefix}-component-element-active {
+  color: white;
+}
+
+// example3
+// sass
+@include c('component') {
+  @include when('active') {
+    @include e('element') {
+      color: white;
+    }
+  }
+}
+// css
+.#{$prefix}-component-active .#{$prefix}-component-element{
+  color: white;
+}
+*/
+
+@mixin when ($state) {
+  $THEME: '' !default;
+  $prefix: if($THEME !='', $THEME + ' .', '');
+  $STATE: $E + '-' + $state !global;
+  @at-root {
+    .#{$prefix + $STATE} {
+      @content;
+    }
+  }
+}
+
+@mixin theme($themeName) {
+  $THEME: $B + '-' + $themeName !global;
+  @at-root .#{$THEME} {
+    @content;
+  }
+}
+
+// sidenav
+@mixin sidenavStyle($component, $bgc, $width) {
+  $B: $prefix + '-' + $component !global;
+  .#{$B} {
+    width: $width;
+    background-color: $bgc;
+    @content;
+  }
+}
+@mixin clearfix {
+  $selector: &;
+
+  @at-root {
+    #{$selector}::before,
+    #{$selector}::after {
+      display: table;
+      content: "";
+    }
+    #{$selector}::after {
+      clear: both
+    }
+  }
+}
+// 文字超出省略号
+@mixin text-ellipsis () {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+@mixin res($key, $map: $breakpoints) {
+  // 循环断点Map，如果存在则返回
+  @if map-has-key($map, $key) {
+    @media only screen and #{inspect(map-get($map, $key))} {
+      @content;
+    }
+  } @else {
+    @warn "Undefeined points: `#{$map}`";
+  }
+}

@@ -1,0 +1,7 @@
+@import "./popper.scss";
+
+@mixin tooltip-theme($color, $bgc, $borderWidth, $borderColor) {
+  color: $color;
+  border: $borderWidth solid $borderColor;
+  @include popper-color($bgc, $borderColor, $borderColor, $tooltip-shadow);
+}

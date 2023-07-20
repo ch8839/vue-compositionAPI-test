@@ -1,0 +1,120 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(input-group) {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+
+  &-compact {
+    display: flex;
+    align-items: stretch;
+
+    &>*:not(:last-child) {
+      margin-right: -1px;
+    }
+  }
+
+  >*,
+  .#{$prefix}-input,
+  .#{$prefix}-input-wrapper,
+  .#{$prefix}-input-number,
+  .#{$prefix}-input-number-wrapper,
+  .#{$prefix}-input-group :first-child,
+  .#{$prefix}-input-group :last-child {
+    border-radius: 0;
+  }
+
+  >:first-child,
+  >:first-child .#{$prefix}-input-wrapper,
+  .#{$prefix}-input-group:first-child>:first-child {
+    border-top-left-radius: $input-border-radius;
+    border-bottom-left-radius: $input-border-radius;
+  }
+
+  >:last-child,
+  >:last-child .#{$prefix}-input-wrapper,
+  .#{$prefix}-input-group:last-child>:last-child {
+    border-top-right-radius: $input-border-radius;
+    border-bottom-right-radius: $input-border-radius;
+  }
+
+  // use in Input component
+  >.#{$prefix}-input {
+    border-width: 1px;
+  }
+
+  &-prepend,
+  &-append {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+
+    padding: 0 $input-padding-horizontal;
+    background-color: $input-group-addon-bgc;
+    white-space: nowrap;
+    border: 1px solid $input-border-color;
+
+    .#{$prefix}-select {
+      margin: -1px (-$input-padding-horizontal - 1px);
+    }
+
+    .#{$prefix}-input-wrapper {
+      border-color: transparent;
+      background-color: transparent;
+    }
+
+    .#{$prefix}-input-hover {
+      border-color: $input-hover-border-color;
+    }
+
+    .#{$prefix}-input-focused {
+      border-color: $input-focus-border-color;
+    }
+  }
+
+  &-prepend {
+    border-right: none;
+  }
+
+  &-append {
+    border-left: none;
+  }
+
+
+  // Undo padding and float of grid classes
+  &[class*="col-"] {
+    float: none;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  >[class*="col-"] {
+    padding-right: 8px;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+
+
+  // tofix safari. TT: https://tt.sankuai.com/ticket/detail?id=4145936
+  // > .#{$prefix}-input {
+  //   max-height: 100%;
+  //   height: $input-height;
+  // }
+  // &.#{$prefix}-input-small {
+  //   > .#{$prefix}-input {
+  //     height: $input-small-height;
+  //   }
+  // }
+  // &.#{$prefix}-input-large {
+  //   > .#{$prefix}-input {
+  //     height: $input-large-height;
+  //   }
+  // }
+}

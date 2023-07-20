@@ -1,0 +1,11 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(list-item-group) {
+  &-header {
+    color: $list-item-group-color;
+    padding: $list-item-group-header-padding-vertical $list-item-group-header-padding-horizontal;
+    background-color: $list-item-group-bgc;
+    border-bottom: $list-border-width solid $list-border-color;
+  }
+}

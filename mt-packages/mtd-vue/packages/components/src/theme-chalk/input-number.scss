@@ -1,0 +1,164 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/input-number.scss";
+@import "./input.scss";
+
+@include c(input-group) {
+  .#{$prefix}-input-number-wrapper {
+    width: 100%;
+  }
+}
+
+@include c(input-number) {
+  &-wrapper {
+    display: inline-flex;
+    position: relative;
+    text-align: center;
+    border: $input-number-border-width solid $input-number-border-color;
+    overflow: hidden;
+
+    &:hover,
+    &:focus {
+      border-color: $input-number-focus-border-color
+    }
+
+    @include input-number-size($input-number-border-radius,
+      $input-number-font-size,
+      $input-number-icon-font-size,
+      $input-number-font-weight,
+      $input-number-width,
+      $input-number-narrow-width,
+      $input-number-height,
+      $input-number-height - $input-number-border-width * 2 + $input-number-padding-horizontal);
+  }
+
+  font-size: inherit;
+  text-align: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: $input-number-text-color;
+  background-color: $input-number-bgc;
+  border: none;
+
+  &:focus {
+    border-color: $input-number-focus-border-color;
+    outline: none;
+  }
+
+  &-handle {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    color: $input-number-btn-color;
+    background-color: $input-number-btn-bgc;
+    cursor: pointer;
+
+    &:hover,
+    &.hover {
+      color: $input-number-hover-btn-color;
+      background-color: $input-number-btn-hover-bgc;
+    }
+
+    &:active {
+      background-color: $input-number-btn-active-bgc;
+    }
+
+  }
+
+  &-handle-up {
+    right: 0;
+    border-left: $input-number-border-width solid $input-number-border-color;
+  }
+
+  &-handle-down {
+    left: 0;
+    border-right: $input-number-border-width solid $input-number-border-color;
+  }
+
+  &-handle-disabled {
+    color: $input-number-disabled-btn-color;
+    cursor: not-allowed;
+
+    &:hover,
+    &.hover {
+      color: $input-number-disabled-btn-color;
+    }
+  }
+
+  &-disabled {
+    opacity: $input-number-disabled-opacity;
+
+    .#{$B} {
+      cursor: not-allowed;
+      color: $input-number-disabled-text-color;
+      border-color: $input-number-disabled-border-color;
+      background-color: $input-number-disabled-bgc;
+    }
+
+    .#{$B}-handle {
+      color: $input-number-disabled-text-color;
+      background-color: transparent;
+      cursor: not-allowed;
+
+
+      &.#{$B}-handle-disabled {}
+    }
+  }
+
+  // status error
+  &-error {
+    border-color: $input-number-error-border-color;
+  }
+
+  // status warning
+  &-warning {
+    border-color: $input-number-warning-border-color;
+  }
+
+  // status success
+  &-success {
+    border-color: $input-number-success-border-color;
+  }
+
+  &-without-controls {
+    .#{$B} {
+      padding: 0;
+    }
+  }
+
+  &-controls-right {
+
+    .#{$B}-handle-down {
+      left: initial;
+      right: 0;
+      border-left: $input-number-border-width solid $input-number-border-color;
+      border-top: $input-number-border-width solid $input-number-border-color;
+      border-right: none;
+    }
+  }
+
+  &-small {
+    @include input-number-size($input-number-small-border-radius,
+      $input-number-small-font-size,
+      $input-number-small-icon-font-size,
+      $input-number-font-weight,
+      $input-number-small-width,
+      $input-number-small-narrow-width,
+      $input-number-small-height,
+      $input-number-small-height - $input-number-border-width * 2 + $input-number-padding-horizontal);
+  }
+
+  &-large {
+    @include input-number-size($input-number-large-border-radius,
+      $input-number-large-font-size,
+      $input-number-large-icon-font-size,
+      $input-number-font-weight,
+      $input-number-large-width,
+      $input-number-large-narrow-width,
+      $input-number-large-height,
+      $input-number-large-height - $input-number-border-width * 2 + $input-number-padding-horizontal);
+  }
+}

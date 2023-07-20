@@ -1,0 +1,56 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "desc": "标题",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "description",
+      "desc": "描述性文字",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "icon",
+      "desc": "图标 传入 icon 的 class 全名来自定义 icon",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "status",
+      "desc": "设置当前步骤的状态，不设置则根据 steps 确定状态",
+      "type": "string",
+      "optionalValue": [
+        "wait",
+        "process",
+        "finish",
+        "error",
+        "cancel"
+      ],
+      "default": "",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "icon",
+      "desc": "自定义图标"
+    },
+    {
+      "name": "title",
+      "desc": "自定义标题"
+    },
+    {
+      "name": "description",
+      "desc": "自定义内容"
+    }
+  ]
+}

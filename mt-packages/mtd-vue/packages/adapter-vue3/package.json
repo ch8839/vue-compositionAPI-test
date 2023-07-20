@@ -1,0 +1,23 @@
+{
+  "name": "@ss/mtd-adapter-vue3",
+  "version": "0.0.6",
+  "description": "",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bfe/vue-source-doc-loader": "^0.0.10"
+  },
+  "gitHead": "2760ec80d3fb28ef1840808103ead26dd5ed1e7e",
+  "devDependencies": {
+    "@vitejs/plugin-vue-jsx": "^2.1.0",
+    "@vue/babel-plugin-jsx": "^1.1.1",
+    "@vue/compiler-sfc": "^3.2.45",
+    "vue": "3.2.37",
+    "vue-loader": "^16.0.1"
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "props": [
+    {
+      "name": "show-arrow",
+      "desc": "是否显示箭头",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "大小",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "不设置"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "default-visible",
+      "desc": "默认是否显示",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "visible",
+      "desc": "手动控制是否显示 popover, 支持 v-model",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "transition",
+      "desc": "定义渐变动画",
+      "type": "string",
+      "optionalValue": "",
+      "default": "fade-in",
+      "version": ""
+    },
+    {
+      "name": "placement",
+      "desc": "显示的位置",
+      "type": "string",
+      "optionalValue": [
+        "top",
+        "top-start",
+        "top-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+        "left",
+        "left-start",
+        "left-end",
+        "right",
+        "right-start",
+        "right-end"
+      ],
+      "default": "bottom-start",
+      "version": ""
+    },
+    {
+      "name": "trigger",
+      "desc": "触发行为 (注：不支持动态更改)",
+      "type": "string",
+      "optionalValue": [
+        "hover",
+        "click",
+        "focus"
+      ],
+      "default": "click",
+      "version": ""
+    },
+    {
+      "name": "popper-class",
+      "desc": "为 Popover 的 popper 添加类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "content",
+      "desc": "显示的内容",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "title",
+      "desc": "弹出框标题",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "open-delay",
+      "desc": "hover 触发时出现的延迟，单位毫秒, 0 表示不延迟",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "close-delay",
+      "desc": "hover 触发时消失的延迟，单位毫秒, 0 表示不延迟",
+      "type": "number",
+      "optionalValue": "",
+      "default": "200",
+      "version": ""
+    },
+    {
+      "name": "append-to-container",
+      "desc": "是否将弹出框插入至容器元素中。在弹出框的定位出现问题时，可将该属性设置为 false",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "get-popup-container",
+      "desc": "获取容器元素方法，需要返回 HTMLElement 对象",
+      "type": "function (): HTMLElement",
+      "optionalValue": "",
+      "default": "默认返回 document.body",
+      "version": ""
+    },
+    {
+      "name": "popper-options",
+      "desc": "自定义 popper.js 的配置项，具体配置查看 <a target='_blank' href='https://popper.js.org/docs/v1/#modifiers--codeobjectcode'>popper.js 文档</a>",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "update:visible",
+      "desc": "当前 visible 发生改变时触发",
+      "signature": "function (visible: boolean)",
+      "args": "(visible: boolean)"
+    }
+  ],
+  "methods": [
+    {
+      "name": "updatePopper()",
+      "desc": "手动更新下弹出框位置",
+      "args": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "content",
+      "desc": "内容插槽"
+    },
+    {
+      "name": "title",
+      "desc": "弹出框标题",
+      "version": ""
+    }
+  ]
+}

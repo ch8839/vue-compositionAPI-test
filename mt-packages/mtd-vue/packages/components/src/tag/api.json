@@ -1,0 +1,89 @@
+{
+  "props": [
+    {
+      "name": "size",
+      "desc": "尺寸",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "normal",
+        "large"
+      ],
+      "default": "normal",
+      "version": ""
+    },
+    {
+      "name": "theme",
+      "desc": "颜色",
+      "type": "string   ",
+      "optionalValue": [
+        "gray",
+        "blue",
+        "green",
+        "orange",
+        "red",
+        "purple"
+      ],
+      "default": "blue",
+      "version": ""
+    },
+    {
+      "name": "type",
+      "desc": "类型",
+      "type": "string",
+      "optionalValue": [
+        "pure",
+        "ghost",
+        "不设置"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "rounded",
+      "desc": "是否是圆形",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "closable",
+      "desc": "是否可以关闭",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "prefix-icon",
+      "desc": "前缀图标",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    }
+  ],
+  "events": [
+    {
+      "name": "click",
+      "desc": "点击事件的回调",
+      "signature": "",
+      "args": "Function(e: Event)"
+    },
+    {
+      "name": "close",
+      "desc": "关闭事件的回调",
+      "signature": "",
+      "args": "Function(e: Event)"
+    }
+  ]
+}

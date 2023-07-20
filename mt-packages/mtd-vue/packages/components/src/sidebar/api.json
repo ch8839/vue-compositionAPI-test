@@ -1,0 +1,138 @@
+{
+  "props": [
+    {
+      "name": "title",
+      "desc": "导航名称",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "collapse",
+      "desc": "支持.sync，是否水平折叠收起导航",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "modelValue",
+      "desc": "(受控)，支持 v-model，激活菜单的key",
+      "type": [
+        "string",
+        "number"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "default-active-key",
+      "desc": "默认激活菜单的key",
+      "type": [
+        "string",
+        "number"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "expand-keys",
+      "desc": "(受控)，支持.sync，当前打开菜单的key的数组",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "default-expand-keys",
+      "desc": "当前打开菜单的 key 的数组",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "accordion",
+      "desc": "是否开启手风琴模式，开启后每次至多展开一个",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "data",
+      "desc": "导航数据(包含一级导航、二级导航)",
+      "type": "Array",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "item-key",
+      "desc": "唯一标识的属性名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "'id'",
+      "version": ""
+    },
+    {
+      "name": "tooltip-props",
+      "desc": "tooltip 组件属性，详细参考 <a href='/components/tooltip#tooltip-props'>tooltip组件</a>",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "theme",
+      "desc": "主题",
+      "type": "string",
+      "optionalValue": [
+        "light",
+        "dark"
+      ],
+      "default": "light",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "collapse-change",
+      "desc": "侧栏展开收起状态发生变化时触发",
+      "args": "(collaspe: boolean)"
+    },
+    {
+      "name": "menu-expand-change",
+      "desc": "菜单项展开状态发生改变时触发",
+      "args": "({ expandKeys: string[], key: string, item: data, expanded: boolean })"
+    },
+    {
+      "name": "menu-item-click",
+      "desc": "点击菜单项时触发",
+      "args": "({ key: string, item: data })"
+    }
+  ],
+  "slots": [
+    {
+      "name": "title",
+      "desc": "导航名称插槽",
+      "args": "{ <br />  item?: data, // 当前项对应的 data 值 <br /> }",
+      "version": ""
+    },
+    {
+      "name": "submenu",
+      "desc": "自定义子菜单(submenu)中标题内容",
+      "args": "{ <br />  item?: data, // 当前项对应的 data 值 <br /> }",
+      "version": ""
+    },
+    {
+      "name": "item",
+      "desc": "自定义菜单项(menu-item)中标题内容",
+      "args": "{ <br />  item?: data, // 当前项对应的 data 值 <br /> }",
+      "version": ""
+    }
+  ]
+}

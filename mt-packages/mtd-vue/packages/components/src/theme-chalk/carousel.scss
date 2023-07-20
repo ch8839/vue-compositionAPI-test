@@ -1,0 +1,324 @@
+@use "sass:math";
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(carousel) {
+  position: relative;
+  width: 100%;
+
+  &:hover,
+  &.hover {
+    .#{$B}-btn.#{$B}-hover {
+      visibility: visible;
+    }
+  }
+
+  .#{$B}-itemList-outer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .#{$B}-itemList {
+    &::before {
+      display: table;
+      content: "";
+    }
+
+    &::after {
+      display: table;
+      content: "";
+      clear: both;
+    }
+
+
+    .#{$B}-item {
+      float: left;
+    }
+  }
+
+  .#{$B}-indicator {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+    &.#{$B}-inside {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -$carousel-indicator-distance);
+      font-size: 0px;
+
+      .#{$B}-dot {
+        display: inline-block;
+        margin: 0 math.div($carousel-indicator-dot-margin-left, 2);
+        background-color: $carousel-inside-dot-bgc;
+        cursor: pointer;
+      }
+
+      .#{$B}-dot-line {
+        width: $carousel-indicator-dot-line-width;
+        height: $carousel-indicator-dot-line-height;
+        border-radius: 2px;
+      }
+
+      .#{$B}-dot-circle {
+        width: $carousel-indicator-dot-circle-width;
+        height: $carousel-indicator-dot-circle-height;
+        border-radius: 50%;
+      }
+
+      .#{$B}-active-dot {
+        background-color: $carousel-inside-active-dot-bgc;
+      }
+
+      &-top {
+        top: 0%;
+        transform: translate(-50%, $carousel-indicator-distance);
+      }
+
+      &-left {
+        left: 0;
+        top: 50%;
+        transform: translateX($carousel-indicator-distance) translate(-50%, 0) rotate(90deg);
+      }
+
+      &-right {
+        right: 0;
+        top: 50%;
+        transform: translateX(-$carousel-indicator-distance) translate(50%, 0) rotate(90deg);
+      }
+
+    }
+
+    &.#{$B}-outside {
+      position: relative;
+      font-size: 0px;
+      margin-top: $carousel-indicator-distance;
+
+      .#{$B}-dot {
+        display: inline-block;
+        margin: 0 math.div($carousel-indicator-dot-margin-left, 2);
+        background-color: $carousel-outside-dot-bgc;
+        cursor: pointer;
+      }
+
+      .#{$B}-dot-line {
+        width: $carousel-indicator-dot-line-width;
+        height: $carousel-indicator-dot-line-height;
+        border-radius: 2px;
+      }
+
+      .#{$B}-dot-circle {
+        width: $carousel-indicator-dot-circle-width;
+        height: $carousel-indicator-dot-circle-height;
+        border-radius: math.div($carousel-indicator-dot-circle-height, 2);
+
+        &.#{$B}-active-dot {
+          width: $carousel-indicator-dot-active-circle-width;
+        }
+      }
+
+      .#{$B}-active-dot {
+        background-color: $carousel-outside-active-dot-bgc;
+      }
+    }
+  }
+
+  .#{$B}-btn {
+    position: absolute;
+    width: $carousel-btn-width;
+    height: $carousel-btn-height;
+    margin-top: math.div(-$carousel-btn-height, 2);
+    border-radius: $carousel-btn-border-radius;
+    background-color: $carousel-btn-bgc;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: $carousel-btn-font-size;
+    color: $carousel-btn-color;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &.#{$B}-prev {
+      top: 50%;
+      left: $carousel-btn-prev-left;
+    }
+
+    &.#{$B}-next {
+      top: 50%;
+      right: $carousel-btn-next-right;
+    }
+
+    &.#{$B}-always {
+      visibility: visible;
+    }
+
+    &.#{$B}-never {
+      visibility: hidden;
+    }
+
+    &.#{$B}-hover {
+      visibility: hidden;
+    }
+
+    i {
+      font-size: $s-6;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  .#{$B}-item {
+    position: absolute;
+    animation-timing-function: cubic-bezier(.25, 0, .25, 1);
+
+    &-mask {
+      background: rgba(0, 0, 0, 0.35);
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+
+    &-active-turnover-right {
+      animation-name: turnover-right;
+    }
+
+    &-active-turnover-left {
+      animation-name: turnover-left;
+    }
+
+    &-active-turnover-top {
+      animation-name: turnover-top;
+    }
+
+    &-active-turnover-bottom {
+      animation-name: turnover-bottom;
+    }
+
+  }
+
+  &-normal {
+    .#{$B}-item {
+
+      transition-property: left, transform;
+
+      transform: translateZ(-1px);
+      left: -100%;
+
+      &-active {
+        left: 0;
+        transform: translateZ(100px);
+      }
+
+    }
+  }
+
+  &-horizontal {
+    .#{$B}-item {
+
+      transition-property: top, transform;
+
+      transform: translateZ(-1px);
+      top: 0;
+
+      &-active {
+        top: 0;
+        transform: translateZ(100px);
+      }
+
+    }
+  }
+
+  &-card {
+    .#{$B}-item {
+
+      transition-property: transform, left, opacity;
+      opacity: 0.8;
+      transform: scale(0.86) translateZ(-1px);
+      left: 10%;
+
+      &-active {
+        left: 10%;
+        opacity: 1;
+        transform: translateZ(100px);
+      }
+
+      &-prev-active {
+        left: 0;
+        transform-origin: 0 50%;
+        transform: scale(0.86) translateZ(1px);
+      }
+
+      &-next-active {
+        left: 20%;
+        transform-origin: 100% 50%;
+        transform: scale(0.86) translateZ(1px);
+      }
+    }
+  }
+
+  &-fade {
+    .#{$B}-item {
+
+      transition-property: transform, opacity;
+      opacity: 0;
+
+      transform: translateZ(-1px);
+
+      &-active {
+        opacity: 1;
+        transform: translateZ(100px);
+      }
+
+      &-prev-active {
+        transform: translateZ(1px);
+      }
+
+      &-next-active {
+        transform: translateZ(1px);
+      }
+    }
+  }
+
+  @keyframes turnover-left {
+    from {
+      left: -100%;
+    }
+
+    to {
+      left: 0;
+    }
+  }
+
+  @keyframes turnover-right {
+    from {
+      left: 100%;
+    }
+
+    to {
+      left: 0;
+    }
+  }
+
+  @keyframes turnover-top {
+    from {
+      top: -100%;
+    }
+
+    to {
+      top: 0;
+    }
+  }
+
+  @keyframes turnover-bottom {
+    from {
+      top: 100%;
+    }
+
+    to {
+      top: 0;
+    }
+  }
+
+}

@@ -1,0 +1,331 @@
+{
+  "props": [
+    {
+      "name": "modelValue",
+      "desc": "select 当前选中值,多选时为数组",
+      "type": [
+        "string",
+        "number",
+        "object",
+        "Array"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "value-key",
+      "desc": "仅当 value 值为 object、object[] 时生效，作为 value 唯一标识的键名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "选择框尺寸",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "不设置",
+        "large"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "icon",
+      "desc": "选择框右侧的 icon",
+      "type": "string",
+      "optionalValue": "",
+      "default": "'down'",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "clearable",
+      "desc": "是否有清空按钮",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "closable",
+      "desc": "多选为标签的情况下是否可删除，当为函数时期望为纯函数",
+      "type": [
+        "boolean",
+        "function({ value: any, currentLabel: string }): boolean"
+      ],
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "filterable",
+      "desc": "是否可搜索",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "auto-clear-query",
+      "desc": "是否在获取焦点时清空搜索条件",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "debounce",
+      "desc": "搜索防抖延迟，单位毫秒",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "multiple",
+      "desc": "是否多选",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "append-to-container",
+      "desc": "是否将弹出框插入至 body 元素。在弹出框的定位出现问题时，可将该属性设置为 false",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "true",
+      "version": ""
+    },
+    {
+      "name": "name",
+      "desc": "select input 的 name 属性",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "placeholder",
+      "desc": "占位符",
+      "type": "string",
+      "optionalValue": "",
+      "default": "请选择",
+      "version": ""
+    },
+    {
+      "name": "no-match-text",
+      "desc": "搜索条件无匹配时显示的文字",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "no-data-text",
+      "desc": "选项为空时显示的文字",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "filter-method",
+      "desc": "自定义搜索方法，query为当前查询条件，value为当前option的值",
+      "type": "function(query,value): boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "remote",
+      "desc": "是否远程搜索",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "remote-method",
+      "desc": "远程搜索的方法",
+      "type": "function(query)",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "loading",
+      "desc": "是否正在从远程获取数据",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "loading-text",
+      "desc": "搜索时的文案",
+      "type": "string",
+      "optionalValue": "",
+      "default": "'搜索中'",
+      "version": ""
+    },
+    {
+      "name": "collapse-tags",
+      "desc": "多选时是否将选中值按文字的形式展示",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "popper-class",
+      "desc": "Select 下拉框的类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "is-empty",
+      "desc": "受控，手动设置是否是选项为空，不传时则由组件自身维护",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "formatter",
+      "desc": "格式化当前输入框中显示的内容",
+      "type": "function({value,label}):string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "show-checkbox",
+      "desc": "多选是否展示 Checkbox，仅当设置 multiple 属性时生效",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "reserve-keyword",
+      "desc": "多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "allow-create",
+      "desc": "可搜索时，是否允许用户创建新条目",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "popper-options",
+      "desc": "自定义 popper.js 的配置项，具体配置查看 <a target='_blank' href='https://popper.js.org/docs/v1/#modifiers--codeobjectcode'>popper.js 文档</a>",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "options",
+      "desc": "options 数据，如果设置则不需要手动构造 selectOption 节点",
+      "type": "Option[]",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "fieldNames",
+      "desc": "option 配置字段",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "max-count",
+      "desc": "多选时生效，设置最大能显示tag的数量，设置responsive的时候为自动计算",
+      "type": "number / 'responsive'",
+      "optionalValue": "",
+      "default": "",
+      "version": "MTD 3.0"
+    },
+    {
+      "name": "virtual",
+      "desc": "仅当配置options时候生效，是否虚拟滚动(建议选项超过200再使用否则起到反作用)",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": "MTD 3.0"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "desc": "选中值发生变化时触发",
+      "args": "(value: any)"
+    },
+    {
+      "name": "update:visible",
+      "desc": "下拉框显示／隐藏状态变化时触发",
+      "args": "(visible: boolean)"
+    },
+    {
+      "name": "remove",
+      "desc": "多选模式下移除 tag 时触发",
+      "args": "(value: any)"
+    },
+    {
+      "name": "scroll",
+      "desc": "下拉菜单滚动时触发",
+      "args": "(event: Event)",
+      "version": ""
+    },
+    {
+      "name": "scroll-bottom",
+      "desc": "下拉菜单滚动到底部时触发，可多次触发",
+      "args": "(event: Event)",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "empty",
+      "desc": "空数据时展示的内容"
+    },
+    {
+      "name": "loading",
+      "desc": "加载时展示的内容"
+    },
+    {
+      "name": "maxTagPlaceholder",
+      "desc": "当 collapse-tags=true 时自定义隐藏右侧提示文案",
+      "args": "{<br/>omittedValues:Option[]//隐藏的tag项,<br/>selected:Option[]//全部选中的tag项<br/>}",
+      "version": ""
+    },
+    {
+      "name": "tag",
+      "desc": "自定义多选时 tag 的渲染内容",
+      "args": "{<br/>option: Option, // 当前选中选项 <br /> size: string, // 当前 select 的 size 属性值 <br /> closable: boolean, // 是否可关闭 <br /> disabled: boolean, // 是否禁用<br /> onClose: Function(): void // 点击关闭时的响应函数 <br/>}",
+      "version": ""
+    }
+  ]
+}

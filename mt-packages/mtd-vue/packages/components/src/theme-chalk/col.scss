@@ -1,0 +1,65 @@
+@use "sass:math";
+
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+[class*="#{$prefix}-col-"] {
+  float: left;
+  box-sizing: border-box;
+}
+
+.#{$prefix}-col-0 {
+  display: none;
+}
+
+@for $i from 0 through 24 {
+  .#{$prefix}-col-#{$i} {
+    width: (math.div(1, 24) * $i * 100) * 1%;
+  }
+
+  .#{$prefix}-col-offset-#{$i} {
+    margin-left: (math.div(1, 24) * $i * 100) * 1%;
+  }
+
+  .#{$prefix}-col-pull-#{$i} {
+    position: relative;
+    right: (math.div(1, 24) * $i * 100) * 1%;
+  }
+
+  .#{$prefix}-col-push-#{$i} {
+    position: relative;
+    left: (math.div(1, 24) * $i * 100) * 1%;
+  }
+}
+
+@mixin res-mixin($breakpoint) {
+  @include res($breakpoint) {
+    .#{$prefix}-col-#{$breakpoint}-0 {
+      display: none;
+    }
+
+    @for $i from 0 through 24 {
+      .#{$prefix}-col-#{$breakpoint}-#{$i} {
+        width: (math.div(1, 24) * $i * 100) * 1%;
+      }
+
+      .#{$prefix}-col-#{$breakpoint}-offset-#{$i} {
+        margin-left: (math.div(1, 24) * $i * 100) * 1%;
+      }
+
+      .#{$prefix}-col-#{$breakpoint}-pull-#{$i} {
+        position: relative;
+        right: (math.div(1, 24) * $i * 100) * 1%;
+      }
+
+      .#{$prefix}-col-#{$breakpoint}-push-#{$i} {
+        position: relative;
+        left: (math.div(1, 24) * $i * 100) * 1%;
+      }
+    }
+  }
+}
+
+@each $name in map_keys($breakpoints) {
+  @include res-mixin($name);
+}

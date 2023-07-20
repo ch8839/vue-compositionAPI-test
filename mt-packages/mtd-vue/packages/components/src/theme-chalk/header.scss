@@ -1,0 +1,8 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include c(header) {
+  padding: 0 20px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}

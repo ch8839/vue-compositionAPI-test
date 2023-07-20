@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "description": "A Component Library For Vue.js(3.x version)",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build:doc": "lerna run build:doc",
+    "start": "cd packages/examples && npm run start",
+    "test:watch": "cd packages/components && npm run test:watch",
+    "build": "lerna run build"
+  },
+  "dependencies": {
+    "@types/webpack-env": "^1.16.3",
+    "husky": "^7.0.4",
+    "lerna": "^5.1.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "vue-markdown-loader": "2.4.1",
+    "webpack": "5.65.0"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "src",
+    "components",
+    "types",
+    "components.json",
+    "script"
+  ],
+  "types": "types/index.d.ts",
+  "engines": {
+    "node": ">= 8.0.0",
+    "npm": ">= 5.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "ie >= 9"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.sankuai.com/ss/mtd-vue.git"
+  },
+  "license": "MIT",
+  "name": "@ss/mtd-vue-next"
+}

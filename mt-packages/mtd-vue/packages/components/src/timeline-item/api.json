@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "type",
+      "desc": "定义时间轴的类型",
+      "type": "string",
+      "optionalValue": [
+        "不设置",
+        "master",
+        "hollow",
+        "disabled"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "时间轴节点大小",
+      "type": "string",
+      "optionalValue": [
+        "不设置",
+        "small",
+        "large"
+      ],
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "ghost",
+      "desc": "是否为 幽灵样式 虚线",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "desc": "时间轴节点内容"
+    },
+    {
+      "name": "title",
+      "desc": "时间轴节点标题内容"
+    },
+    {
+      "name": "dot",
+      "desc": "时间轴分割线上点内容"
+    },
+    {
+      "name": "reverse",
+      "desc": "时间轴分割线上另一边的内容(mdoe为alternate的时候不生效)"
+    }
+  ]
+}

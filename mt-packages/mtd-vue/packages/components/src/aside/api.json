@@ -1,0 +1,12 @@
+{
+  "props": [
+    {
+      "name": "width",
+      "desc": "侧边栏宽度",
+      "type": "string",
+      "optionalValue": "",
+      "default": "300px",
+      "version": ""
+    }
+  ]
+}

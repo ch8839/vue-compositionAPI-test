@@ -1,0 +1,97 @@
+{
+  "props": [
+    {
+      "name": "show-arrow",
+      "desc": "是否显示箭头",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "visible",
+      "desc": "手动控制是否显示 Dropdown, 支持 v-model",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "placement",
+      "desc": "显示的位置",
+      "type": "string",
+      "optionalValue": [
+        "top",
+        "top-start",
+        "top-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+        "left",
+        "left-start",
+        "left-end",
+        "right",
+        "right-start",
+        "right-end"
+      ],
+      "default": "bottom-start",
+      "version": ""
+    },
+    {
+      "name": "popper-class",
+      "desc": "为 Dropdown 的 popper 添加类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "trigger",
+      "desc": "触发行为",
+      "type": "string",
+      "optionalValue": [
+        "hover",
+        "click",
+        "focus"
+      ],
+      "default": "click",
+      "version": ""
+    },
+    {
+      "name": "popper-options",
+      "desc": "自定义 popper.js 的配置项，具体配置查看 <a target='_blank' href='https://popper.js.org/docs/v1/#modifiers--codeobjectcode'>popper.js 文档</a>",
+      "type": "object",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "dropdown",
+      "desc": "下拉显示的内容"
+    }
+  ],
+  "methods": [
+    {
+      "name": "updatePopper()",
+      "desc": "手动更新下拉菜单位置"
+    }
+  ],
+  "event": [
+    {
+      "name": "update:visible",
+      "desc": "下拉框出现/隐藏时触发",
+      "signature": "function (visible: Boolean)",
+      "args": "点击事件对象"
+    }
+  ]
+}

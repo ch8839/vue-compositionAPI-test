@@ -1,0 +1,45 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(menu-item) {
+  // height: $menu-item-height;
+  position: relative;
+  cursor: pointer;
+
+  &-title {
+    border-radius: $menu-item-border-radius;
+    margin: 0 $menu-margin-horizontal;
+    padding: 0 $menu-padding-horizontal;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
+    color: currentColor;
+    cursor: pointer;
+    @include text-ellipsis();
+    transition: padding 0.3s;
+
+    &:hover,
+    &.hover {
+      text-decoration: none;
+    }
+  }
+
+  &-text {
+    font-size: $menu-font-size;
+    flex: 1 1 auto;
+    min-width: 0;
+    // user-select: none;
+    @include text-ellipsis();
+  }
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    height: $menu-item-height;
+    flex: 0 0 auto;
+    font-size: $menu-item-icon-size;
+    min-width: $menu-item-icon-size;
+    margin-right: $menu-item-icon-margin-right;
+  }
+}

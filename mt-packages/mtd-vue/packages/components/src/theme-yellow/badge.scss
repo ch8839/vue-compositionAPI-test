@@ -1,0 +1,72 @@
+@import "./common/var.scss";
+
+@include c(badge) {
+  position: relative;
+  display: inline-block; //🤡flex
+
+  font-family: Helvetica;
+
+  &-text {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: $badge-height;
+    line-height: $badge-height - 2;
+    color: $badge-text-color;
+    background-color: $badge-bgc;
+    border-radius: $badge-border-radius;
+    font-size: $badge-font-size;
+    font-weight: $badge-font-weight;
+    padding: 0 $badge-padding-horizontal;
+    white-space: nowrap;
+    border: $badge-border-width solid $badge-border-color;
+  }
+
+  &-position {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translate(-#{$badge-padding-horizontal}, -50%);
+
+    &.#{$prefix}-badge-dot {
+      transform: translate(0, -50%);
+    }
+  }
+
+  &-dot {
+    height: $badge-dot-size + 2 * $badge-border-width;
+    width: $badge-dot-size + 2 * $badge-border-width;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  &-rounded {
+    width: $badge-height;
+    padding: 0;
+    text-align: center;
+  }
+
+  &-hidden {
+    display: none;
+  }
+
+  &-success {
+    background-color: $badge-success-color;
+  }
+
+  &-warning {
+    background-color: $badge-warning-color;
+  }
+
+  &-process {
+    background-color: $badge-process-color;
+  }
+
+  &-error {
+    background-color: $badge-error-color;
+  }
+
+  &-disabled {
+    background-color: $badge-disabled-color;
+  }
+}

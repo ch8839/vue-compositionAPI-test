@@ -1,0 +1,43 @@
+{
+  "props": [
+    {
+      "name": "disabled",
+      "desc": "禁用状态",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "modelValue",
+      "desc": "当前选中的值，支持 v-model",
+      "type": "any",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "max",
+      "desc": "可被勾选的 checkbox 的最大数量",
+      "type": "number",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "min",
+      "desc": "可被勾选的 checkbox 的最小数量",
+      "type": "number",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "input",
+      "desc": "在选项状态发生改变时触发，返回当前状态。",
+      "args": "当前选中 value 值"
+    }
+  ]
+}

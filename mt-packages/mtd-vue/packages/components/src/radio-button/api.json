@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "desc": "Radio 的 value",
+      "type": "any",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "禁用状态，继承 RadioGroup 组件的 disabled 值",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "name",
+      "desc": "radio 的 name",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "按钮大小，继承 RadioGroup 组件的 size",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "不设置",
+        "large"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "checked",
+      "desc": "是否选中,根据 group 组件的 value 计算得出",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    }
+  ],
+  "events": [
+    {
+      "name": "input",
+      "desc": "在选项状态发生改变时触发，返回当前状态",
+      "args": "(checked: boolean)"
+    }
+  ]
+}

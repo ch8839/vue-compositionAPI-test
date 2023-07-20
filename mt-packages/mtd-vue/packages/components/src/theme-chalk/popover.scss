@@ -1,0 +1,50 @@
+@import "./common/var.scss";
+@import "mixins/mixins";
+@import "mixins/popper";
+
+@include c(popover) {
+  text-align: left;
+  color: $popover-content-color;
+
+  >.#{$prefix}-popper-arrow {
+    color: $popper-arrow-color;
+  }
+
+  padding: $popover-padding-vertical $popover-padding-horizontal;
+  font-size: $popover-font-size;
+  line-height: $popover-line-height;
+
+  &-icon {
+    font-size: $popover-line-height ;
+
+    flex: 0 0 auto;
+    min-width: 0;
+    margin-right: $popover-icon-margin-right;
+    display: inline-flex;
+    align-items: center;
+
+    color: $popover-icon-color
+  }
+
+  &-small {
+    padding: $popover-small-padding-vertical $popover-small-padding-horizontal;
+    font-size: $popover-small-font-size;
+    line-height: $popover-small-line-height;
+
+    .#{$B}-icon {
+      font-size: $popover-small-line-height ;
+    }
+  }
+
+  &-title {
+    color: $popover-title-color;
+    font-weight: $popover-title-font-weight;
+    font-size: $popover-title-font-size;
+    margin-bottom: $popover-title-margin-bottom;
+  }
+
+  &-small &-title {
+    font-size: $popover-small-title-font-size;
+    margin-bottom: $popover-small-title-margin-bottom;
+  }
+}

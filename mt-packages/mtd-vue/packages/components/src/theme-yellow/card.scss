@@ -1,0 +1,44 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(card) {
+  overflow: hidden;
+
+  border: $card-border-width solid $card-border-color;
+  border-radius: $card-border-radius;
+  box-sizing: border-box;
+  position: relative;
+  background-color: $card-bgc;
+
+  &-always-shadow {
+    box-shadow: $card-shadow;
+  }
+
+  &-hover-shadow {
+
+    &:hover,
+    &.hover,
+    &:focus {
+      box-shadow: $card-shadow;
+    }
+  }
+
+  &-title {
+    padding: $card-title-padding-vertical $card-padding-horizontal;
+    font-size: $card-title-font-size;
+    font-weight: $card-title-font-weight;
+    line-height: $card-title-line-height;
+    color: $card-title-color;
+    border-bottom: 1px solid $card-divider-color;
+  }
+
+  &-extra {
+    position: absolute;
+    right: $card-padding-horizontal;
+    top: $card-title-padding-vertical;
+  }
+
+  &-body {
+    padding: $card-content-padding-vertical $card-padding-horizontal;
+  }
+}

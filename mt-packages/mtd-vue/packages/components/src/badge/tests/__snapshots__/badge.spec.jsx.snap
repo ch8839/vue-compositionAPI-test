@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge create badge 1`] = `<div class="mtd-badge">系统通知<span class="mtd-badge-text mtd-badge-position">12</span></div>`;
+
+exports[`Badge renders ./src/badge/doc/base.vue correctly 1`] = `
+<div>
+  <div class="example-badge mtd-badge" style="padding: 2px;"><span>系统通知</span><span class="mtd-badge-text mtd-badge-position mtd-badge-rounded">8</span></div>
+  <div class="example-badge mtd-badge" style="padding: 2px;"><span>系统通知</span><span class="mtd-badge-text mtd-badge-position">99+</span></div>
+  <div class="example-badge mtd-badge"><i class="mtdicon mtdicon-bell-o" style="font-size: 34px; color: rgb(128, 138, 177);"></i><span class="mtd-badge-text mtd-badge-position">12</span></div>
+  <div class="example-badge mtd-badge"><i class="mtdicon mtdicon-bell-o" style="font-size: 34px; color: rgb(128, 138, 177);"></i><span class="mtd-badge-text mtd-badge-position">99+</span></div>
+</div>
+`;
+
+exports[`Badge renders ./src/badge/doc/combination.vue correctly 1`] = `
+<div><button type="text" class="example-badge mtd-btn mtd-btn-text"><span class="mtd-btn-before"><div class="mtd-badge"><i class="mtdicon mtdicon-theme"></i><span class="mtd-badge-text mtd-badge-position mtd-badge-dot"></span></div></span><span>
+    主题
+  </span></button>
+<div class="example-badge mtd-badge"><button class="mtd-btn"><span class="mtd-btn-before"><i class="mtdicon mtdicon-cart-o"></i></span><span>
+      购物车
+    </span></button><span class="mtd-badge-text mtd-badge-position">12</span></div>
+</div>
+`;
+
+exports[`Badge renders ./src/badge/doc/location.vue correctly 1`] = `
+<div>
+  <div class="example-badge mtd-badge" style="padding: 2px;"><span>系统通知</span><span class="mtd-badge-text mtd-badge-position">12</span></div> <span class="example-badge" style="display: inline-block;"><span style="display: inline-block; padding: 2px; vertical-align: middle;">系统通知</span>
+  <div class="mtd-badge" style="vertical-align: middle; line-height: 1;"><span class="mtd-badge-text">12</span></div>
+  </span>
+  <div class="example-badge mtd-badge"><i class="mtdicon mtdicon-bell-o" style="font-size: 34px; color: rgb(128, 138, 177);"></i><span class="mtd-badge-text mtd-badge-position">12</span></div> <span style="display: inline-block;"><span style="display: inline-block; vertical-align: middle;"><i class="mtdicon mtdicon-bell-o" style="font-size: 34px; color: rgb(128, 138, 177);"></i></span>
+  <div class="mtd-badge" style="vertical-align: middle;"><span class="mtd-badge-text">12</span></div>
+  </span>
+</div>
+`;
+
+exports[`Badge renders ./src/badge/doc/num.vue correctly 1`] = `
+<div><span class="example-badge">
+    design v0.2
+    <div class="badge-dot-center badge mtd-badge"><span class="mtd-badge-text mtd-badge-dot"></span></div></span>
+<div class="example-badge mtd-badge"><i class="mtdicon mtdicon-bell-o" style="font-size: 34px; color: rgb(128, 138, 177);"></i><span class="mtd-badge-text mtd-badge-position mtd-badge-dot"></span></div>
+<div class="example-badge mtd-badge" style="padding: 2px;">
+  <div>系统通知</div><span class="mtd-badge-text mtd-badge-position">new</span>
+</div>
+<div class="example-badge mtd-badge" style="padding: 2px;">
+  <div>系统通知</div><span class="mtd-badge-text mtd-badge-position">hot</span>
+</div>
+</div>
+`;
+
+exports[`Badge renders ./src/badge/doc/status.vue correctly 1`] = `<div><span class="example-badge"><div class="my-badge mtd-badge"><span class="mtd-badge-text mtd-badge-dot mtd-badge-error"></span></div> <span>错误</span></span> <span class="example-badge"><div class="my-badge mtd-badge"><span class="mtd-badge-text mtd-badge-dot mtd-badge-success"></span></div> <span>成功</span></span> <span class="example-badge"><div class="my-badge mtd-badge"><span class="mtd-badge-text mtd-badge-dot mtd-badge-process"></span></div> <span>进行中</span></span> <span class="example-badge"><div class="my-badge mtd-badge"><span class="mtd-badge-text mtd-badge-dot mtd-badge-disabled"></span></div> <span>过期</span></span> <span class="example-badge"><div class="my-badge mtd-badge"><span class="mtd-badge-text mtd-badge-dot mtd-badge-warning"></span></div> <span>警告</span></span></div>`;

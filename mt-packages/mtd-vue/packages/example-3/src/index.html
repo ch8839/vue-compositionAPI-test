@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="/mtd/vue/favicon.png?1593345401990" rel="icon">
+  <title>MTDUI Vue</title>
+  <meta name="lx:category" content="techportal">
+  <meta name="lx:defaultAppnm" content="">
+  <meta name="lx:cid" content="c_techportal_dyu2qd24">
+  <meta name="lx:appnm" content="mtd">
+  <meta name="lx:autopv" content="off" />
+  <meta name="lx:mvDelay" content="2" />
+  <link rel="dns-prefetch" href="//lx.meituan.net" />
+  <link rel="dns-prefetch" href="//wreport.meituan.net" />
+  <link rel="dns-prefetch" href="//report.meituan.com" />
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <script type="text/javascript">
+    !(function (win, doc, ns) {
+      var cacheFunName = '_MeiTuanALogObject';
+      win[cacheFunName] = ns;
+      if (!win[ns]) {
+        var _LX = function () {
+          _LX.q.push(arguments);
+          return _LX;
+        };
+        _LX.q = _LX.q || [];
+        _LX.l = +new Date();
+        win[ns] = _LX;
+      }
+    })(window, document, 'LXAnalytics');
+
+    LXAnalytics("config", "useQR", true);
+    LXAnalytics("config", "onWebviewAppearAutoPV", false);
+  </script>
+
+  <script type="text/javascript" src="//lx.meituan.net/lx.js" async></script>
+  <% if (!process.env.NODE_ENV || process.env.NODE_ENV==='production' ) { %>
+    <script src="//s3plus.meituan.net/v1/mss_55f12fa2cfcf4ec080d69868a087b2c0/mtdframe/index.js"></script>
+    <% } else { %>
+      <script src="//s3plus.meituan.net/v1/mss_55f12fa2cfcf4ec080d69868a087b2c0/mtdframe-test/index.js"></script>
+      <% } %>
+</body>
+
+</html>

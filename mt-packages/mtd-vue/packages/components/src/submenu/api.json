@@ -1,0 +1,69 @@
+{
+  "props": [
+    {
+      "name": "name",
+      "desc": "唯一标识",
+      "type": [
+        "string",
+        "number"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "icon",
+      "desc": "菜单的图标",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "desc": "是否禁用",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "close-delay",
+      "desc": "用户鼠标离开子菜单后关闭延时，单位：秒",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0.1",
+      "version": ""
+    },
+    {
+      "name": "open-delay",
+      "desc": "用户鼠标离开子菜单后开启延时，单位：秒",
+      "type": "number",
+      "optionalValue": "",
+      "default": "0",
+      "version": ""
+    },
+    {
+      "name": "popper-class",
+      "desc": "为 SubMenu 的 popper 添加类名",
+      "type": "string",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "icon",
+      "desc": "自定义图标，当不设置active-icon的时候将默认复用这个icon slot 的内容"
+    },
+    {
+      "name": "active-icon",
+      "desc": "自定义激活时的图标"
+    },
+    {
+      "name": "title",
+      "desc": "自定义菜单标题"
+    }
+  ]
+}

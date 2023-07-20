@@ -1,0 +1,7 @@
+@mixin icon-button-size($fontSize, $padding) {
+  $size: $fontSize + 2 * $padding;
+  font-size: $fontSize;
+  width: $size;
+  height: $size;
+  padding: $padding;
+}

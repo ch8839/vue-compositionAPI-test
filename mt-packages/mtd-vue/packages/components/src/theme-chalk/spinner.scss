@@ -1,0 +1,55 @@
+@import "./common/var.scss";
+@import "./common/util.scss";
+@import "./mixins/mixins.scss";
+
+@include c(spinner) {
+  display: inline-block;
+  padding: $s-1;
+
+  &-ul {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 360px;
+    overflow: auto;
+
+    @include hover-scrollbar
+  }
+
+  &-li {
+    padding: 0 4px;
+    margin: 0;
+    list-style: none;
+    border-radius: 6px;
+    color: rgba(0, 0, 0, .9);
+    cursor: pointer;
+    display: block;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    list-style: none;
+    text-align: center;
+    -webkit-transition: background .2s ease-in-out;
+    transition: background .2s ease-in-out;
+    user-select: none;
+
+    &:hover {
+      background-color: $color-hover-grey-2;
+    }
+
+    &-selected {
+      color: $color-link;
+      background-color: rgba(22, 111, 247, 0.06);
+      border-radius: 4px;
+    }
+  }
+
+  &-arrow {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    color: $color-text-3
+  }
+}

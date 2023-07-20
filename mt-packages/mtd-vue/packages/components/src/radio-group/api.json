@@ -1,0 +1,51 @@
+{
+  "props": [
+    {
+      "name": "disabled",
+      "desc": "禁用状态",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "modelValue",
+      "desc": "当前选中的值",
+      "type": "any",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "desc": "单选框的大小,其中单选框只有大、中两个size，选项卡有大、中、小三个size",
+      "type": "string",
+      "optionalValue": [
+        "small",
+        "不设置",
+        "large"
+      ],
+      "default": "不设置",
+      "version": ""
+    },
+    {
+      "name": "type",
+      "desc": "选项卡类型",
+      "type": "string",
+      "optionalValue": [
+        "line",
+        "fill",
+        "slider"
+      ],
+      "default": "line",
+      "version": "MTD 3.0"
+    }
+  ],
+  "events": [
+    {
+      "name": "input",
+      "desc": "在选项状态发生改变时触发，返回当前状态。",
+      "args": "(value: any)"
+    }
+  ]
+}

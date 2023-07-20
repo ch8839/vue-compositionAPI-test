@@ -1,0 +1,151 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(drawer) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: $drawer-bgc;
+  box-shadow: $drawer-shadow;
+  text-align: left;
+  overflow: auto;
+
+  color: $drawer-color;
+
+  &-mask,
+  &-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  &-mask {
+    background-color: $modal-mask-bgc;
+  }
+
+  &-close {
+    color: $drawer-close-color;
+    font-size: $drawer-close-font-size;
+    width: $drawer-close-size;
+    height: $drawer-close-size;
+    border-radius: $drawer-close-border-radius;
+    /* position: absolute;
+    top: $drawer-close-top;
+    right: $drawer-close-right; */
+    line-height: $drawer-header-line-height;
+    cursor: pointer;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: $s-2;
+
+    &:hover,
+    &.hover {
+      color: $drawer-close-hover-color;
+      background: $drawer-close-hover-bgc;
+    }
+
+    &:active {
+      color: $drawer-close-active-color;
+      background-color: $drawer-close-active-bgc;
+    }
+  }
+
+  &-header-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: $drawer-header-padding-vertical $drawer-padding-horizontal;
+  }
+
+  &-header {
+    flex-grow: 1;
+    line-height: $drawer-header-line-height;
+    font-size: $drawer-header-font-size;
+    color: $drawer-header-color;
+    font-weight: $drawer-header-font-weight;
+  }
+
+  &-content {
+    padding: 0 $drawer-padding-horizontal;
+  }
+
+  &-footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    padding: $drawer-footer-padding-vertical $drawer-footer-padding-horizontal
+  }
+
+  &-right {
+    left: auto;
+  }
+
+  &-bottom {
+    top: auto;
+  }
+}
+
+@each $placement in left,
+right,
+top,
+bottom {
+  .fade-in-#{$placement} {
+    &-enter-active {
+      animation: fade-in-#{$placement} $drawer-animation-transition-duration;
+    }
+
+    &-leave-active {
+      animation: fade-in-#{$placement} $drawer-animation-transition-duration reverse;
+    }
+  }
+}
+
+@keyframes fade-in-left {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-right {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-top {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-bottom {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,291 @@
+@import "./common/var.scss";
+@import "./common/util.scss";
+@import "./mixins/mixins.scss";
+
+@include c(time-picker) {
+  &-with-range {
+    .#{$prefix}-picker-panel-content {
+      flex-direction: column;
+    }
+  }
+
+  &-cells {
+    font-size: 14px;
+    line-height: 22px;
+
+    padding: 0 $time-picker-cell-space;
+
+    min-width: 2*$time-picker-cells-width;
+
+    &-with-minutes {
+      min-width: 3*$time-picker-cells-width;
+    }
+
+    &-with-seconds {
+      min-width: 3*$time-picker-cells-width;
+    }
+
+    &-list {
+      width: $time-picker-cells-width;
+      max-height: $time-picker-max-height;
+      float: left;
+      overflow: auto;
+      //border: 1px solid $time-picker-border-color;
+      position: relative;
+      margin: 0 $time-picker-cell-space;
+    }
+
+    &-units {
+      font-weight: $font-weight-medium;
+    }
+
+    &-units,
+    &-list-wrapper {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    &-list-hour-wrapper {
+      .#{$prefix}-time-picker-cells {
+        &-list {
+          width: 100%;
+          padding: $s-2 0;
+        }
+
+        &-cell {
+          width: 100%;
+          padding: 0 $s-3;
+        }
+      }
+    }
+
+
+    &-unit {
+      display: inline-block;
+      text-align: center;
+      width: $time-picker-cells-width;
+      max-height: $time-picker-max-height;
+
+      color: $color-text-3;
+
+      margin: 8px 0;
+    }
+
+    // 隐藏滚动条
+    &-list {
+      @include hover-scrollbar
+    }
+
+
+    &-list+&-list {
+      border-left: none;
+    }
+
+    &-list:first-child {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+
+    &-list:last-child {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    &-ul {
+      width: 100%;
+      margin: 0;
+      padding: 0 0 0;
+      list-style: none;
+    }
+
+    &-cell {
+      font-family: PingFangSC-Regular;
+      font-size: 14px;
+      color: $time-picker-cell-color;
+      display: block;
+      height: $time-picker-cell-height;
+      width: $time-picker-cell-height;
+      line-height: $time-picker-cell-height;
+      border-radius: $time-picker-cell-border-radius;
+      margin: 2px auto;
+      // text-align: left;
+      text-align: center;
+      user-select: none;
+      cursor: pointer;
+      list-style: none;
+      transition: background .2s ease-in-out;
+
+      &:hover:not(&-selected, &-disabled),
+      &.hover:not(&-selected, &-disabled) {
+        background-color: $time-picker-cell-hover-bgc;
+        color: $time-picker-cell-color;
+      }
+
+      &-selected {
+        color: $time-picker-cell-selected-color;
+        background-color: $time-picker-cell-selected-bgc;
+        font-weight: $time-picker-cell-selected-font-weight;
+        // font-family: $time-picker-cell-selected-font-family;
+      }
+
+      &-disabled {
+        color: $time-picker-cell-disabled-color;
+        background-color: $time-picker-cell-disabled-bgc;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+@include c(picker-panel) {
+  position: relative;
+
+  // sidebar
+  &-sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: $date-picker-sidebar-width;
+    border-right: $date-picker-sidebar-border-width solid $date-picker-sidebar-border-color;
+    overflow: auto;
+    background-color: $date-picker-shortcut-bgc;
+  }
+
+  &-shortcut {
+    padding: $date-picker-shortcut-padding-vertical $date-picker-shortcut-padding-horizontal;
+    line-height: $date-picker-shortcut-line-height;
+    text-align: left;
+    font-size: $font-size-1;
+    cursor: pointer;
+
+    &:hover,
+    &.hover {
+      background-color: $date-picker-shortcut-hover-bgc;
+      color: $date-picker-shortcut-hover-color;
+    }
+  }
+
+  // body
+  &-sidebar+&-body {
+    margin-left: $date-picker-sidebar-width;
+  }
+
+  &-body {
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    white-space: nowrap;
+    // font-size: 0; // 消除模板中的空格影响
+  }
+
+  &-content {
+    display: inline-flex;
+    //vertical-align: top;
+    // font-size: $font-size-1;
+    //flex-direction: column;
+  }
+
+  &-icon-btn {
+    // width: $date-picker-icon-btn-size;
+    // height: $date-picker-icon-btn-size;
+    line-height: $date-picker-header-line-height;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    color: $date-picker-icon-btn-color;
+
+    &:hover,
+    &.hover {
+      color: $date-picker-icon-btn-hover-color;
+    }
+  }
+
+  &-spinner-wrapper {
+    border: 1px solid $color-line-2;
+    border-radius: 9px;
+  }
+
+  &-time {
+    display: inline-block;
+  }
+
+  &-multiple-body {
+    padding: 0 12px;
+
+    .#{$prefix}-picker-panel-multiple-content {
+      text-align: center;
+
+      .#{$prefix}-time-picker-multiple-header {
+        margin: 8px;
+        color: rgba(0, 0, 0, 0.60);
+        letter-spacing: 0;
+      }
+    }
+
+    .#{$prefix}-picker-panel-content-right {
+      margin-left: $s-3;
+    }
+  }
+
+  &--multiple-content+&--multiple-content {
+    margin-left: 12px;
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
+
+    .btn {
+      font-family: PingFangSC-Regular;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 8px 12px 8px 0;
+    }
+
+    .cancelbtn {
+      border: none;
+    }
+  }
+}
+
+@include c(picker-confirm) {
+  clear: both;
+  border-top: 1px solid $date-picker-border-color;
+  padding: 8px 12px;
+  text-align: right;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .#{$prefix}-button+.#{$prefix}-button {
+    margin-left: 4px;
+  }
+
+}
+
+
+@include c(range-picker) {
+  text-align: left;
+
+  .range-separator {
+    line-height: 30px;
+  }
+
+  input {
+    text-align: center;
+    display: inline-block;
+    border: none;
+    outline: none;
+    width: 45%;
+    height: 100%;
+    border-bottom: 0px solid transparent;
+    transition: border-bottom 0.3s;
+
+    &:focus {
+      border-bottom: 1px solid $color-primary;
+    }
+  }
+}

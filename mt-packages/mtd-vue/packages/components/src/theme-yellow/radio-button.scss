@@ -1,0 +1,186 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import "./mixins/radio-button.scss";
+
+@include c("radio-button") {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  border: $radio-button-border-width solid $radio-button-border-color;
+  vertical-align: top;
+
+  &:hover {
+    font-weight: $font-weight-medium;
+  }
+
+
+  &-checked {
+    font-weight: $font-weight-medium;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+  }
+
+  // type 线性
+  &-line {
+    @include radio-button-color($radio-button-bgc, $radio-button-text-color,
+      transparent, $radio-button-hover-text-color,
+      $radio-button-checked-bgc, $radio-button-checked-text-color,
+      $radio-button-disabled-bgc, $radio-button-disabled-checked-bgc, $radio-button-disabled-text-color,
+    );
+
+    &.#{$B}-checked:not(:first-child) {
+      box-shadow: -1px 0 0 $radio-button-checked-border-color;
+
+      &.#{$B}-disabled {
+        &:not(:first-child) {
+          box-shadow: -1px 0 0 $radio-button-border-color;
+        }
+      }
+    }
+  }
+
+  // type 填充型
+  &-fill {
+    @include radio-button-color($radio-button-bgc, $radio-button-text-color,
+      transparent, $radio-button-hover-text-color,
+      $color-primary, $radio-button-checked-text-color,
+      $radio-button-disabled-bgc, $radio-button-disabled-checked-bgc, $radio-button-disabled-text-color,
+    );
+
+    &.#{$B}-checked:not(:first-child) {
+      box-shadow: -1px 0 0 $radio-button-checked-border-color;
+
+      &.#{$B}-disabled {
+        &:not(:first-child) {
+          box-shadow: -1px 0 0 $radio-button-border-color;
+        }
+      }
+    }
+  }
+
+  // 滑块型
+  &-slider {
+    @include radio-button-color(transparent, $radio-button-text-color,
+      transparent, $radio-button-text-color,
+      transparent, $radio-button-checked-text-color,
+      transparent, transparent, $radio-button-disabled-text-color,
+    );
+
+    z-index: 2;
+    border: none;
+
+    .#{$B}-division {
+      height: 16px;
+      width: 1px;
+      background-color: $color-line-2;
+      content: '';
+      position: absolute;
+      left: 0;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out
+    }
+
+
+    &:first-child {
+      .#{$B}-division {
+        opacity: 0;
+      }
+    }
+
+    &.#{$B}-checked {
+      box-shadow: none;
+
+      .#{$B}-division {
+        opacity: 0;
+      }
+
+      &+.#{$B}-slider {
+        .#{$B}-division {
+          opacity: 0;
+        }
+      }
+    }
+
+    position: relative;
+
+  }
+
+  &:not(:first-child) {
+    border-left: none;
+  }
+
+  &:last-child {
+    border-top-right-radius: $radio-button-border-radius;
+    border-bottom-right-radius: $radio-button-border-radius;
+  }
+
+  &:first-child {
+    border-top-left-radius: $radio-button-border-radius;
+    border-bottom-left-radius: $radio-button-border-radius;
+  }
+
+  /*   &:hover,
+  &.hover {
+    border-color: $radio-button-hover-border-color;
+
+    &:not(:first-child) {
+      box-shadow: -1px 0 0 $radio-button-hover-border-color;
+    }
+  } */
+
+  &-checked {
+
+
+
+    /* &:hover,
+    &.hover {
+      color: $radio-button-checked-hover-text-color;
+    } */
+  }
+
+  &-disabled,
+  &-disabled:hover {
+    border-color: $radio-button-disabled-border-color;
+    cursor: not-allowed;
+    opacity: $radio-button-disabled-opacity;
+  }
+
+  &-disabled {
+
+    /* &.#{$B + "-checked"},
+    &.#{$prefix}-radio-button-checked:hover {
+      //background-color: $radio-button-disabled-checked-bgc;
+      border-color: $radio-button-disabled-checked-border-color;
+      //color: $radio-button-disabled-checked-color;
+      box-shadow: none;
+    } */
+  }
+
+  // size
+  @include radio-button-size($radio-button-min-width,
+    $radio-button-height,
+    $radio-button-padding-horizontal,
+    $radio-button-text-font-size,
+    $radio-button-border-width );
+
+  &-small {
+    @include radio-button-size($radio-button-small-min-width,
+      $radio-button-small-height,
+      $radio-button-small-padding-horizontal,
+      $font-size-1,
+      $radio-button-border-width );
+  }
+
+  &-large {
+    @include radio-button-size($radio-button-large-min-width,
+      $radio-button-large-height,
+      $radio-button-large-padding-horizontal,
+      $font-size-3,
+      $radio-button-border-width );
+  }
+}

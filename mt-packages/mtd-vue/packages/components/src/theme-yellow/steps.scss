@@ -1,0 +1,7 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(steps) {
+  display: flex;
+  overflow: hidden;
+}

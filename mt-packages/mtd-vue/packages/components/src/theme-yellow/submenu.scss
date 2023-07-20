@@ -1,0 +1,87 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+@include c(submenu) {
+  position: relative;
+
+  &-title {
+    position: relative;
+    padding: 0 $menu-padding-horizontal;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: padding 0.3s;
+
+    margin: 0 $menu-margin-horizontal;
+    border-radius: $menu-item-border-radius;
+  }
+
+  &-text {
+    font-size: $menu-font-size;
+    flex: 1 1 auto;
+    min-width: 0;
+    // user-select: none;
+    @include text-ellipsis();
+  }
+
+  &-icon {
+    font-size: $menu-item-icon-size;
+    min-width: $menu-item-icon-size;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    height: $menu-item-height;
+    margin-right: 8px;
+  }
+
+  &-direction {
+    flex: 0 0 auto;
+    font-size: $menu-item-icon-size;
+    min-width: $menu-item-icon-size;
+    text-align: center;
+    margin-left: 12px;
+    transition: transform 0.3s;
+  }
+
+  &-direction-expanded {
+    transform: rotateZ(180deg);
+  }
+
+  &-content {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &-active {
+    .#{$B}-text {
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  &-child-active {
+    .#{$B}-text {
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  &-dropdown {}
+}
+
+@include c(submenu-dropdown) {
+  list-style-type: none;
+  margin: 0;
+  padding: $submenu-dropdown-padding-vertical 0px;
+  width: $submenu-dropdown-width;
+
+  .#{$prefix}-submenu {
+    position: relative;
+  }
+
+  .#{$prefix}-menu-item-active {
+    &:before {
+      display: none;
+    }
+  }
+
+}

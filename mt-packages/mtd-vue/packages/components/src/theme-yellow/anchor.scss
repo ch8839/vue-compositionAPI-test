@@ -1,0 +1,112 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@import './affix.scss';
+
+@include c(anchor) {
+  font-size: $anchor-font-size;
+  line-height: $anchor-line-height;
+
+  &-wrapper {
+    overflow: auto;
+    padding-left: 4px;
+    margin-left: -4px;
+  }
+
+  & {
+    position: relative;
+    padding-left: $anchor-ink-ball-width;
+
+    &-ink {
+      position: absolute;
+      height: 100%;
+      left: 0;
+      top: 0;
+
+      &:before {
+        content: ' ';
+        position: relative;
+        width: $anchor-ink-ball-width;
+        height: 100%;
+        display: block;
+        background-color: $anchor-ink-color;
+        margin: 0 auto;
+      }
+
+      &-ball {
+        display: inline-block;
+        position: absolute;
+        width: $anchor-ink-ball-width;
+        height: $anchor-ink-ball-height;
+        background: $color-primary;
+        left: 50%;
+        transition: top $anchor-transition-time $anchor-transition-property;
+        transform: translate3d(-50%, $anchor-translate-y, 0px);
+      }
+
+      &-right {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    &.fixed &-ink &-ink-ball {
+      display: none;
+    }
+  }
+
+  &-link {
+    padding: $anchor-padding-vertical 0 $anchor-padding-vertical $anchor-link-padding-left;
+    text-align: left;
+
+    &-right {
+      padding-right: $anchor-link-padding-left;
+      padding-left: 0;
+      text-align: right;
+    }
+
+    // line-height: 1;
+    &:nth-child(2) {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &-title {
+      display: block;
+      position: relative;
+      transition: all .3s;
+      color: $anchor-link-title-color;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: $anchor-padding-vertical;
+
+      &:only-child {
+        margin-bottom: 0;
+      }
+
+      &:hover,
+      &.hover {
+        text-decoration: none;
+        color: $anchor-link-active-title-color;
+        font-weight: $font-weight-medium;
+      }
+    }
+
+    &-active>&-title {
+      color: $anchor-link-active-title-color;
+      font-weight: $anchor-link-active-font-weight;
+    }
+  }
+
+  &-link &-link {
+    padding-top: $anchor-nested-padding-vertical;
+    padding-bottom: $anchor-nested-padding-vertical;
+
+    &:last-child {
+      padding-bottom: 0px;
+    }
+  }
+}

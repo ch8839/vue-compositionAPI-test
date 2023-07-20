@@ -1,0 +1,12 @@
+@mixin popper-color($bgc, $borderColor, $arrowColor, $boxShadow: $popper-shadow) {
+  background-color: $bgc;
+  box-shadow: $boxShadow;
+  border-color: $borderColor;
+
+  .#{$prefix}-popper-arrow{
+    color: $arrowColor;
+    &:after{
+      color: $bgc;
+    }
+  }
+}

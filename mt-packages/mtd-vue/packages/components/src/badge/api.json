@@ -1,0 +1,47 @@
+{
+  "props": [
+    {
+      "name": "value",
+      "desc": "显示值",
+      "type": [
+        "string",
+        "number"
+      ],
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "max",
+      "desc": "最大值，超过最大值会显示 '{max}+'",
+      "type": "number",
+      "optionalValue": "",
+      "default": "",
+      "version": ""
+    },
+    {
+      "name": "dot",
+      "desc": "小圆点",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "hidden",
+      "desc": "是否展示",
+      "type": "boolean",
+      "optionalValue": "",
+      "default": "false",
+      "version": ""
+    },
+    {
+      "name": "status",
+      "desc": "状态",
+      "type": "string",
+      "optionalValue": "error / success / process / disabled / warning ",
+      "default": "error",
+      "version": "MTD 3.0"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+@import 'common/var';
+@import 'mixins/mixins';
+@import "./button.scss";
+
+@include c(popconfirm) {
+  padding: $popconfirm-padding-vertical $popconfirm-padding-horizontal;
+
+  &-inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: $popconfirm-content-margin-vertical - $popover-title-margin-bottom;
+  }
+
+  &-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &-actions {
+    text-align: right;
+
+    .#{$prefix}-btn {
+      margin-left: $popconfirm-action-each-offset;
+    }
+  }
+}

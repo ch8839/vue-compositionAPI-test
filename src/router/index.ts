@@ -6,14 +6,9 @@ Vue.use(VueRouter)
 
 const pageList = [
   {
-    path: '/es6/modules',
-    name: 'Es6_modules',
-    component: () => import('../views/es6/modules/index.vue'),
-  },
-  {
     path: '/ref',
     name: 'ref',
-    component: () => import('../views/base/ref.vue'),
+    component: () => import('../views/base/ref/index.vue'),
   },
   {
     path: '/CompositionApi',
@@ -21,19 +16,39 @@ const pageList = [
     component: () => import('../views/base/CompositionApi/index.vue')
   },
   {
+    path: '/base/computed',
+    name: 'Computed',
+    component: () => import('../views/base/computed/index.vue')
+  },
+  {
+    path: '/base/Optional',
+    name: 'Optional',
+    component: () => import('../views/base/Optional/index.vue')
+  },
+  {
+    path: '/base/ref',
+    name: 'Ref',
+    component: () => import('../views/base/ref/index.vue')
+  },
+  {
+    path: '/base/template-ref',
+    name: 'Template-ref',
+    component: () => import('../views/base/template-ref/index.vue')
+  },
+  {
+    path: '/base/watch',
+    name: 'Watch',
+    component: () => import('../views/base/watch/index.vue')
+  },
+  {
     path: '/component/provide/optional',
     name: 'Provide_optional',
     component: () => import('../views/component/provide/optional/parent1.vue')
   },
   {
-    path: '/css/layers',
-    name: 'Layers',
-    component: () => import('../views/css/layers.vue')
-  },
-  {
-    path: '/css/transition',
-    name: 'Transition',
-    component: () => import('../views/css/transition.vue')
+    path: '/component/render',
+    name: 'Render_parent',
+    component: () => import('../views/component/render/parent')
   },
   {
     path: '/jsx-slot',
@@ -59,17 +74,7 @@ const pageList = [
     path: '/simple-store',
     name: 'SimpleStore',
     component: () => import('../views/simple-store/index.vue')
-  },
-  {
-    path: '/tips/no-render',
-    name: 'NoRender',
-    component: () => import('../views/tips/no-render/index.vue')
-  },
-  {
-    path: '/VNode',
-    name: 'VNode',
-    component: () => import('../views/VNode/index')
-  },
+  }
 ]
 
 const routes: Array<RouteConfig> = [

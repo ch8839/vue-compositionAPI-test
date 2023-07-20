@@ -1,0 +1,49 @@
+@mixin switch-size($width, $height, $spacing) {
+  $btn-size: $height - 2 * $spacing; // 由于有上下间距所以乘 2
+  line-height: $height;
+  min-width: $width;
+  height: $height;
+
+  .#{$B + '-inner'} {
+    margin-left: calc(#{$btn-size} + 2 * #{$spacing});
+    margin-right: 8px;
+  }
+
+  .#{$B + '-btn' } {
+    width: $btn-size;
+    height: $btn-size;
+    margin: $spacing;
+
+  }
+
+  &.#{$B + '-active'} {
+    .#{$B + '-btn'} {
+      // 仅仅只有右间距，并且由于已经右 margin 所以 实际 left 值还需要 - 2*$spacing
+      left: 100%;
+      transform: translateX(-100%);
+      margin-left: calc(-#{$spacing});
+    }
+
+    .#{$B + '-inner'} {
+      margin-left: 8px;
+      margin-right: calc(#{$btn-size} + 2 * #{$spacing});
+    }
+  }
+}
+
+@mixin switch-btn($w, $l) {
+  line-height: $w;
+  width: $w;
+  height: $w;
+  left: $l;
+  @content;
+}
+
+@mixin switch-loading($w, $t) {
+  width: $w;
+  height: $w;
+  border-radius: $w;
+  top: $t;
+  left: $t;
+  @content;
+}
